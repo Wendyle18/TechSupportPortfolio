@@ -141,26 +141,31 @@
             color: var(--color-text);
         }
 
-        .hero-subtitle {
-            font-size: clamp(0.10rem, 2vw, 1.2rem);
-            color: var(--color-text-light);
-            margin-bottom: var(--spacing-md);
-            max-width: 700px;
-        }
-            /* Animation */
+                  .hero-subtitle {
+              font-size: clamp(0.9rem, 2vw, 1.2rem);
+              color: var(--color-text-light);
+              margin-bottom: var(--spacing-md);
+              max-width: 700px;
+            
+              white-space: nowrap;
+              overflow: hidden;
+              display: inline-block;
+            }
+            
+            /* Typewriter animation */
             .typewriter-animation {
-              animation: 
-                typewriter 5s steps(50) 1s 1 normal both, 
-                blinkingCursor 500ms steps(50) infinite normal;
+              animation: typing 4s steps(90, end) forwards;
             }
-            @keyframes typewriter {
-              from { width: 0; }
-              to { width: 100%; }
+            
+            @keyframes typing {
+              from {
+                width: 0;
+              }
+              to {
+                width: 100%;
+              }
             }
-            @keyframes blinkingCursor{
-              from { border-right-color: rgba(255,255,255,.75); }
-              to { border-right-color: transparent; }
-            }
+
         .hero-content-description-two {
             display: flex;
             flex-direction: column;
@@ -463,4 +468,5 @@
                 flex-direction: column;
             }
         }
+
 
