@@ -141,30 +141,32 @@
             color: var(--color-text);
         }
 
-                  .hero-subtitle {
-              font-size: clamp(0.9rem, 2vw, 1.2rem);
-              color: var(--color-text-light);
-              margin-bottom: var(--spacing-md);
-              max-width: 700px;
-            
-              white-space: nowrap;
-              overflow: hidden;
-              display: inline-block;
-            }
-            
-            /* Typewriter animation */
-            .typewriter-animation {
-              animation: typing 4s steps(90, end) forwards;
-            }
-            
-            @keyframes typing {
-              from {
-                width: 0;
-              }
-              to {
-                width: 100%;
-              }
-            }
+.hero-subtitle {
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-md);
+  max-width: 700px;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* Typewriter effect using clip */
+.typewriter-animation {
+  display: inline-block;
+  animation: typing 4.8s steps(90, end) forwards;
+  clip-path: inset(0 100% 0 0);
+}
+
+@keyframes typing {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
 
         .hero-content-description-two {
             display: flex;
@@ -468,5 +470,6 @@
                 flex-direction: column;
             }
         }
+
 
 
