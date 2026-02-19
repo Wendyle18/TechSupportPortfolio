@@ -70,16 +70,18 @@ document.addEventListener('DOMContentLoaded', function () {
         const suffix = numMatch[2];
         let start = 0;
         const duration = 900;
-        const step = Math.max(1, Math.ceil(duration / end));
+        const totalSteps = 60; // ~60 frames regardless of the end number
+        const increment = Math.ceil(end / totalSteps);
+        const stepMs = Math.round(duration / totalSteps);
         el.textContent = '0' + suffix;
         const timer = setInterval(() => {
-          start += 1;
+          start = Math.min(start + increment, end);
           el.textContent = start + suffix;
           if (start >= end) {
-            el.textContent = raw;
+            el.textContent = end + suffix;
             clearInterval(timer);
           }
-        }, step);
+        }, stepMs);
         statObserver.unobserve(el);
       }
     });
