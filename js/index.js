@@ -63,13 +63,14 @@ document.addEventListener('DOMContentLoaded', function () {
       if (entry.isIntersecting) {
         const el = entry.target;
         const raw = el.textContent.trim();
-        const numMatch = raw.match(/\d+/);
-        if (!numMatch) return;
-        const end = parseInt(numMatch[0]);
-        const suffix = raw.replace(/\d+/, '');
+        // Only animate simple numeric values (e.g. "2+", "3", "14+") — skip "3k+" etc.
+        const numMatch = raw.match(/^(\d+)(\D*)$/);
+        if (!numMatch) { statObserver.unobserve(el); return; }
+        const end = parseInt(numMatch[1]);
+        const suffix = numMatch[2];
         let start = 0;
         const duration = 900;
-        const step = Math.ceil(duration / end);
+        const step = Math.max(1, Math.ceil(duration / end));
         el.textContent = '0' + suffix;
         const timer = setInterval(() => {
           start += 1;
