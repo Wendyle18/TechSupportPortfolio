@@ -1,73 +1,89 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-  /* -----------------------------
-     Smooth scrolling for anchors
-  ------------------------------*/
+  /* ─── Dark Mode ─── */
+  const toggle = document.getElementById('theme-toggle');
+  const icon = toggle?.querySelector('.theme-icon');
+  const saved = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+  function setTheme(dark) {
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    if (icon) icon.textContent = dark ? '☀️' : '🌙';
+    localStorage.setItem('theme', dark ? 'dark' : 'light');
+  }
+
+  // Apply on load
+  setTheme(saved === 'dark' || (!saved && prefersDark));
+
+  toggle?.addEventListener('click', () => {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    setTheme(!isDark);
+  });
+
+  /* ─── Smooth scrolling for anchor links ─── */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       const targetId = this.getAttribute('href');
-
-      // Modal trigger — let modal logic handle it
-      if (this.id === 'open-about-modal') {
-        e.preventDefault();
-        return;
-      }
-
-      // Ignore empty anchors
-      if (!targetId || targetId === '#') {
-        e.preventDefault();
-        return;
-      }
-
+      if (!targetId || targetId === '#') { e.preventDefault(); return; }
       const target = document.querySelector(targetId);
       if (target) {
         e.preventDefault();
-        target.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
+        const offset = 24;
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
       }
     });
   });
 
-  /* -----------------------------
-     About Me Modal logic
-  ------------------------------*/
-  const openBtn = document.getElementById('open-about-modal');
-  const modal = document.getElementById('about-modal');
+  /* ─── Fade-in on scroll ─── */
+  const fadeable = document.querySelectorAll('.section, .profile-header, .stats-bar');
+  fadeable.forEach(el => el.classList.add('fade-in'));
 
-  if (openBtn && modal) {
-    const closeBtn = modal.querySelector('.modal-close');
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          // stagger siblings slightly
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, 60);
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.08 }
+  );
 
-    // Open modal
-    openBtn.addEventListener('click', function (e) {
-      e.preventDefault();
-      modal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    });
+  fadeable.forEach(el => observer.observe(el));
 
-    // Close modal function
-    function closeModal() {
-      modal.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    // Close via button
-    closeBtn.addEventListener('click', closeModal);
-
-    // Close when clicking overlay
-    modal.addEventListener('click', function (e) {
-      if (e.target === modal) {
-        closeModal();
+  /* ─── Animate stat numbers counting up ─── */
+  const statNumbers = document.querySelectorAll('.stat-number');
+  const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const raw = el.textContent.trim();
+        const numMatch = raw.match(/\d+/);
+        if (!numMatch) return;
+        const end = parseInt(numMatch[0]);
+        const suffix = raw.replace(/\d+/, '');
+        let start = 0;
+        const duration = 900;
+        const step = Math.ceil(duration / end);
+        el.textContent = '0' + suffix;
+        const timer = setInterval(() => {
+          start += 1;
+          el.textContent = start + suffix;
+          if (start >= end) {
+            el.textContent = raw;
+            clearInterval(timer);
+          }
+        }, step);
+        statObserver.unobserve(el);
       }
     });
+  }, { threshold: 0.5 });
 
-    // Close on ESC
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && modal.classList.contains('active')) {
-        closeModal();
-      }
-    });
-  }
+  statNumbers.forEach(el => statObserver.observe(el));
 
 });
