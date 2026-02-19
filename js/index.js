@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', function () {
     localStorage.setItem('theme', dark ? 'dark' : 'light');
   }
 
-  // Apply on load
-  setTheme(saved === 'dark' || (!saved && prefersDark));
+  // Apply on load — default is always light
+  setTheme(saved === 'dark');
 
   toggle?.addEventListener('click', () => {
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
