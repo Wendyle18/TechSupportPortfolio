@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
     //   localStorage.setItem('dark-profile-photo', 'assets/img/YOUR_DARK_PHOTO.png');
     if (profilePhoto) {
       if (dark) {
-        const darkPhoto = localStorage.getItem('dark-profile-photo');
+        const darkPhoto = localStorage.getItem('dark-profile-photo') || 'assets/img/dark-mode.png';;
         if (darkPhoto) profilePhoto.src = darkPhoto;
       } else {
         const lightPhoto = localStorage.getItem('light-profile-photo') || 'assets/img/WCS Photo.png';
@@ -116,3 +116,4 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 });
+
