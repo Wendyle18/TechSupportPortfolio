@@ -138,7 +138,10 @@ document.addEventListener('DOMContentLoaded', function () {
   reviewsCloseBtn?.addEventListener('click', closeReviewsModal);
   reviewsBackdrop?.addEventListener('click', closeReviewsModal);
 
-
+// Restore mailto links that Cloudflare may have obfuscated
+document.querySelectorAll('a[data-email]').forEach(link => {
+  link.href = 'mailto:' + link.dataset.email;
+});
   /* ─────────────────────────────────────────
      LIGHTBOX
      Works on both preview rows and modal rows.
