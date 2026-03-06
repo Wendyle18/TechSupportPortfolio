@@ -1,4 +1,3 @@
-
 (function(){
   'use strict';
   const EMAIL = 'senowendyle793@gmail.com';
@@ -164,75 +163,152 @@
   });
   document.addEventListener('click',()=>{ $$('.sk-dd.open').forEach(w=>{ w.classList.remove('open'); w.querySelector('button')?.setAttribute('aria-expanded','false'); }); });
 
-  /* ── REVIEWS MODAL ──────────────────────── */
-  const revModal=$ ('#rev-modal'), openBtn=$('#rev-open'), closeBtn=$('#rev-close'), mBd=$('#m-bd');
-  function openModal(){ revModal?.classList.add('open'); document.body.style.overflow='hidden'; revModal?.querySelector('.m-body')?.scrollTop && (revModal.querySelector('.m-body').scrollTop=0); setTimeout(()=>closeBtn?.focus(),50); }
-  function closeModal(){ revModal?.classList.remove('open'); if(!$('#lb')?.classList.contains('open')) document.body.style.overflow=''; openBtn?.focus(); }
-  openBtn?.addEventListener('click',openModal);
-  closeBtn?.addEventListener('click',closeModal);
-  mBd?.addEventListener('click',closeModal);
-
   /* ── LIGHTBOX ───────────────────────────── */
   const lb=$('#lb'), lbImg=$('#lb-img'), lbClose=$('#lb-close'), lbBd=$('#lb-bd');
   function openLb(src,alt){ if(!lb||!lbImg) return; lbImg.src=src; lbImg.alt=alt||'Review'; lb.classList.add('open'); document.body.style.overflow='hidden'; }
-  function closeLb(){ lb?.classList.remove('open'); if(!revModal?.classList.contains('open')) document.body.style.overflow=''; setTimeout(()=>{ if(lbImg) lbImg.src=''; },300); }
-  document.addEventListener('click',e=>{ const row=e.target.closest('.rev-row'); if(!row) return; const img=row.querySelector('img'); if(img?.src) openLb(img.src,img.alt); });
-  document.addEventListener('keydown',e=>{ if(e.key==='Enter'&&document.activeElement?.classList.contains('rev-row')){ const img=document.activeElement.querySelector('img'); if(img?.src) openLb(img.src,img.alt); } });
+  function closeLb(){ lb?.classList.remove('open'); document.body.style.overflow=''; setTimeout(()=>{ if(lbImg) lbImg.src=''; },300); }
   lbClose?.addEventListener('click',closeLb);
   lbBd?.addEventListener('click',closeLb);
 
-  /* ── ESCAPE ───────────────────────────────── */
-  document.addEventListener('keydown',e=>{
-    if(e.key!=='Escape') return;
-    if(lb?.classList.contains('open'))           closeLb();
-    else if(revModal?.classList.contains('open')) closeModal();
-    else                                          closeSheet();
-  });
-
-  /* ── MOBILE CAROUSEL ────────────────────── */
+  /* ── UNIFIED CAROUSEL ───────────────────── */
   (function initCarousel(){
-    const carousel = $('#rev-carousel');
-    const dots     = $$('#rev-dots .rev-dot');
-    const counter  = $('#rev-cur');
-    if(!carousel) return;
+    const track     = $('#rc-track');
+    const prevBtn   = $('#rc-prev');
+    const nextBtn   = $('#rc-next');
+    const prog      = $('#rc-prog');
+    const curEl     = $('#rc-cur');
+    const pauseBtn  = $('#rc-pause');
+    const pauseIcon = $('#rc-pause-icon');
+    const pauseLbl  = $('#rc-pause-label');
+    if(!track) return;
 
-    let scrollTimer;
-    carousel.addEventListener('scroll', ()=>{
-      clearTimeout(scrollTimer);
-      scrollTimer = setTimeout(()=>{
-        const cardW  = carousel.firstElementChild?.offsetWidth || carousel.offsetWidth;
-        const gap    = 12;
-        const idx    = Math.round(carousel.scrollLeft / (cardW + gap));
-        const active = Math.max(0, Math.min(idx, dots.length - 1));
-        dots.forEach((d,i)=>{
-          d.classList.toggle('active', i===active);
-          d.setAttribute('aria-selected', i===active ? 'true':'false');
-        });
-        if(counter) counter.textContent = active + 1;
-      }, 60);
-    }, { passive:true });
+    const slides = [...track.querySelectorAll('.rc-slide')];
+    const TOTAL  = slides.length;
+    const DELAY  = 2500; // ms
+    let   cur    = 0;
+    let   paused = false;
+    let   timer  = null;
+    let   isDrag = false;
+    let   dragStartX = 0;
+    let   dragScrollLeft = 0;
 
-    dots.forEach(dot=>{
-      dot.addEventListener('click',()=>{
-        const i    = parseInt(dot.dataset.dot, 10);
-        const card = carousel.children[i];
-        if(card) card.scrollIntoView({ behavior:'smooth', block:'nearest', inline:'center' });
-      });
+    /* ── Go to slide ── */
+    function goTo(idx, animate=true){
+      cur = ((idx % TOTAL) + TOTAL) % TOTAL;
+      const slideW = slides[0].offsetWidth;
+      track.scrollTo({ left: cur * slideW, behavior: animate ? 'smooth' : 'instant' });
+      if(curEl) curEl.textContent = cur + 1;
+      restartSweep();
+    }
+
+    /* ── Progress sweep ── */
+    function restartSweep(){
+      if(!prog) return;
+      prog.classList.remove('run');
+      void prog.offsetWidth; // reflow to restart animation
+      if(!paused) prog.classList.add('run');
+    }
+
+    /* ── Auto-advance timer ── */
+    function startTimer(){
+      clearTimeout(timer);
+      if(paused) return;
+      timer = setTimeout(()=>{ goTo(cur + 1); startTimer(); }, DELAY);
+    }
+    function stopTimer(){ clearTimeout(timer); }
+
+    /* ── Pause / resume ── */
+    function setPaused(val){
+      paused = val;
+      if(pauseIcon) pauseIcon.textContent = paused ? '▶' : '⏸';
+      if(pauseLbl){
+        pauseLbl.textContent = paused ? 'Paused' : 'Auto-playing';
+        pauseLbl.classList.toggle('rc-paused-label', paused);
+      }
+      if(paused){ stopTimer(); if(prog) prog.classList.remove('run'); }
+      else      { restartSweep(); startTimer(); }
+    }
+
+    pauseBtn?.addEventListener('click',()=> setPaused(!paused));
+
+    /* ── Prev / Next buttons ── */
+    prevBtn?.addEventListener('click',()=>{ setPaused(true); goTo(cur - 1); });
+    nextBtn?.addEventListener('click',()=>{ setPaused(true); goTo(cur + 1); });
+
+    /* ── Sync on native scroll (touch/trackpad) ── */
+    let syncTimer;
+    track.addEventListener('scroll',()=>{
+      clearTimeout(syncTimer);
+      syncTimer = setTimeout(()=>{
+        const slideW = slides[0].offsetWidth || track.offsetWidth;
+        const idx    = Math.round(track.scrollLeft / slideW);
+        if(idx !== cur){
+          cur = Math.max(0, Math.min(idx, TOTAL-1));
+          if(curEl) curEl.textContent = cur + 1;
+          restartSweep();
+          if(!paused){ stopTimer(); startTimer(); }
+        }
+      }, 80);
+    },{ passive:true });
+
+    /* ── Mouse drag (desktop) ── */
+    track.addEventListener('mousedown', e=>{
+      isDrag=true; dragStartX=e.pageX; dragScrollLeft=track.scrollLeft;
+      track.classList.add('is-dragging');
+      stopTimer();
+    });
+    document.addEventListener('mousemove', e=>{
+      if(!isDrag) return;
+      track.scrollLeft = dragScrollLeft - (e.pageX - dragStartX);
+    });
+    document.addEventListener('mouseup', ()=>{
+      if(!isDrag) return;
+      isDrag=false;
+      track.classList.remove('is-dragging');
+      // snap to nearest
+      const slideW = slides[0].offsetWidth || track.offsetWidth;
+      const idx    = Math.round(track.scrollLeft / slideW);
+      goTo(Math.max(0, Math.min(idx, TOTAL-1)));
+      if(!paused) startTimer();
     });
 
-    carousel.addEventListener('click', e=>{
-      const card = e.target.closest('.rev-card');
-      if(!card) return;
-      const img = card.querySelector('.rev-card-img');
+    /* ── Click on slide → lightbox (not drag) ── */
+    track.addEventListener('click', e=>{
+      if(isDrag) return;
+      const slide = e.target.closest('.rc-slide');
+      if(!slide) return;
+      const img   = slide.querySelector('.rc-img');
       if(img?.src) openLb(img.src, img.alt);
     });
 
-    carousel.addEventListener('keydown', e=>{
-      if(e.key==='Enter'){
-        const card = document.activeElement?.closest('.rev-card');
-        if(card){ const img=card.querySelector('.rev-card-img'); if(img?.src) openLb(img.src,img.alt); }
-      }
+    /* ── Keyboard ── */
+    track.addEventListener('keydown', e=>{
+      if(e.key==='Enter'){ const s=document.activeElement?.closest('.rc-slide'); if(s){ const i=s.querySelector('.rc-img'); if(i?.src) openLb(i.src,i.alt); } }
+      if(e.key==='ArrowLeft'){ setPaused(true); goTo(cur-1); }
+      if(e.key==='ArrowRight'){ setPaused(true); goTo(cur+1); }
     });
+
+    /* ── Pause on hover ── */
+    track.addEventListener('mouseenter',()=>{ if(!paused){ stopTimer(); if(prog) prog.style.animationPlayState='paused'; } });
+    track.addEventListener('mouseleave',()=>{ if(!paused){ if(prog) prog.style.animationPlayState='running'; startTimer(); } });
+
+    /* ── Pause when tab hidden ── */
+    document.addEventListener('visibilitychange',()=>{
+      if(document.hidden) stopTimer();
+      else if(!paused) startTimer();
+    });
+
+    /* ── Init ── */
+    goTo(0, false);
+    startTimer();
   })();
+
+  /* ── ESCAPE ───────────────────────────────── */
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape'){
+      if(lb?.classList.contains('open')) closeLb();
+      else closeSheet();
+    }
+  });
 
 })();
