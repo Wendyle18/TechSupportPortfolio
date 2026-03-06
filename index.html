@@ -12,11 +12,11 @@
   <meta name="twitter:card" content="summary">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="css/index.css">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Figtree:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="icon" href="assets/img/favicon.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="css/index.css">
   <title>Wendyle Seno | Technical Support Engineer</title>
-  
+
 </head>
 <body>
 
@@ -286,92 +286,78 @@
           <span class="stars" aria-label="5 stars">★★★★★</span>
         </div>
       </div>
-      <!-- DESKTOP: numbered ledger rows -->
-      <div class="rev-ledger" id="rev-preview" role="list">
-        <div class="rev-row" role="listitem" tabindex="0" aria-label="Review 1"><span class="rev-idx" aria-hidden="true">01</span><div class="rev-img"><img src="assets/review/Yotpo Reviews 1.png" alt="Review 1" loading="lazy" width="1227" height="174"></div></div>
-        <div class="rev-row" role="listitem" tabindex="0" aria-label="Review 2"><span class="rev-idx" aria-hidden="true">02</span><div class="rev-img"><img src="assets/review/Review 4.png"          alt="Review 2" loading="lazy" width="1227" height="174"></div></div>
-        <div class="rev-row" role="listitem" tabindex="0" aria-label="Review 3"><span class="rev-idx" aria-hidden="true">03</span><div class="rev-img"><img src="assets/review/Reviews 1.png"         alt="Review 3" loading="lazy" width="1227" height="174"></div></div>
-        <div class="rev-row" role="listitem" tabindex="0" aria-label="Review 4"><span class="rev-idx" aria-hidden="true">04</span><div class="rev-img"><img src="assets/review/Review 9.png"          alt="Review 4" loading="lazy" width="1227" height="174"></div></div>
-        <div class="rev-row" role="listitem" tabindex="0" aria-label="Review 5"><span class="rev-idx" aria-hidden="true">05</span><div class="rev-img"><img src="assets/review/Review 2.png"          alt="Review 5" loading="lazy" width="1227" height="174"></div></div>
+
+      <!-- Unified carousel — all 27 reviews, all screen sizes -->
+      <div class="rc-track" id="rc-track" role="list" aria-label="Reviews carousel">
+
+        <div class="rc-slide" role="listitem" tabindex="0" aria-label="Review 1 of 27"><img class="rc-img" src="assets/review/Yotpo Reviews 1.png" alt="Shopify merchant review 1" loading="lazy" width="1227" height="174"><div class="rc-bar"><span class="rc-bar-num">01 / 27</span><span class="rc-bar-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>zoom</span></div></div>
+
+        <div class="rc-slide" role="listitem" tabindex="0" aria-label="Review 2 of 27"><img class="rc-img" src="assets/review/Review 4.png" alt="Shopify merchant review 2" loading="lazy" width="1227" height="174"><div class="rc-bar"><span class="rc-bar-num">02 / 27</span><span class="rc-bar-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>zoom</span></div></div>
+
+        <div class="rc-slide" role="listitem" tabindex="0" aria-label="Review 3 of 27"><img class="rc-img" src="assets/review/Reviews 1.png" alt="Shopify merchant review 3" loading="lazy" width="1227" height="174"><div class="rc-bar"><span class="rc-bar-num">03 / 27</span><span class="rc-bar-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>zoom</span></div></div>
+
+        <div class="rc-slide" role="listitem" tabindex="0" aria-label="Review 4 of 27"><img class="rc-img" src="assets/review/Review 9.png" alt="Shopify merchant review 4" loading="lazy" width="1227" height="174"><div class="rc-bar"><span class="rc-bar-num">04 / 27</span><span class="rc-bar-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>zoom</span></div></div>
+
+        <div class="rc-slide" role="listitem" tabindex="0" aria-label="Review 5 of 27"><img class="rc-img" src="assets/review/Review 2.png" alt="Shopify merchant review 5" loading="lazy" width="1227" height="174"><div class="rc-bar"><span class="rc-bar-num">05 / 27</span><span class="rc-bar-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>zoom</span></div></div>
+
+        <div class="rc-slide" role="listitem" tabindex="0" aria-label="Review 6 of 27"><img class="rc-img" src="assets/review/Review 3.png" alt="Shopify merchant review 6" loading="lazy" width="1227" height="174"><div class="rc-bar"><span class="rc-bar-num">06 / 27</span><span class="rc-bar-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>zoom</span></div></div>
+
+        <div class="rc-slide" role="listitem" tabindex="0" aria-label="Review 7 of 27"><img class="rc-img" src="assets/review/Review 5.png" alt="Shopify merchant review 7" loading="lazy" width="1227" height="174"><div class="rc-bar"><span class="rc-bar-num">07 / 27</span><span class="rc-bar-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>zoom</span></div></div>
+
+        <div class="rc-slide" role="listitem" tabindex="0" aria-label="Review 8 of 27"><img class="rc-img" src="assets/review/Review 6.png" alt="Shopify merchant review 8" loading="lazy" width="1227" height="174"><div class="rc-bar"><span class="rc-bar-num">08 / 27</span><span class="rc-bar-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>zoom</span></div></div>
+
+        <div class="rc-slide" role="listitem" tabindex="0" aria-label="Review 9 of 27"><img class="rc-img" src="assets/review/Review 7.png" alt="Shopify merchant review 9" loading="lazy" width="1227" height="174"><div class="rc-bar"><span class="rc-bar-num">09 / 27</span><span class="rc-bar-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>zoom</span></div></div>
+
+        <div class="rc-slide" role="listitem" tabindex="0" aria-label="Review 10 of 27"><img class="rc-img" src="assets/review/Review 8.png" alt="Shopify merchant review 10" loading="lazy" width="1227" height="174"><div class="rc-bar"><span class="rc-bar-num">10 / 27</span><span class="rc-bar-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>zoom</span></div></div>
+
+        <div class="rc-slide" role="listitem" tabindex="0" aria-label="Review 11 of 27"><img class="rc-img" src="assets/review/Review 10.png" alt="Shopify merchant review 11" loading="lazy" width="1227" height="174"><div class="rc-bar"><span class="rc-bar-num">11 / 27</span><span class="rc-bar-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>zoom</span></div></div>
+
+        <div class="rc-slide" role="listitem" tabindex="0" aria-label="Review 12 of 27"><img class="rc-img" src="assets/review/Review 11.png" alt="Shopify merchant review 12" loading="lazy" width="1227" height="174"><div class="rc-bar"><span class="rc-bar-num">12 / 27</span><span class="rc-bar-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>zoom</span></div></div>
+
+        <div class="rc-slide" role="listitem" tabindex="0" aria-label="Review 13 of 27"><img class="rc-img" src="assets/review/Review 12.png" alt="Shopify merchant review 13" loading="lazy" width="1227" height="174"><div class="rc-bar"><span class="rc-bar-num">13 / 27</span><span class="rc-bar-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>zoom</span></div></div>
+
+        <div class="rc-slide" role="listitem" tabindex="0" aria-label="Review 14 of 27"><img class="rc-img" src="assets/review/Review 13.png" alt="Shopify merchant review 14" loading="lazy" width="1227" height="174"><div class="rc-bar"><span class="rc-bar-num">14 / 27</span><span class="rc-bar-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>zoom</span></div></div>
+
+        <div class="rc-slide" role="listitem" tabindex="0" aria-label="Review 15 of 27"><img class="rc-img" src="assets/review/Yotpo Reviews 2.png" alt="Shopify merchant review 15" loading="lazy" width="1227" height="174"><div class="rc-bar"><span class="rc-bar-num">15 / 27</span><span class="rc-bar-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>zoom</span></div></div>
+
+        <div class="rc-slide" role="listitem" tabindex="0" aria-label="Review 16 of 27"><img class="rc-img" src="assets/review/Yotpo Reviews 14.png" alt="Shopify merchant review 16" loading="lazy" width="1227" height="174"><div class="rc-bar"><span class="rc-bar-num">16 / 27</span><span class="rc-bar-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>zoom</span></div></div>
+
+        <div class="rc-slide" role="listitem" tabindex="0" aria-label="Review 17 of 27"><img class="rc-img" src="assets/review/Yotpo Reviews 4.png" alt="Shopify merchant review 17" loading="lazy" width="1227" height="174"><div class="rc-bar"><span class="rc-bar-num">17 / 27</span><span class="rc-bar-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>zoom</span></div></div>
+
+        <div class="rc-slide" role="listitem" tabindex="0" aria-label="Review 18 of 27"><img class="rc-img" src="assets/review/Yotpo Reviews 5.png" alt="Shopify merchant review 18" loading="lazy" width="1227" height="174"><div class="rc-bar"><span class="rc-bar-num">18 / 27</span><span class="rc-bar-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>zoom</span></div></div>
+
+        <div class="rc-slide" role="listitem" tabindex="0" aria-label="Review 19 of 27"><img class="rc-img" src="assets/review/Yotpo Reviews 6.png" alt="Shopify merchant review 19" loading="lazy" width="1227" height="174"><div class="rc-bar"><span class="rc-bar-num">19 / 27</span><span class="rc-bar-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>zoom</span></div></div>
+
+        <div class="rc-slide" role="listitem" tabindex="0" aria-label="Review 20 of 27"><img class="rc-img" src="assets/review/Yotpo Reviews 7.png" alt="Shopify merchant review 20" loading="lazy" width="1227" height="174"><div class="rc-bar"><span class="rc-bar-num">20 / 27</span><span class="rc-bar-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>zoom</span></div></div>
+
+        <div class="rc-slide" role="listitem" tabindex="0" aria-label="Review 21 of 27"><img class="rc-img" src="assets/review/Yotpo Reviews 8.png" alt="Shopify merchant review 21" loading="lazy" width="1227" height="174"><div class="rc-bar"><span class="rc-bar-num">21 / 27</span><span class="rc-bar-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>zoom</span></div></div>
+
+        <div class="rc-slide" role="listitem" tabindex="0" aria-label="Review 22 of 27"><img class="rc-img" src="assets/review/Yotpo Reviews 15.png" alt="Shopify merchant review 22" loading="lazy" width="1227" height="174"><div class="rc-bar"><span class="rc-bar-num">22 / 27</span><span class="rc-bar-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>zoom</span></div></div>
+
+        <div class="rc-slide" role="listitem" tabindex="0" aria-label="Review 23 of 27"><img class="rc-img" src="assets/review/Yotpo Reviews 10.png" alt="Shopify merchant review 23" loading="lazy" width="1227" height="174"><div class="rc-bar"><span class="rc-bar-num">23 / 27</span><span class="rc-bar-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>zoom</span></div></div>
+
+        <div class="rc-slide" role="listitem" tabindex="0" aria-label="Review 24 of 27"><img class="rc-img" src="assets/review/Yotpo Reviews 11.png" alt="Shopify merchant review 24" loading="lazy" width="1227" height="174"><div class="rc-bar"><span class="rc-bar-num">24 / 27</span><span class="rc-bar-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>zoom</span></div></div>
+
+        <div class="rc-slide" role="listitem" tabindex="0" aria-label="Review 25 of 27"><img class="rc-img" src="assets/review/Yotpo Reviews 12.png" alt="Shopify merchant review 25" loading="lazy" width="1227" height="174"><div class="rc-bar"><span class="rc-bar-num">25 / 27</span><span class="rc-bar-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>zoom</span></div></div>
+
+        <div class="rc-slide" role="listitem" tabindex="0" aria-label="Review 26 of 27"><img class="rc-img" src="assets/review/Yotpo Reviews 13.png" alt="Shopify merchant review 26" loading="lazy" width="1227" height="174"><div class="rc-bar"><span class="rc-bar-num">26 / 27</span><span class="rc-bar-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>zoom</span></div></div>
+
+        <div class="rc-slide" role="listitem" tabindex="0" aria-label="Review 27 of 27"><img class="rc-img" src="assets/review/Yotpo Reviews 14.png" alt="Shopify merchant review 27" loading="lazy" width="1227" height="174"><div class="rc-bar"><span class="rc-bar-num">27 / 27</span><span class="rc-bar-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>zoom</span></div></div>
+
+      </div><!-- /rc-track -->
+
+      <!-- Controls: prev · progress · next -->
+      <div class="rc-controls">
+        <button class="rc-btn" id="rc-prev" aria-label="Previous review">&#8592;</button>
+        <div class="rc-prog-wrap"><div class="rc-prog-fill" id="rc-prog"></div></div>
+        <button class="rc-btn" id="rc-next" aria-label="Next review">&#8594;</button>
       </div>
-
-      <!-- MOBILE: full-width swipe carousel (shown only on mobile via CSS) -->
-      <div class="rev-carousel-wrap" aria-label="Reviews carousel" role="region">
-        <div class="rev-carousel" id="rev-carousel" role="list" aria-label="Swipe through reviews">
-
-          <div class="rev-card" role="listitem" data-idx="0" tabindex="0" aria-label="Review 1 — tap to zoom">
-            <img class="rev-card-img" src="assets/review/Yotpo Reviews 1.png" alt="Shopify merchant review 1" loading="lazy" width="1227" height="174">
-            <div class="rev-card-bar">
-              <span class="rev-card-num">01 / 05</span>
-              <span class="rev-card-hint">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-                Tap to zoom
-              </span>
-            </div>
-          </div>
-
-          <div class="rev-card" role="listitem" data-idx="1" tabindex="0" aria-label="Review 2 — tap to zoom">
-            <img class="rev-card-img" src="assets/review/Review 4.png" alt="Shopify merchant review 2" loading="lazy" width="1227" height="174">
-            <div class="rev-card-bar">
-              <span class="rev-card-num">02 / 05</span>
-              <span class="rev-card-hint">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-                Tap to zoom
-              </span>
-            </div>
-          </div>
-
-          <div class="rev-card" role="listitem" data-idx="2" tabindex="0" aria-label="Review 3 — tap to zoom">
-            <img class="rev-card-img" src="assets/review/Reviews 1.png" alt="Shopify merchant review 3" loading="lazy" width="1227" height="174">
-            <div class="rev-card-bar">
-              <span class="rev-card-num">03 / 05</span>
-              <span class="rev-card-hint">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-                Tap to zoom
-              </span>
-            </div>
-          </div>
-
-          <div class="rev-card" role="listitem" data-idx="3" tabindex="0" aria-label="Review 4 — tap to zoom">
-            <img class="rev-card-img" src="assets/review/Review 9.png" alt="Shopify merchant review 4" loading="lazy" width="1227" height="174">
-            <div class="rev-card-bar">
-              <span class="rev-card-num">04 / 05</span>
-              <span class="rev-card-hint">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-                Tap to zoom
-              </span>
-            </div>
-          </div>
-
-          <div class="rev-card" role="listitem" data-idx="4" tabindex="0" aria-label="Review 5 — tap to zoom">
-            <img class="rev-card-img" src="assets/review/Review 2.png" alt="Shopify merchant review 5" loading="lazy" width="1227" height="174">
-            <div class="rev-card-bar">
-              <span class="rev-card-num">05 / 05</span>
-              <span class="rev-card-hint">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-                Tap to zoom
-              </span>
-            </div>
-          </div>
-
-        </div><!-- /rev-carousel -->
-
-        <!-- Dot navigation -->
-        <div class="rev-dots" id="rev-dots" role="tablist" aria-label="Review navigation">
-          <button class="rev-dot active" data-dot="0" aria-label="Review 1" aria-selected="true"  role="tab"></button>
-          <button class="rev-dot"        data-dot="1" aria-label="Review 2" aria-selected="false" role="tab"></button>
-          <button class="rev-dot"        data-dot="2" aria-label="Review 3" aria-selected="false" role="tab"></button>
-          <button class="rev-dot"        data-dot="3" aria-label="Review 4" aria-selected="false" role="tab"></button>
-          <button class="rev-dot"        data-dot="4" aria-label="Review 5" aria-selected="false" role="tab"></button>
-        </div>
-        <p class="rev-counter"><strong id="rev-cur">1</strong> of 5 previewed · <span style="color:var(--cyan)">swipe</span> to browse</p>
-      </div><!-- /rev-carousel-wrap -->
-
-      <div class="rev-footer">
-        <button class="btn-revs" id="rev-open" aria-haspopup="dialog">
-          <span class="rev-badge" aria-hidden="true">27</span>View all reviews<span class="rarr" aria-hidden="true">↗</span>
+      <div class="rc-meta">
+        <span class="rc-counter">Review <strong id="rc-cur">1</strong> of 27</span>
+        <button class="rc-pause-btn" id="rc-pause" aria-label="Pause auto-advance">
+          <span id="rc-pause-icon">⏸</span>
+          <span id="rc-pause-label">Auto-playing</span>
         </button>
-        <span class="rev-hint">5 of 27 shown</span>
       </div>
     </section>
 
@@ -409,51 +395,6 @@
   </div>
   </main>
 
-  <!-- REVIEWS MODAL -->
-  <div class="rev-modal" id="rev-modal" role="dialog" aria-modal="true" aria-labelledby="m-h">
-    <div class="m-bd" id="m-bd"></div>
-    <div class="m-panel" role="document">
-      <div class="m-hdr">
-        <div>
-          <div class="m-title-row"><span class="shopify-dot" aria-hidden="true"></span><span style="font-family:var(--fm);font-size:.67rem;color:var(--muted)">Shopify App Store</span><span class="stars" aria-label="5 stars">★★★★★</span></div>
-          <p class="m-heading" id="m-h">All 27 reviews</p>
-        </div>
-        <button class="m-close" id="rev-close" aria-label="Close reviews">✕</button>
-      </div>
-      <div class="m-body">
-        <div class="rev-ledger" role="list">
-          <div class="rev-row" role="listitem" tabindex="0"><span class="rev-idx">01</span><div class="rev-img"><img src="assets/review/Yotpo Reviews 1.png"  alt="Review 1"  loading="lazy" width="1227" height="174"></div></div>
-          <div class="rev-row" role="listitem" tabindex="0"><span class="rev-idx">02</span><div class="rev-img"><img src="assets/review/Review 4.png"           alt="Review 2"  loading="lazy" width="1227" height="174"></div></div>
-          <div class="rev-row" role="listitem" tabindex="0"><span class="rev-idx">03</span><div class="rev-img"><img src="assets/review/Reviews 1.png"          alt="Review 3"  loading="lazy" width="1227" height="174"></div></div>
-          <div class="rev-row" role="listitem" tabindex="0"><span class="rev-idx">04</span><div class="rev-img"><img src="assets/review/Review 9.png"           alt="Review 4"  loading="lazy" width="1227" height="174"></div></div>
-          <div class="rev-row" role="listitem" tabindex="0"><span class="rev-idx">05</span><div class="rev-img"><img src="assets/review/Review 2.png"           alt="Review 5"  loading="lazy" width="1227" height="174"></div></div>
-          <div class="rev-row" role="listitem" tabindex="0"><span class="rev-idx">06</span><div class="rev-img"><img src="assets/review/Review 3.png"           alt="Review 6"  loading="lazy" width="1227" height="174"></div></div>
-          <div class="rev-row" role="listitem" tabindex="0"><span class="rev-idx">07</span><div class="rev-img"><img src="assets/review/Review 4.png"           alt="Review 7"  loading="lazy" width="1227" height="174"></div></div>
-          <div class="rev-row" role="listitem" tabindex="0"><span class="rev-idx">08</span><div class="rev-img"><img src="assets/review/Review 5.png"           alt="Review 8"  loading="lazy" width="1227" height="174"></div></div>
-          <div class="rev-row" role="listitem" tabindex="0"><span class="rev-idx">09</span><div class="rev-img"><img src="assets/review/Review 6.png"           alt="Review 9"  loading="lazy" width="1227" height="174"></div></div>
-          <div class="rev-row" role="listitem" tabindex="0"><span class="rev-idx">10</span><div class="rev-img"><img src="assets/review/Review 7.png"           alt="Review 10" loading="lazy" width="1227" height="174"></div></div>
-          <div class="rev-row" role="listitem" tabindex="0"><span class="rev-idx">11</span><div class="rev-img"><img src="assets/review/Review 8.png"           alt="Review 11" loading="lazy" width="1227" height="174"></div></div>
-          <div class="rev-row" role="listitem" tabindex="0"><span class="rev-idx">12</span><div class="rev-img"><img src="assets/review/Review 10.png"          alt="Review 12" loading="lazy" width="1227" height="174"></div></div>
-          <div class="rev-row" role="listitem" tabindex="0"><span class="rev-idx">13</span><div class="rev-img"><img src="assets/review/Review 11.png"          alt="Review 13" loading="lazy" width="1227" height="174"></div></div>
-          <div class="rev-row" role="listitem" tabindex="0"><span class="rev-idx">14</span><div class="rev-img"><img src="assets/review/Review 12.png"          alt="Review 14" loading="lazy" width="1227" height="174"></div></div>
-          <div class="rev-row" role="listitem" tabindex="0"><span class="rev-idx">15</span><div class="rev-img"><img src="assets/review/Review 13.png"          alt="Review 15" loading="lazy" width="1227" height="174"></div></div>
-          <div class="rev-row" role="listitem" tabindex="0"><span class="rev-idx">16</span><div class="rev-img"><img src="assets/review/Yotpo Reviews 2.png"   alt="Review 16" loading="lazy" width="1227" height="174"></div></div>
-          <div class="rev-row" role="listitem" tabindex="0"><span class="rev-idx">17</span><div class="rev-img"><img src="assets/review/Yotpo Reviews 14.png"  alt="Review 17" loading="lazy" width="1227" height="174"></div></div>
-          <div class="rev-row" role="listitem" tabindex="0"><span class="rev-idx">18</span><div class="rev-img"><img src="assets/review/Yotpo Reviews 4.png"   alt="Review 18" loading="lazy" width="1227" height="174"></div></div>
-          <div class="rev-row" role="listitem" tabindex="0"><span class="rev-idx">19</span><div class="rev-img"><img src="assets/review/Yotpo Reviews 5.png"   alt="Review 19" loading="lazy" width="1227" height="174"></div></div>
-          <div class="rev-row" role="listitem" tabindex="0"><span class="rev-idx">20</span><div class="rev-img"><img src="assets/review/Yotpo Reviews 6.png"   alt="Review 20" loading="lazy" width="1227" height="174"></div></div>
-          <div class="rev-row" role="listitem" tabindex="0"><span class="rev-idx">21</span><div class="rev-img"><img src="assets/review/Yotpo Reviews 7.png"   alt="Review 21" loading="lazy" width="1227" height="174"></div></div>
-          <div class="rev-row" role="listitem" tabindex="0"><span class="rev-idx">22</span><div class="rev-img"><img src="assets/review/Yotpo Reviews 8.png"   alt="Review 22" loading="lazy" width="1227" height="174"></div></div>
-          <div class="rev-row" role="listitem" tabindex="0"><span class="rev-idx">23</span><div class="rev-img"><img src="assets/review/Yotpo Reviews 15.png"  alt="Review 23" loading="lazy" width="1227" height="174"></div></div>
-          <div class="rev-row" role="listitem" tabindex="0"><span class="rev-idx">24</span><div class="rev-img"><img src="assets/review/Yotpo Reviews 10.png"  alt="Review 24" loading="lazy" width="1227" height="174"></div></div>
-          <div class="rev-row" role="listitem" tabindex="0"><span class="rev-idx">25</span><div class="rev-img"><img src="assets/review/Yotpo Reviews 11.png"  alt="Review 25" loading="lazy" width="1227" height="174"></div></div>
-          <div class="rev-row" role="listitem" tabindex="0"><span class="rev-idx">26</span><div class="rev-img"><img src="assets/review/Yotpo Reviews 12.png"  alt="Review 26" loading="lazy" width="1227" height="174"></div></div>
-          <div class="rev-row" role="listitem" tabindex="0"><span class="rev-idx">27</span><div class="rev-img"><img src="assets/review/Yotpo Reviews 13.png"  alt="Review 27" loading="lazy" width="1227" height="174"></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- LIGHTBOX -->
   <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Review screenshot">
     <div class="lb-bd" id="lb-bd"></div>
@@ -462,7 +403,6 @@
   </div>
 
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-  <script src="js/index.js"></script>
-
+ <script src="js/index.js"></script>
 </body>
 </html>
