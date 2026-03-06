@@ -181,12 +181,58 @@
   lbClose?.addEventListener('click',closeLb);
   lbBd?.addEventListener('click',closeLb);
 
-  /* ── ESCAPE ─────────────────────────────── */
+  /* ── ESCAPE ───────────────────────────────── */
   document.addEventListener('keydown',e=>{
     if(e.key!=='Escape') return;
-    if(lb?.classList.contains('open')) closeLb();
+    if(lb?.classList.contains('open'))           closeLb();
     else if(revModal?.classList.contains('open')) closeModal();
-    else closeSheet();
+    else                                          closeSheet();
   });
+
+  /* ── MOBILE CAROUSEL ────────────────────── */
+  (function initCarousel(){
+    const carousel = $('#rev-carousel');
+    const dots     = $$('#rev-dots .rev-dot');
+    const counter  = $('#rev-cur');
+    if(!carousel) return;
+
+    let scrollTimer;
+    carousel.addEventListener('scroll', ()=>{
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(()=>{
+        const cardW  = carousel.firstElementChild?.offsetWidth || carousel.offsetWidth;
+        const gap    = 12;
+        const idx    = Math.round(carousel.scrollLeft / (cardW + gap));
+        const active = Math.max(0, Math.min(idx, dots.length - 1));
+        dots.forEach((d,i)=>{
+          d.classList.toggle('active', i===active);
+          d.setAttribute('aria-selected', i===active ? 'true':'false');
+        });
+        if(counter) counter.textContent = active + 1;
+      }, 60);
+    }, { passive:true });
+
+    dots.forEach(dot=>{
+      dot.addEventListener('click',()=>{
+        const i    = parseInt(dot.dataset.dot, 10);
+        const card = carousel.children[i];
+        if(card) card.scrollIntoView({ behavior:'smooth', block:'nearest', inline:'center' });
+      });
+    });
+
+    carousel.addEventListener('click', e=>{
+      const card = e.target.closest('.rev-card');
+      if(!card) return;
+      const img = card.querySelector('.rev-card-img');
+      if(img?.src) openLb(img.src, img.alt);
+    });
+
+    carousel.addEventListener('keydown', e=>{
+      if(e.key==='Enter'){
+        const card = document.activeElement?.closest('.rev-card');
+        if(card){ const img=card.querySelector('.rev-card-img'); if(img?.src) openLb(img.src,img.alt); }
+      }
+    });
+  })();
 
 })();
