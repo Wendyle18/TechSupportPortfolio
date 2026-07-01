@@ -27,18 +27,21 @@
   <!-- ════════════════════════════════════════
        FLOATING PILL NAVIGATION
   ════════════════════════════════════════ -->
-  <nav class="pill-nav" id="pill-nav" role="navigation" aria-label="Main navigation">
+  <nav class="pill-nav notch-sidebar" id="pill-nav" role="navigation" aria-label="Main navigation">
     <div class="pill-indicator" id="pill-ind" aria-hidden="true"></div>
 
-    <a href="#home" class="pill-logo" aria-label="Back to top">WCS</a>
-    <div class="pill-sep" aria-hidden="true"></div>
+    <a href="#home" class="pill-logo" aria-label="Back to top">
+      <span class="logo-mark">WCS</span>
+      <span class="logo-copy">Wendyle Seno</span>
+    </a>
 
     <div class="pill-links" id="pill-links">
-      <a href="#about"        data-sec="about">About</a>
-      <a href="#experience"   data-sec="experience">Experience</a>
-      <a href="#skills"       data-sec="skills">Skills</a>
-      <a href="#services"     data-sec="services">Services</a>
-      <a href="#testimonials" data-sec="testimonials">Reviews</a>
+      <a href="#home"         data-sec="home"><svg class="nav-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.5 12 5l8 6.5"/><path d="M6.5 10.5V19h11v-8.5"/><path d="M10 19v-5h4v5"/></svg><span>Home</span></a>
+      <a href="#stats"        data-sec="about"><svg class="nav-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/><path d="M5 20a7 7 0 0 1 14 0"/></svg><span>About</span></a>
+      <a href="#experience"   data-sec="experience"><svg class="nav-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1"/><path d="M5.5 7h13A1.5 1.5 0 0 1 20 8.5v8A2.5 2.5 0 0 1 17.5 19h-11A2.5 2.5 0 0 1 4 16.5v-8A1.5 1.5 0 0 1 5.5 7Z"/><path d="M4 12h16"/></svg><span>Experience</span></a>
+      <a href="#skills"       data-sec="skills"><svg class="nav-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m13 3-8 11h6l-1 7 9-12h-6l1-6Z"/></svg><span>Skills</span></a>
+      <a href="#services"     data-sec="services"><svg class="nav-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 16 0"/><path d="M4 12v3a2 2 0 0 0 2 2h1v-6H6a2 2 0 0 0-2 2Z"/><path d="M20 12v3a2 2 0 0 1-2 2h-1v-6h1a2 2 0 0 1 2 2Z"/><path d="M14 19h2a4 4 0 0 0 4-4"/></svg><span>Services</span></a>
+      <a href="#testimonials" data-sec="testimonials"><svg class="nav-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 4 2.35 4.76 5.25.76-3.8 3.7.9 5.23L12 16l-4.7 2.45.9-5.23-3.8-3.7 5.25-.76L12 4Z"/></svg><span>Reviews</span></a>
     </div>
 
     <div class="pill-right">
@@ -57,7 +60,8 @@
 
   <!-- Mobile sheet -->
   <div class="pill-sheet" id="pill-sheet" role="dialog" aria-label="Navigation menu">
-    <a href="#about"        class="sl"><span class="si">👤</span>About</a>
+    <a href="#home"         class="sl"><span class="si">H</span>Home</a>
+    <a href="#stats"        class="sl"><span class="si">A</span>About</a>
     <a href="#experience"   class="sl"><span class="si">📋</span>Experience</a>
     <a href="#skills"       class="sl"><span class="si">⚡</span>Skills</a>
     <a href="#services"     class="sl"><span class="si">🎧</span>Services</a>
@@ -69,7 +73,7 @@
         <span class="si" style="color:var(--cyan);margin-top:2px">📋</span>
         <div>
           <div class="sheet-copy-label">Copy Email Address</div>
-          <div class="sheet-email-addr"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6013050e0f17050e04190c0557595320070d01090c4e030f0d">[email&#160;protected]</a></div>
+          <div class="sheet-email-addr">senowendyle793@gmail.com</div>
         </div>
       </div>
     </button>
@@ -99,14 +103,35 @@
           <h1 class="hero-name">Wendyle<br><span class="grad-text">Seno</span></h1>
           <p class="hero-role" id="typed-role" aria-live="polite"></p>
           <p class="hero-desc">I solve complex technical problems across SaaS and e-commerce platforms. From API debugging to widget customization — I turn escalations into documented solutions, fast.</p>
-          <div class="hero-ctas">
+          <div class="hero-ctas shared-tooltip-actions" id="hero-ctas" aria-label="Primary actions">
+            <span class="shared-tooltip" id="hero-cta-tooltip" role="tooltip" aria-hidden="true"></span>
             <!-- Primary CTA: copy email, no mailto dependency -->
-            <button class="copy-btn" id="hero-copy" aria-label="Copy email address senowendyle793@gmail.com">
-              <span class="copy-label">📬 Get In Touch</span>
-              <span class="copy-ok" aria-hidden="true">✓ Email Copied!</span>
+            <button class="copy-btn hero-action" id="hero-copy" data-tooltip="Copy Gmail" aria-label="Copy Gmail address senowendyle793@gmail.com">
+              <span class="copy-label" aria-hidden="true">
+                <svg class="cta-icon gmail-icon" viewBox="0 0 24 24" role="img" aria-label="Gmail">
+                  <path d="M4.75 6.5h14.5A1.75 1.75 0 0 1 21 8.25v9A1.75 1.75 0 0 1 19.25 19H4.75A1.75 1.75 0 0 1 3 17.25v-9A1.75 1.75 0 0 1 4.75 6.5Z" fill="none" stroke="currentColor" stroke-width="1.7"/>
+                  <path d="m4.2 7.6 7.8 6 7.8-6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <span class="copy-ok" aria-hidden="true">
+                <svg class="cta-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 12.5 4 4L18.5 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
             </button>
-            <a href="https://www.linkedin.com/in/wendylechristianseno/" target="_blank" rel="noopener noreferrer" class="btn btn-o">LinkedIn ↗</a>
-            <a href="#experience" class="btn btn-g">Work ↓</a>
+            <a href="https://www.linkedin.com/in/wendylechristianseno/" target="_blank" rel="noopener noreferrer" class="hero-action" data-tooltip="LinkedIn" aria-label="Open LinkedIn profile">
+              <svg class="cta-icon linkedin-icon" viewBox="0 0 24 24" role="img" aria-label="LinkedIn">
+                <path d="M6.75 9.4v8.85H4V9.4h2.75ZM5.38 5.25a1.6 1.6 0 1 1 0 3.2 1.6 1.6 0 0 1 0-3.2Zm6.1 4.15.08 1.23c.58-.82 1.48-1.43 2.9-1.43 2.1 0 3.54 1.36 3.54 4.3v4.75h-2.75v-4.43c0-1.45-.52-2.16-1.62-2.16-1.2 0-1.87.82-1.87 2.36v4.23H9V9.4h2.48Z" fill="currentColor"/>
+              </svg>
+            </a>
+            <a href="https://github.com/Wendyle18" target="_blank" rel="noopener noreferrer" class="hero-action" data-tooltip="GitHub" aria-label="Open GitHub profile">
+              <svg class="cta-icon github-icon" viewBox="0 0 24 24" role="img" aria-label="GitHub">
+                <path d="M12 2.75a9.25 9.25 0 0 0-2.93 18.03c.46.08.63-.2.63-.44v-1.58c-2.57.56-3.11-1.1-3.11-1.1-.42-1.07-1.03-1.35-1.03-1.35-.84-.58.06-.57.06-.57.93.07 1.42.96 1.42.96.83 1.41 2.17 1 2.7.77.08-.6.32-1 .58-1.23-2.05-.23-4.2-1.02-4.2-4.56 0-1 .36-1.83.95-2.48-.1-.23-.41-1.17.09-2.44 0 0 .78-.25 2.54.95A8.8 8.8 0 0 1 12 5.42c.78 0 1.56.1 2.3.31 1.76-1.2 2.54-.95 2.54-.95.5 1.27.19 2.21.09 2.44.59.65.95 1.47.95 2.48 0 3.55-2.16 4.33-4.22 4.56.34.29.64.86.64 1.74v2.34c0 .24.17.52.64.43A9.25 9.25 0 0 0 12 2.75Z" fill="currentColor"/>
+              </svg>
+            </a>
+            <a href="#experience" class="hero-action" data-tooltip="Work" aria-label="View work experience">
+              <svg class="cta-icon work-icon" viewBox="0 0 24 24" role="img" aria-label="Work">
+                <path d="M9 7.25V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1.25m-9.5 0h13A1.5 1.5 0 0 1 20 8.75v8.5A2.75 2.75 0 0 1 17.25 20H6.75A2.75 2.75 0 0 1 4 17.25v-8.5a1.5 1.5 0 0 1 1.5-1.5Zm4.75 0h3.5M4.25 12.5h15.5M10 12.5v.75c0 .41.34.75.75.75h2.5c.41 0 .75-.34.75-.75v-.75" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
           </div>
           <p class="hero-loc"><span aria-hidden="true">📍</span>Philippines &nbsp;·&nbsp; Remote-ready</p>
         </div>
@@ -120,10 +145,58 @@
     <!-- STATS -->
     <div class="stats-s" id="stats">
       <div class="stats-grid" role="list">
-        <div class="stat-card" role="listitem"><p class="stat-num" data-target="2" data-suffix="+">0+</p><p class="stat-lbl">Years SaaS Support</p></div>
-        <div class="stat-card" role="listitem"><p class="stat-num" data-target="3">0</p><p class="stat-lbl">E-commerce Platforms</p></div>
-        <div class="stat-card" role="listitem"><p class="stat-num" data-target="3000" data-suffix="+">0+</p><p class="stat-lbl">Tickets Resolved</p></div>
-        <div class="stat-card" role="listitem"><p class="stat-num" data-target="14" data-suffix="+">0+</p><p class="stat-lbl">Tools & Platforms</p></div>
+        <div class="stat-card folder-stat" role="listitem" tabindex="0">
+          <div class="stat-folder-preview" aria-hidden="true">
+            <div class="folder-popover popover-3">
+              <span class="brand-mark logo-yotpo" title="Yotpo"><img class="brand-icon" src="https://www.google.com/s2/favicons?domain=yotpo.com&amp;sz=64" alt=""></span>
+              <span class="brand-mark logo-cite" title="CITE Technical Institute"><img class="brand-icon" src="https://www.google.com/s2/favicons?domain=cite.edu.ph&amp;sz=64" alt=""></span>
+              <span class="brand-mark logo-essential" title="Essential Apps"><img class="brand-icon" src="https://www.google.com/s2/favicons?domain=essential-apps.com&amp;sz=64" alt=""></span>
+            </div>
+            <div class="folder-shell">
+              <span class="folder-back"></span><span class="folder-paper"></span><span class="folder-cover"><span class="folder-glyph">2y</span></span>
+            </div>
+          </div>
+          <p class="stat-num" data-target="2" data-suffix="+">0+</p><p class="stat-lbl">Years SaaS Support</p>
+        </div>
+        <div class="stat-card folder-stat" role="listitem" tabindex="0">
+          <div class="stat-folder-preview" aria-hidden="true">
+            <div class="folder-popover popover-3">
+              <span class="brand-mark logo-shopify" title="Shopify"><img class="brand-icon" src="https://www.google.com/s2/favicons?domain=shopify.com&amp;sz=64" alt=""></span>
+              <span class="brand-mark logo-bigcommerce" title="BigCommerce"><img class="brand-icon" src="https://www.google.com/s2/favicons?domain=bigcommerce.com&amp;sz=64" alt=""></span>
+              <span class="brand-mark logo-wordpress" title="WordPress"><img class="brand-icon" src="https://www.google.com/s2/favicons?domain=wordpress.org&amp;sz=64" alt=""></span>
+            </div>
+            <div class="folder-shell">
+              <span class="folder-back"></span><span class="folder-paper"></span><span class="folder-cover"><span class="folder-glyph">3</span></span>
+            </div>
+          </div>
+          <p class="stat-num" data-target="3">0</p><p class="stat-lbl">E-commerce Platforms</p>
+        </div>
+        <div class="stat-card folder-stat" role="listitem" tabindex="0">
+          <div class="stat-folder-preview" aria-hidden="true">
+            <div class="folder-popover popover-2">
+              <span class="brand-mark logo-helpscout" title="Help Scout"><img class="brand-icon" src="https://www.google.com/s2/favicons?domain=helpscout.com&amp;sz=64" alt=""></span>
+              <span class="brand-mark logo-salesforce" title="Salesforce"><img class="brand-icon" src="https://www.google.com/s2/favicons?domain=salesforce.com&amp;sz=64" alt=""></span>
+            </div>
+            <div class="folder-shell">
+              <span class="folder-back"></span><span class="folder-paper"></span><span class="folder-cover"><span class="folder-glyph">3k</span></span>
+            </div>
+          </div>
+          <p class="stat-num" data-target="3000" data-suffix="+">0+</p><p class="stat-lbl">Tickets Resolved</p>
+        </div>
+        <div class="stat-card folder-stat" role="listitem" tabindex="0">
+          <div class="stat-folder-preview" aria-hidden="true">
+            <div class="folder-popover popover-4">
+              <span class="brand-mark logo-html" title="HTML5"><img class="brand-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt=""></span>
+              <span class="brand-mark logo-css" title="CSS3"><img class="brand-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt=""></span>
+              <span class="brand-mark logo-js" title="JavaScript"><img class="brand-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt=""></span>
+              <span class="brand-mark logo-api" title="API"><img class="brand-icon" src="https://www.google.com/s2/favicons?domain=swagger.io&amp;sz=64" alt=""></span>
+            </div>
+            <div class="folder-shell">
+              <span class="folder-back"></span><span class="folder-paper"></span><span class="folder-cover"><span class="folder-glyph">14</span></span>
+            </div>
+          </div>
+          <p class="stat-num" data-target="14" data-suffix="+">0+</p><p class="stat-lbl">Tools & Platforms</p>
+        </div>
       </div>
     </div>
 
@@ -135,11 +208,22 @@
         <p>I specialize in solving complex technical problems across SaaS and e-commerce platforms, with a focus on reliability, scalability, and clear communication. My work sits at the intersection of technical support, platform troubleshooting, and front-end systems within fast-moving product environments.</p>
         <p>I bring a calm, structured approach to ambiguous issues and communicate technical details in ways that help teams move faster and users feel supported. From diagnosing integrations and storefront behavior to managing high-impact escalations, I deliver solutions that are durable, well-documented, and aligned with product goals.</p>
       </div>
-      <div class="about-grid">
-        <div class="glass about-card"><span class="ac-icon">🔍</span><h3>Deep Troubleshooting</h3><p>Root-cause analysis across API integrations, storefront behavior, widget configurations, and cross-platform compatibility issues.</p></div>
-        <div class="glass about-card"><span class="ac-icon">⚡</span><h3>Fast Resolution</h3><p>Structured diagnostic workflows that reduce resolution time and prevent recurring issues through thorough documentation.</p></div>
-        <div class="glass about-card"><span class="ac-icon">🎨</span><h3>Front-End Expertise</h3><p>Custom HTML, CSS, and JavaScript implementations for SaaS widgets and e-commerce storefronts across major CMS platforms.</p></div>
-        <div class="glass about-card"><span class="ac-icon">🤝</span><h3>Cross-Team Bridge</h3><p>Technical liaison between customers, support teams, and engineering — translating complex issues into actionable tickets.</p></div>
+      <div class="about-grid cylinder-carousel" data-cylinder-carousel aria-roledescription="carousel" aria-label="About capabilities">
+        <button class="cyl-btn cyl-prev" type="button" aria-label="Previous capability">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <div class="cyl-stage" tabindex="0" aria-live="polite">
+          <div class="cyl-ring">
+            <div class="glass about-card cyl-item" data-cyl-item aria-label="Deep Troubleshooting"><span class="ac-icon">🔍</span><h3>Deep Troubleshooting</h3><p>Root-cause analysis across API integrations, storefront behavior, widget configurations, and cross-platform compatibility issues.</p></div>
+            <div class="glass about-card cyl-item" data-cyl-item aria-label="Fast Resolution"><span class="ac-icon">⚡</span><h3>Fast Resolution</h3><p>Structured diagnostic workflows that reduce resolution time and prevent recurring issues through thorough documentation.</p></div>
+            <div class="glass about-card cyl-item" data-cyl-item aria-label="Front-End Expertise"><span class="ac-icon">🎨</span><h3>Front-End Expertise</h3><p>Custom HTML, CSS, and JavaScript implementations for SaaS widgets and e-commerce storefronts across major CMS platforms.</p></div>
+            <div class="glass about-card cyl-item" data-cyl-item aria-label="Cross-Team Bridge"><span class="ac-icon">🤝</span><h3>Cross-Team Bridge</h3><p>Technical liaison between customers, support teams, and engineering — translating complex issues into actionable tickets.</p></div>
+          </div>
+        </div>
+        <button class="cyl-btn cyl-next" type="button" aria-label="Next capability">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+        </button>
+        <div class="cyl-dots" role="tablist" aria-label="Select capability"></div>
       </div>
     </section>
 
@@ -212,24 +296,66 @@
       <div class="sec-label">Skills & Tools</div>
       <h2 class="sec-title" id="sk-h">Tech <span class="grad-text">Stack</span></h2>
       <p class="sec-desc">Tools and platforms I use to diagnose, fix, and build.</p>
-      <div class="sk-group">
+      <div class="agent-bento-grid">
+        <div class="bento-stack bento-stack-narrow">
+      <div class="sk-group bento-card bento-development">
         <p class="sk-label">Development</p>
+        <p class="bento-desc">Front-end implementation, diagnostics, and browser-level debugging.</p>
+        <div class="bento-visual code-visual" aria-hidden="true">
+          <span class="code-line wide html-level"></span><span class="code-line css-level"></span><span class="code-line js-level"></span>
+          <div class="code-nodes"><span class="node-html">HTML</span><span class="node-css">CSS</span><span class="node-js">JS</span></div>
+        </div>
         <div class="sk-tags">
           <span class="sk-tag hi">HTML</span><span class="sk-tag hi">CSS</span><span class="sk-tag hi">JavaScript</span>
           <span class="sk-tag">Responsive Design</span><span class="sk-tag">Front-End Debugging</span>
           <span class="sk-tag">API Troubleshooting</span><span class="sk-tag">Browser DevTools</span>
         </div>
       </div>
-      <div class="sk-group">
+        </div>
+        <div class="bento-stack bento-stack-wide">
+      <div class="sk-group bento-card bento-platforms">
         <p class="sk-label">Platforms</p>
+        <p class="bento-desc">Commerce and SaaS surfaces where issues are reproduced and resolved.</p>
+        <div class="bento-visual platform-visual" aria-hidden="true">
+          <span>Shopify</span><span>WordPress</span><span>BigCommerce</span><span>Yotpo</span>
+        </div>
         <div class="sk-tags">
           <div class="sk-dd"><button class="sk-dd-btn" aria-haspopup="listbox" aria-expanded="false">CMS <span class="dda">▾</span></button><div class="sk-dd-menu" role="listbox"><span class="sk-dd-item" role="option">Shopify</span><span class="sk-dd-item" role="option">WordPress</span><span class="sk-dd-item" role="option">BigCommerce</span></div></div>
           <span class="sk-tag">Yotpo UGC Platform</span>
           <div class="sk-dd"><button class="sk-dd-btn" aria-haspopup="listbox" aria-expanded="false">Essential Apps <span class="dda">▾</span></button><div class="sk-dd-menu" role="listbox"><span class="sk-dd-item" role="option">Essential Countdown Timer</span><span class="sk-dd-item" role="option">Essential Order Value Booster</span><span class="sk-dd-item" role="option">Essential Icon &amp; Badge Banners</span><span class="sk-dd-item" role="option">Essential Announcement Bar</span><span class="sk-dd-item" role="option">Essential SEO AI Blog Writer</span><span class="sk-dd-item" role="option">Essential Upsell</span><span class="sk-dd-item" role="option">Essential Pre-Order &amp; Presale</span><span class="sk-dd-item" role="option">Essential Loyalty &amp; Rewards</span><span class="sk-dd-item" role="option">Essential Cart Drawer</span></div></div>
         </div>
       </div>
-      <div class="sk-group">
+      <div class="sk-group bento-card bento-infra">
+        <p class="sk-label">Infrastructure</p>
+        <p class="bento-desc">Systems, network, hardware, and maintenance fundamentals.</p>
+        <div class="bento-visual infra-visual" aria-hidden="true">
+          <span class="infra-icon">
+            <svg viewBox="0 0 24 24"><path d="M5 6.5h14v8.25H5z"/><path d="M9 19h6M12 14.75V19"/></svg>
+          </span>
+          <span class="infra-line"></span>
+          <span class="infra-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 5.25v5.5M7 16.75h10"/><path d="M12 4a1.75 1.75 0 1 0 0 3.5A1.75 1.75 0 0 0 12 4ZM6 15a1.75 1.75 0 1 0 0 3.5A1.75 1.75 0 0 0 6 15Zm12 0a1.75 1.75 0 1 0 0 3.5A1.75 1.75 0 0 0 18 15Z"/></svg>
+          </span>
+          <span class="infra-line"></span>
+          <span class="infra-icon">
+            <svg viewBox="0 0 24 24"><path d="m14.5 5 4.5 4.5-3.1 3.1-2.15-2.15-6.7 6.7a2 2 0 0 1-2.85-2.8l6.75-6.75L8.8 5.45 11.95 2.3 14.5 5Z"/></svg>
+          </span>
+        </div>
+        <div class="sk-tags">
+          <span class="sk-tag">Windows OS</span><span class="sk-tag">Basic Networking</span>
+          <span class="sk-tag">Hardware Troubleshooting</span><span class="sk-tag">System Administration</span>
+          <span class="sk-tag">Software Maintenance</span><span class="sk-tag">IT Inventory</span>
+        </div>
+      </div>
+        </div>
+      <div class="sk-group bento-card bento-support">
         <p class="sk-label">Support & Workflow</p>
+        <p class="bento-desc">Ticket handling, escalation hygiene, and durable documentation loops.</p>
+        <div class="bento-visual support-visual" aria-hidden="true">
+          <div class="support-row done"><span></span><strong>triage</strong><em>done</em></div>
+          <div class="support-row active"><span></span><strong>resolve</strong><em>live</em></div>
+          <div class="support-row"><span></span><strong>document</strong><em>queued</em></div>
+        </div>
         <div class="sk-tags">
           <div class="sk-dd"><button class="sk-dd-btn" aria-haspopup="listbox" aria-expanded="false">Ticketing Systems <span class="dda">▾</span></button><div class="sk-dd-menu" role="listbox"><span class="sk-dd-item" role="option">Salesforce Service Cloud</span><span class="sk-dd-item" role="option">Help Scout</span></div></div>
           <span class="sk-tag">Savio</span><span class="sk-tag">Live Chat Support</span>
@@ -237,13 +363,6 @@
           <span class="sk-tag">Escalation Handling</span>
         </div>
       </div>
-      <div class="sk-group">
-        <p class="sk-label">Infrastructure</p>
-        <div class="sk-tags">
-          <span class="sk-tag">Windows OS</span><span class="sk-tag">Basic Networking</span>
-          <span class="sk-tag">Hardware Troubleshooting</span><span class="sk-tag">System Administration</span>
-          <span class="sk-tag">Software Maintenance</span><span class="sk-tag">IT Inventory</span>
-        </div>
       </div>
     </section>
 
@@ -252,11 +371,24 @@
       <div class="sec-label">What I Do</div>
       <h2 class="sec-title" id="sv-h">Core <span class="grad-text">Services</span></h2>
       <p class="sec-desc">From first-line triage to enterprise escalations — end-to-end technical support.</p>
-      <div class="srv-grid" role="list">
-        <div class="glass srv-card" role="listitem"><div class="srv-icon">🎧</div><h3>Technical & Customer Support</h3><p>Expert-level support through ticketing systems, live chat, and escalation handling. I triage complex issues, communicate clearly, and ensure timely resolution across multiple channels.</p></div>
-        <div class="glass srv-card" role="listitem"><div class="srv-icon">🔬</div><h3>Technical Solutions</h3><p>Deep troubleshooting of platform configurations, API integrations, and cross-platform compatibility. I diagnose root causes, implement fixes, and document solutions for team knowledge bases.</p></div>
-        <div class="glass srv-card" role="listitem"><div class="srv-icon">🎨</div><h3>Front-End Customization</h3><p>Custom HTML, CSS, and JavaScript for SaaS widgets, e-commerce themes, and UGC displays. Clean code, responsive design, and pixel-perfect implementation.</p></div>
-        <div class="glass srv-card" role="listitem"><div class="srv-icon">🛒</div><h3>SaaS & E-commerce Support</h3><p>Hands-on experience with Shopify, WordPress, BigCommerce, and UGC platforms. I bridge technical gaps between merchant needs and platform capabilities.</p></div>
+      <div class="srv-grid diagonal-carousel" data-diagonal-carousel role="region" aria-roledescription="carousel" aria-label="Core services carousel">
+        <div class="diag-viewport" tabindex="0" aria-live="polite">
+          <div class="diag-track">
+            <div class="glass srv-card diag-item" data-diag-item role="group" aria-label="Technical and Customer Support"><div class="srv-icon">🎧</div><h3>Technical & Customer Support</h3><p>Expert-level support through ticketing systems, live chat, and escalation handling. I triage complex issues, communicate clearly, and ensure timely resolution across multiple channels.</p></div>
+            <div class="glass srv-card diag-item" data-diag-item role="group" aria-label="Technical Solutions"><div class="srv-icon">🔬</div><h3>Technical Solutions</h3><p>Deep troubleshooting of platform configurations, API integrations, and cross-platform compatibility. I diagnose root causes, implement fixes, and document solutions for team knowledge bases.</p></div>
+            <div class="glass srv-card diag-item" data-diag-item role="group" aria-label="Front-End Customization"><div class="srv-icon">🎨</div><h3>Front-End Customization</h3><p>Custom HTML, CSS, and JavaScript for SaaS widgets, e-commerce themes, and UGC displays. Clean code, responsive design, and pixel-perfect implementation.</p></div>
+            <div class="glass srv-card diag-item" data-diag-item role="group" aria-label="SaaS and E-commerce Support"><div class="srv-icon">🛒</div><h3>SaaS & E-commerce Support</h3><p>Hands-on experience with Shopify, WordPress, BigCommerce, and UGC platforms. I bridge technical gaps between merchant needs and platform capabilities.</p></div>
+          </div>
+        </div>
+        <div class="diag-controls" aria-label="Core services controls">
+          <button class="diag-btn diag-prev" type="button" aria-label="Show previous service">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <div class="diag-dots" role="tablist" aria-label="Select service"></div>
+          <button class="diag-btn diag-next" type="button" aria-label="Show next service">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+          </button>
+        </div>
       </div>
     </section>
 
@@ -345,7 +477,6 @@
         <div class="rc-slide" role="listitem" tabindex="0" aria-label="Review 27 of 27"><img class="rc-img" src="assets/review/Yotpo Reviews 14.png" alt="Shopify merchant review 27" loading="lazy" width="1227" height="174"><div class="rc-bar"><span class="rc-bar-num">27 / 27</span><span class="rc-bar-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>zoom</span></div></div>
 
       </div><!-- /rc-track -->
-
       <!-- Controls: prev · progress · next -->
       <div class="rc-controls">
         <button class="rc-btn" id="rc-prev" aria-label="Previous review">&#8592;</button>
@@ -369,7 +500,7 @@
           <p>Looking for a reliable technical support or customization specialist? I'm available for full-time roles and project-based work.</p>
           <div class="email-show">
             <span aria-hidden="true">✉</span>
-            <span class="email-addr"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3f4c5a5150485a515b46535a08060c7f58525e5653115c5052">[email&#160;protected]</a></span>
+            <span class="email-addr">senowendyle793@gmail.com</span>
           </div>
         </div>
         <div class="ca">
@@ -402,7 +533,6 @@
     <div class="lb-inner"><img src="" alt="" id="lb-img" loading="eager"></div>
   </div>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
  <script src="js/index.js"></script>
 </body>
 </html>
