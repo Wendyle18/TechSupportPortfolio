@@ -315,6 +315,7 @@
   .cursor-blink{display:inline-block;width:2px;height:.9em;background:var(--text);margin-left:2px;vertical-align:text-bottom;border-radius:1px;animation:cBlink 1s step-end infinite}
   @keyframes cBlink{0%,100%{opacity:1}50%{opacity:0}}
   .hero-desc{font-size:.955rem;color:var(--sub);line-height:1.78;max-width:455px;margin-bottom:2rem}
+  .hero-action-row{display:flex;align-items:center;justify-content:space-between;gap:1rem;max-width:455px;width:100%;flex-wrap:wrap}
   .hero-ctas{display:flex;gap:0;flex-wrap:wrap;align-items:center}
   .shared-tooltip-actions{position:relative;isolation:isolate;padding:1.7rem 0 .15rem}
   .shared-tooltip{
@@ -346,7 +347,7 @@
   .github-icon,.work-icon{color:currentColor}
   [data-theme="light"] .hero-action{border-color:var(--bg);background:rgba(255,255,255,.86);color:#18181b}
   [data-theme="light"] .hero-action:hover,[data-theme="light"] .hero-action:focus-visible{background:#fff}
-  .hero-loc{font-family:var(--fm);font-size:.72rem;color:var(--muted);display:flex;align-items:center;gap:.4rem;margin-top:1.4rem}
+  .hero-loc{font-family:var(--fm);font-size:.72rem;color:var(--muted);display:flex;align-items:center;gap:.4rem;margin:1.7rem 0 .15rem auto;white-space:nowrap}
   .hero-loc span{filter:grayscale(1)}
 
   /* Photo with glow ring */
@@ -445,7 +446,11 @@
   .badge-now{background:rgba(255,255,255,.06);color:var(--text);border:1px solid var(--border)}
   .tl-content{padding-top:2px}
   .tl-role{font-family:var(--fd);font-size:.965rem;font-weight:700;color:var(--text);line-height:1.3;margin-bottom:.2rem}
-  .tl-co{font-size:.82rem;color:var(--muted);margin-bottom:.6rem}
+  .tl-co{font-size:.82rem;color:var(--muted);margin-bottom:.6rem;display:flex;align-items:center;gap:.48rem;flex-wrap:wrap}
+  .tl-company-logos{display:inline-flex;align-items:center}
+  .tl-company-logo{width:22px;height:22px;border-radius:50%;border:1px solid rgba(255,255,255,.16);background:#fff;object-fit:contain;padding:3px;box-shadow:0 7px 18px rgba(0,0,0,.18)}
+  .tl-company-logo + .tl-company-logo{margin-left:-6px}
+  [data-theme="light"] .tl-company-logo{border-color:rgba(0,0,0,.1);box-shadow:0 5px 14px rgba(0,0,0,.08)}
   .tl-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.7rem}
   .tl-tag{font-size:.67rem;font-weight:600;letter-spacing:.03em;padding:.15rem .55rem;border-radius:99px;border:1.5px solid}
   .t-ft{color:var(--sub);background:rgba(255,255,255,.04);border-color:var(--border)}
@@ -699,6 +704,8 @@
 
     .hero{padding-top:100px;min-height:auto}
     .hero-inner{flex-direction:column-reverse;align-items:flex-start;gap:1.75rem}
+    .hero-action-row{align-items:flex-start;gap:.65rem}
+    .hero-loc{width:100%;margin:.2rem 0 0;justify-content:flex-start}
     .hero-photo{width:96px;height:96px}
     .hero-photo-ring{display:none}/* hide glowing ring on tiny screens for perf */
     .photo-wrap .hero-photo{border:none}
