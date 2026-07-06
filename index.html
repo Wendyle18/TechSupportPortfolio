@@ -19,6 +19,15 @@
 
 </head>
 <body>
+  <div class="site-loader" id="site-loader" role="status" aria-live="polite" aria-label="Loading portfolio">
+    <div class="kinetic-loader" aria-hidden="true">
+      <span class="kinetic-dot"></span>
+      <p class="kinetic-text" aria-label="Loading">
+        <span class="kinetic-letter kinetic-l">L</span><span class="kinetic-letter">o</span><span class="kinetic-letter">a</span><span class="kinetic-letter">d</span><span class="kinetic-letter kinetic-i">i</span><span class="kinetic-letter">n</span><span class="kinetic-letter">g</span>
+      </p>
+    </div>
+    <span class="sr-only">Loading portfolio</span>
+  </div>
 
   <div class="bg-canvas" aria-hidden="true">
     <div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
@@ -45,8 +54,16 @@
     </div>
 
     <div class="pill-right">
-      <button class="pill-theme" id="pill-theme" aria-label="Toggle theme">
-        <span class="theme-icon" aria-hidden="true">☀️</span>
+      <button class="pill-theme" id="pill-theme" aria-label="Switch to light theme" title="Switch to light theme">
+        <span class="theme-icon" aria-hidden="true">
+          <svg class="theme-icon-sun" viewBox="0 0 24 24">
+            <path d="M12 4V2.5M12 21.5V20M4 12H2.5M21.5 12H20M6.35 6.35 5.3 5.3M18.7 18.7l-1.05-1.05M17.65 6.35 18.7 5.3M5.3 18.7l1.05-1.05"/>
+            <circle cx="12" cy="12" r="4.25"/>
+          </svg>
+          <svg class="theme-icon-moon" viewBox="0 0 24 24">
+            <path d="M20 15.15A7.6 7.6 0 0 1 8.85 4 8.6 8.6 0 1 0 20 15.15Z"/>
+          </svg>
+        </span>
       </button>
       <!-- Copies email — works reliably on Vercel static -->
       <button class="pill-hire" id="pill-hire" aria-label="Copy email to hire Wendyle">

@@ -4,18 +4,32 @@
   const $  = (s,c=document) => c.querySelector(s);
   const $$ = (s,c=document) => [...c.querySelectorAll(s)];
   const ROOT = document.documentElement;
+  const loaderStarted = performance.now();
 
-  /* ── THEME ─────────────────────────────── */
+  /* LOADER */
+  const siteLoader = $('#site-loader');
+  function hideLoader(){
+    if(!siteLoader) return;
+    const wait = Math.max(0, 900 - (performance.now() - loaderStarted));
+    setTimeout(()=>{
+      siteLoader.classList.add('is-hidden');
+      siteLoader.setAttribute('aria-hidden','true');
+      setTimeout(()=>siteLoader.remove(),420);
+    },wait);
+  }
+  if(document.readyState === 'complete') hideLoader();
+  else window.addEventListener('load',hideLoader,{ once:true });
+
+  /* THEME */
   const themeBtn  = $('#pill-theme');
-  const themeIcon = themeBtn?.querySelector('.theme-icon');
   function applyTheme(dark){
     ROOT.setAttribute('data-theme', dark ? 'dark' : 'light');
-    if(themeIcon) themeIcon.textContent = dark ? 'Light' : 'Dark';
+    themeBtn?.setAttribute('aria-label',dark ? 'Switch to light theme' : 'Switch to dark theme');
+    themeBtn?.setAttribute('title',dark ? 'Switch to light theme' : 'Switch to dark theme');
     try{ localStorage.setItem('wcs-theme', dark?'dark':'light'); }catch{}
   }
   let stored; try{ stored=localStorage.getItem('wcs-theme'); }catch{}
-  const osDark = window.matchMedia?.('(prefers-color-scheme:dark)').matches ?? true;
-  applyTheme(stored ? stored==='dark' : osDark!==false);
+  applyTheme(stored ? stored==='dark' : true);
   themeBtn?.addEventListener('click',()=>applyTheme(ROOT.getAttribute('data-theme')!=='dark'));
 
   /* ── COPY EMAIL ─────────────────────────── */
