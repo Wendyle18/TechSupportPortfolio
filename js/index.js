@@ -10,7 +10,7 @@
   const siteLoader = $('#site-loader');
   function hideLoader(){
     if(!siteLoader) return;
-    const wait = Math.max(0, 900 - (performance.now() - loaderStarted));
+    const wait = Math.max(0, 3000 - (performance.now() - loaderStarted));
     setTimeout(()=>{
       siteLoader.classList.add('is-hidden');
       siteLoader.setAttribute('aria-hidden','true');
