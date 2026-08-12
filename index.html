@@ -41,14 +41,13 @@
 
     <a href="#home" class="pill-logo" aria-label="Back to top">
       <span class="logo-mark">WCS</span>
-      <span class="logo-copy">Wendyle Seno</span>
     </a>
 
     <div class="pill-links" id="pill-links">
-      <a href="#home"         data-sec="home"><svg class="nav-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.5 12 5l8 6.5"/><path d="M6.5 10.5V19h11v-8.5"/><path d="M10 19v-5h4v5"/></svg><span>Home</span></a>
       <a href="#stats"        data-sec="about"><svg class="nav-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/><path d="M5 20a7 7 0 0 1 14 0"/></svg><span>About</span></a>
       <a href="#experience"   data-sec="experience"><svg class="nav-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1"/><path d="M5.5 7h13A1.5 1.5 0 0 1 20 8.5v8A2.5 2.5 0 0 1 17.5 19h-11A2.5 2.5 0 0 1 4 16.5v-8A1.5 1.5 0 0 1 5.5 7Z"/><path d="M4 12h16"/></svg><span>Experience</span></a>
       <a href="#skills"       data-sec="skills"><svg class="nav-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m13 3-8 11h6l-1 7 9-12h-6l1-6Z"/></svg><span>Skills</span></a>
+      <a href="#projects"     data-sec="projects"><svg class="nav-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16v11H4z"/><path d="M8 17.5v2h8v-2M9 10l2 2-2 2M13 14h2"/></svg><span>Projects</span></a>
       <a href="#services"     data-sec="services"><svg class="nav-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 16 0"/><path d="M4 12v3a2 2 0 0 0 2 2h1v-6H6a2 2 0 0 0-2 2Z"/><path d="M20 12v3a2 2 0 0 1-2 2h-1v-6h1a2 2 0 0 1 2 2Z"/><path d="M14 19h2a4 4 0 0 0 4-4"/></svg><span>Services</span></a>
       <a href="#testimonials" data-sec="testimonials"><svg class="nav-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 4 2.35 4.76 5.25.76-3.8 3.7.9 5.23L12 16l-4.7 2.45.9-5.23-3.8-3.7 5.25-.76L12 4Z"/></svg><span>Reviews</span></a>
     </div>
@@ -77,10 +76,10 @@
 
   <!-- Mobile sheet -->
   <div class="pill-sheet" id="pill-sheet" role="dialog" aria-label="Navigation menu">
-    <a href="#home"         class="sl"><span class="si">H</span>Home</a>
     <a href="#stats"        class="sl"><span class="si">A</span>About</a>
     <a href="#experience"   class="sl"><span class="si">📋</span>Experience</a>
     <a href="#skills"       class="sl"><span class="si">⚡</span>Skills</a>
+    <a href="#projects"     class="sl"><span class="si">⌘</span>Projects</a>
     <a href="#services"     class="sl"><span class="si">🎧</span>Services</a>
     <a href="#testimonials" class="sl"><span class="si">⭐</span>Reviews</a>
     <div class="sheet-sep"></div>
@@ -383,6 +382,79 @@
         </div>
       </div>
       </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section projects-section" aria-labelledby="pr-h">
+      <div class="sec-label">Selected Work</div>
+      <h2 class="sec-title" id="pr-h">Projects built for <span class="grad-text">real storefronts</span></h2>
+      <p class="sec-desc">A closer look at the front-end experiences I design and implement for e-commerce merchants.</p>
+
+      <article class="project-feature">
+        <a class="project-visual" href="https://teststorewendyle.myshopify.com/" target="_blank" rel="noopener noreferrer" aria-label="Open the preorder widgets demo store in a new tab">
+          <img src="assets/img/preorder-widgets-showcase.png" alt="Preorder pricing and campaign information widgets displayed on a Shopify product page" width="2160" height="2160" loading="lazy">
+          <span class="project-visual-cta">View live store <span aria-hidden="true">↗</span></span>
+        </a>
+
+        <div class="project-copy">
+          <div class="project-meta">
+            <span>Essential Preorder app</span><span>Shopify</span><span>Front-end development</span><span>Theme integration</span>
+          </div>
+          <div class="project-heading-row">
+            <div>
+              <p class="project-kicker">Essential Preorder feature · 01</p>
+              <h3>Preorder Campaign Widgets</h3>
+            </div>
+            <a class="project-link" href="https://teststorewendyle.myshopify.com/" target="_blank" rel="noopener noreferrer">Visit demo <span aria-hidden="true">↗</span></a>
+          </div>
+          <p class="project-lead">Built as a new feature for the existing Essential Preorder app, these responsive storefront widgets make preorder savings, pricing, and fulfillment details clear at the moment customers decide to buy.</p>
+
+          <div class="project-details" role="list">
+            <div role="listitem"><span>01</span><p><strong>Variant-aware</strong>Widgets appear only when the selected product variant is available for preorder, keeping every message accurate and relevant.</p></div>
+            <div role="listitem"><span>02</span><p><strong>Campaign-powered</strong>Prices, discounts, and scheduled end dates come directly from the active campaign—no hardcoded values required.</p></div>
+            <div role="listitem"><span>03</span><p><strong>Theme-ready</strong>Designed responsively for Dawn and Horizon, the widgets are fully adaptable and can also work with other Shopify themes when their product templates are not heavily customized. Placement is managed through Shopify’s Online Store editor.</p></div>
+          </div>
+
+          <p class="project-note">Merchants can request a preorder discount widget, an improved preorder description widget, or both. Future support is planned for campaign-level custom HTML, CSS, JavaScript, and Liquid.</p>
+          <div class="project-demo-access" aria-label="Demo store access information">
+            <span class="demo-status"><i aria-hidden="true"></i>Live demo</span>
+            <span>Store password: <code>test</code></span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-feature">
+        <a class="project-visual" href="https://wendyle18.github.io/EssentialApp-SupportGuidev2/" target="_blank" rel="noopener noreferrer" aria-label="Open Essential Apps Support Guide v2 in a new tab">
+          <img src="assets/img/essential-apps-support-guide-v2.png" alt="Essential Apps Support Guide v2 dashboard showing app-specific support resources and reusable code snippets" width="1080" height="1080" loading="lazy">
+          <span class="project-visual-cta">Explore support guide <span aria-hidden="true">↗</span></span>
+        </a>
+
+        <div class="project-copy">
+          <div class="project-meta">
+            <span>Support operations</span><span>Shopify apps</span><span>Knowledge system</span><span>Workflow design</span>
+          </div>
+          <div class="project-heading-row">
+            <div>
+              <p class="project-kicker">Support workflow project · 02</p>
+              <h3>Essential Apps Support Guide v2</h3>
+            </div>
+            <a class="project-link" href="https://wendyle18.github.io/EssentialApp-SupportGuidev2/" target="_blank" rel="noopener noreferrer">Open guide <span aria-hidden="true">↗</span></a>
+          </div>
+          <p class="project-lead">A centralized Shopify support dashboard I created to replace the slow process of searching through lengthy, document-style support guides. It brings the resources agents need into one searchable, structured workspace.</p>
+
+          <div class="project-details" role="list">
+            <div role="listitem"><span>01</span><p><strong>Centralized knowledge</strong>App-specific troubleshooting guides, investigation checklists, reusable code snippets, ticket references, reply templates, internal updates, and support resources live in one place.</p></div>
+            <div role="listitem"><span>02</span><p><strong>Guided case triage</strong>A structured investigation flow helps support agents document issues consistently and move from initial context to diagnosis more efficiently.</p></div>
+            <div role="listitem"><span>03</span><p><strong>Ready-to-use outputs</strong>The workflow generates organized ticket summaries, diagnoses, customer responses, and engineering escalations from the captured case details.</p></div>
+          </div>
+
+          <p class="project-note">Designed to make troubleshooting faster, more organized, and more consistent—from the first investigation step through customer communication and engineering handoff.</p>
+          <div class="project-demo-access" aria-label="Support guide access information">
+            <span class="demo-status"><i aria-hidden="true"></i>Live project</span>
+            <span>Public support workflow demo</span>
+          </div>
+        </div>
+      </article>
     </section>
 
     <!-- SERVICES -->
