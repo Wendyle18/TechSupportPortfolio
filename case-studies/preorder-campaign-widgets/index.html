@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Preorder Campaign Widgets Case Study — Wendyle Seno</title>
+  <meta name="description" content="How Wendyle Seno implemented variant-aware Shopify preorder widgets using campaign pricing, responsive front-end design, and theme-editor placement.">
+  <meta name="author" content="Wendyle Christian M. Seno">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <meta name="theme-color" content="#050505">
+  <script>
+    (() => {
+      let theme = 'dark';
+      try { theme = localStorage.getItem('wcs-theme') === 'light' ? 'light' : 'dark'; } catch {}
+      document.documentElement.dataset.theme = theme;
+      document.querySelector('meta[name="theme-color"]').content = theme === 'light' ? '#f7f7f7' : '#050505';
+    })();
+  </script>
+  <link rel="canonical" href="https://www.wendylechristianseno.com/case-studies/preorder-campaign-widgets/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Wendyle Seno">
+  <meta property="og:title" content="Preorder Campaign Widgets Case Study — Wendyle Seno">
+  <meta property="og:description" content="Variant-aware Shopify preorder widgets powered by active campaign data and designed for responsive theme integration.">
+  <meta property="og:url" content="https://www.wendylechristianseno.com/case-studies/preorder-campaign-widgets/">
+  <meta property="og:image" content="https://www.wendylechristianseno.com/assets/img/wendyle-seno-social-preview.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Wendyle Seno, SaaS Technical Support Engineer">
+  <meta property="article:published_time" content="2026-08-12">
+  <meta property="article:modified_time" content="2026-08-14">
+  <meta property="article:author" content="Wendyle Christian M. Seno">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Preorder Campaign Widgets Case Study — Wendyle Seno">
+  <meta name="twitter:description" content="Variant-aware Shopify preorder widgets powered by active campaign data and designed for responsive theme integration.">
+  <meta name="twitter:image" content="https://www.wendylechristianseno.com/assets/img/wendyle-seno-social-preview.jpg">
+  <meta name="twitter:image:alt" content="Wendyle Seno, SaaS Technical Support Engineer">
+  <link rel="icon" href="../../assets/img/favicon.ico" sizes="32x32">
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" sizes="180x180">
+  <link rel="stylesheet" href="../../css/case-study.css?v=20260814-3">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": "https://www.wendylechristianseno.com/case-studies/preorder-campaign-widgets/#article",
+    "headline": "Preorder Campaign Widgets",
+    "description": "A case study about implementing variant-aware Shopify preorder widgets using active campaign data and responsive theme integration.",
+    "url": "https://www.wendylechristianseno.com/case-studies/preorder-campaign-widgets/",
+    "mainEntityOfPage": "https://www.wendylechristianseno.com/case-studies/preorder-campaign-widgets/",
+    "datePublished": "2026-08-12",
+    "dateModified": "2026-08-14",
+    "image": "https://www.wendylechristianseno.com/assets/img/preorder-widgets-showcase.png",
+    "author": {
+      "@type": "Person",
+      "@id": "https://www.wendylechristianseno.com/#person",
+      "name": "Wendyle Christian M. Seno",
+      "url": "https://www.wendylechristianseno.com/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#case-content">Skip to case study</a>
+  <header class="case-nav">
+    <nav class="case-shell case-nav-inner" aria-label="Case study navigation">
+      <a class="case-brand" href="../../"><span class="case-brand-mark">WCS</span><span>Wendyle Seno</span></a>
+      <div class="case-nav-links">
+        <a href="../essential-apps-support-guide/">Next case study</a>
+        <a href="../../#projects">All case studies</a>
+        <a class="case-contact" href="mailto:senowendyle793@gmail.com?subject=Technical%20Support%20Opportunity">Email Wendyle</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="case-content">
+    <article>
+      <header class="case-shell case-hero">
+        <p class="eyebrow">Shopify · Front-end implementation · Case study 01</p>
+        <h1>Preorder Campaign Widgets</h1>
+        <p class="case-dek">Responsive storefront widgets that keep preorder pricing, savings, and fulfillment messaging aligned with the selected variant and active campaign.</p>
+        <div class="case-byline">
+          <span>By <strong>Wendyle Christian M. Seno</strong></span>
+          <span>Published <time datetime="2026-08-12">August 12, 2026</time></span>
+          <span>Updated <time datetime="2026-08-14">August 14, 2026</time></span>
+        </div>
+      </header>
+
+      <figure class="case-shell case-media">
+        <a href="../../assets/img/preorder-widgets-showcase.png" aria-label="Open the full-resolution preorder widgets screenshot">
+          <picture>
+            <source type="image/avif" srcset="../../assets/img/generated/preorder-widgets-showcase-640.avif 640w, ../../assets/img/generated/preorder-widgets-showcase-1200.avif 1200w" sizes="(max-width: 1080px) 100vw, 1080px">
+            <img src="../../assets/img/generated/preorder-widgets-showcase-1200.png" alt="Preorder savings, pricing, and campaign information widgets on a Shopify product page" width="1200" height="1200" decoding="async">
+          </picture>
+        </a>
+      </figure>
+
+      <div class="case-shell case-grid">
+        <div class="case-content">
+          <section aria-labelledby="scenario-heading">
+            <h2 id="scenario-heading">Support scenario</h2>
+            <p>The existing Essential Preorder app needed clearer product-page messaging at the moment a customer decides whether to buy. The storefront experience had to explain preorder savings, pricing, campaign timing, and fulfillment context without showing irrelevant information for a variant that was not available for preorder.</p>
+          </section>
+
+          <section aria-labelledby="role-heading">
+            <h2 id="role-heading">My role</h2>
+            <p>I worked on the front-end implementation of the new preorder widget feature: shaping how campaign data appears on the product page, accounting for variant state, and making the presentation adaptable across Shopify themes.</p>
+          </section>
+
+          <section aria-labelledby="constraints-heading">
+            <h2 id="constraints-heading">Constraints</h2>
+            <ul>
+              <li>The message must appear only when the selected product variant is available for preorder.</li>
+              <li>Prices, discounts, and scheduled end dates must come from the active campaign rather than hardcoded storefront copy.</li>
+              <li>The layout must remain clear on desktop and mobile product pages.</li>
+              <li>The implementation must work with Dawn and Horizon and remain adaptable to other themes whose product templates are not heavily customized.</li>
+              <li>Merchants need to control placement through Shopify’s Online Store editor.</li>
+            </ul>
+          </section>
+
+          <section aria-labelledby="approach-heading">
+            <h2 id="approach-heading">Implementation approach</h2>
+            <ol class="case-steps">
+              <li><div><strong>Connect visibility to variant state.</strong> The widget is conditional so customers do not see preorder messaging for an ineligible selection.</div></li>
+              <li><div><strong>Use the active campaign as the source of truth.</strong> Pricing, discount, and schedule values are populated from campaign data instead of duplicated manual values.</div></li>
+              <li><div><strong>Separate the widget choices.</strong> A merchant can use the preorder discount widget, the improved description widget, or both based on the storefront need.</div></li>
+              <li><div><strong>Design for responsive theme surfaces.</strong> The visual hierarchy keeps key pricing and fulfillment information legible across screen sizes.</div></li>
+              <li><div><strong>Keep placement merchant-controlled.</strong> Widget placement is managed through Shopify’s Online Store editor rather than fixed to a single template position.</div></li>
+            </ol>
+          </section>
+
+          <section aria-labelledby="technical-heading">
+            <h2 id="technical-heading">Technical details</h2>
+            <p>The feature combines campaign-driven data, selected-variant checks, responsive front-end styling, and Shopify theme integration. The current documented support covers Dawn and Horizon, with adaptability for other themes when their product templates have not been heavily customized.</p>
+            <p>Campaign-level custom HTML, CSS, JavaScript, and Liquid were documented as future support, not as completed functionality.</p>
+          </section>
+
+          <section aria-labelledby="result-heading">
+            <h2 id="result-heading">Practical value</h2>
+            <p>The resulting storefront component gives customers relevant preorder information at the point of purchase while giving merchants flexible widget choices and editor-managed placement. It reduces the risk of displaying stale hardcoded campaign values and keeps the message tied to the customer’s actual variant selection.</p>
+          </section>
+        </div>
+
+        <aside class="case-aside" aria-labelledby="facts-heading">
+          <h2 id="facts-heading">Project facts</h2>
+          <ul class="fact-list">
+            <li><span>Product</span><strong>Essential Preorder app</strong></li>
+            <li><span>Platform</span><strong>Shopify</strong></li>
+            <li><span>Role</span><strong>Front-end implementation</strong></li>
+            <li><span>Outcome</span><strong>Variant-aware campaign messaging</strong></li>
+          </ul>
+          <div class="tag-list">
+            <span>Shopify</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Theme editor</span><span>Responsive UI</span>
+          </div>
+          <p class="demo-note"><a class="inline-link" href="https://teststorewendyle.myshopify.com/" target="_blank" rel="noopener noreferrer">Open the restricted demo store</a>. Public demo password: <code>test</code>.</p>
+        </aside>
+      </div>
+
+      <section class="case-shell case-cta" aria-labelledby="cta-heading">
+        <h2 id="cta-heading">Need someone who can investigate the issue and explain the fix?</h2>
+        <p>I’m available for remote Technical Support Engineer opportunities with SaaS and e-commerce teams.</p>
+        <div class="case-cta-actions">
+          <a class="case-button case-button-primary" href="mailto:senowendyle793@gmail.com?subject=Technical%20Support%20Opportunity">Email Wendyle</a>
+          <a class="case-button" href="https://www.linkedin.com/in/wendylechristianseno/" target="_blank" rel="noopener noreferrer">View LinkedIn</a>
+          <a class="case-button" href="../essential-apps-support-guide/">Read the next case study</a>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="case-shell case-footer"><span>© 2026 Wendyle Christian M. Seno</span><a href="../../">Back to portfolio</a></footer>
+</body>
+</html>
