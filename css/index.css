@@ -621,7 +621,7 @@
   .lb-close:hover{background:rgba(0,0,0,.8)}
   .lb-inner{position:relative;z-index:1;max-width:min(920px,94vw);width:100%;transform:scale(.95);transition:transform .25s}
   .lb.open .lb-inner{transform:scale(1)}
-  .lb-inner img{display:block;width:100%;border-radius:12px;box-shadow:0 32px 80px rgba(0,0,0,.6)}
+  .lb-inner img{display:block;width:100%;height:auto;max-height:calc(100vh - 4rem);object-fit:contain;border-radius:12px;box-shadow:0 32px 80px rgba(0,0,0,.6)}
 
   /* ═══ CONTACT ═══════════════════════════════ */
   .contact-card{padding:3rem 2.5rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;position:relative;overflow:hidden}
