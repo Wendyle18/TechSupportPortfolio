@@ -1,29 +1,14 @@
 (function(){
   'use strict';
-  const EMAIL = 'senowendyle793@gmail.com';
   const $  = (s,c=document) => c.querySelector(s);
   const $$ = (s,c=document) => [...c.querySelectorAll(s)];
   const ROOT = document.documentElement;
-  const loaderStarted = performance.now();
-
-  /* LOADER */
-  const siteLoader = $('#site-loader');
-  function hideLoader(){
-    if(!siteLoader) return;
-    const wait = Math.max(0, 3000 - (performance.now() - loaderStarted));
-    setTimeout(()=>{
-      siteLoader.classList.add('is-hidden');
-      siteLoader.setAttribute('aria-hidden','true');
-      setTimeout(()=>siteLoader.remove(),420);
-    },wait);
-  }
-  if(document.readyState === 'complete') hideLoader();
-  else window.addEventListener('load',hideLoader,{ once:true });
 
   /* THEME */
   const themeBtn  = $('#pill-theme');
   function applyTheme(dark){
     ROOT.setAttribute('data-theme', dark ? 'dark' : 'light');
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#050505' : '#f7f7f7');
     themeBtn?.setAttribute('aria-label',dark ? 'Switch to light theme' : 'Switch to dark theme');
     themeBtn?.setAttribute('title',dark ? 'Switch to light theme' : 'Switch to dark theme');
     try{ localStorage.setItem('wcs-theme', dark?'dark':'light'); }catch{}
@@ -31,54 +16,6 @@
   let stored; try{ stored=localStorage.getItem('wcs-theme'); }catch{}
   applyTheme(stored ? stored==='dark' : true);
   themeBtn?.addEventListener('click',()=>applyTheme(ROOT.getAttribute('data-theme')!=='dark'));
-
-  /* ── COPY EMAIL ─────────────────────────── */
-  const toast    = $('#toast');
-  const toastTxt = $('#toast-txt');
-  let toastTimer = null;
-
-  function showToast(msg){
-    if(toastTxt) toastTxt.textContent = msg;
-    toast?.classList.add('show');
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(()=>toast?.classList.remove('show'), 2800);
-  }
-
-  window.copyEmail = function(btn){
-    const finish = ()=>{
-      showToast('Copied! → '+EMAIL);
-      if(btn){ btn.classList.add('copied'); setTimeout(()=>btn?.classList.remove('copied'),2400); }
-    };
-    if(navigator.clipboard?.writeText){
-      navigator.clipboard.writeText(EMAIL).then(finish).catch(()=>fallbackCopy(finish));
-    } else { fallbackCopy(finish); }
-  };
-
-  function fallbackCopy(cb){
-    /* execCommand fallback — works in older browsers / some WebViews */
-    try{
-      const el = document.createElement('textarea');
-      el.value = EMAIL;
-      el.setAttribute('readonly','');
-      el.style.cssText = 'position:fixed;opacity:0;pointer-events:none';
-      document.body.appendChild(el);
-      el.select(); el.setSelectionRange(0,99999);
-      document.execCommand('copy');
-      document.body.removeChild(el);
-      cb();
-    }catch{
-      showToast(EMAIL); /* last resort: just show address */
-    }
-  }
-
-  /* Wire all copy-btn elements */
-  $$('.copy-btn').forEach(btn=>btn.addEventListener('click',()=>copyEmail(btn)));
-
-  /* Pill "Hire Me" */
-  $('#pill-hire')?.addEventListener('click',()=>copyEmail(null));
-
-  /* Sheet copy */
-  $('#sheet-copy')?.addEventListener('click',()=>{ copyEmail(null); closeSheet(); });
 
   /* Shared tooltip actions */
   const ctaWrap = $('#hero-ctas');
@@ -148,11 +85,11 @@
   const hamBtn = $('#pill-ham');
   const sheet  = $('#pill-sheet');
 
-  function openSheet(){ sheet?.classList.add('open'); hamBtn?.classList.add('open'); hamBtn?.setAttribute('aria-expanded','true'); }
-  function closeSheet(){ sheet?.classList.remove('open'); hamBtn?.classList.remove('open'); hamBtn?.setAttribute('aria-expanded','false'); }
+  function openSheet(){ sheet?.classList.add('open'); hamBtn?.classList.add('open'); hamBtn?.setAttribute('aria-expanded','true'); sheet?.querySelector('a')?.focus(); }
+  function closeSheet(returnFocus=false){ sheet?.classList.remove('open'); hamBtn?.classList.remove('open'); hamBtn?.setAttribute('aria-expanded','false'); if(returnFocus) hamBtn?.focus(); }
 
   hamBtn?.addEventListener('click',e=>{ e.stopPropagation(); sheet?.classList.contains('open')?closeSheet():openSheet(); });
-  $$('.sl').forEach(a=>a.addEventListener('click',closeSheet));
+  $$('.sl').forEach(a=>a.addEventListener('click',()=>closeSheet()));
   document.addEventListener('click',e=>{ if(!pillNav?.contains(e.target)&&!sheet?.contains(e.target)) closeSheet(); });
 
   /* ── SMOOTH SCROLL ──────────────────────── */
@@ -164,16 +101,11 @@
     const t = document.querySelector(id);
     if(t){
       e.preventDefault();
+      if(a.classList.contains('skip-link')){ t.focus(); return; }
       const offset = id === '#stats' ? 170 : 88;
       window.scrollTo({top:t.getBoundingClientRect().top+scrollY-offset,behavior:'smooth'});
     }
   });
-
-  /* ── SCROLL REVEAL ──────────────────────── */
-  const revObs = new IntersectionObserver((en,ob)=>{
-    en.forEach(e=>{ if(!e.isIntersecting) return; setTimeout(()=>e.target.classList.add('visible'),60); ob.unobserve(e.target); });
-  },{ threshold:.06 });
-  $$('.section,.hero,.stats-s').forEach(el=>revObs.observe(el));
 
   /* ── STAT COUNTUP ───────────────────────── */
   const cntObs = new IntersectionObserver((en,ob)=>{
@@ -385,28 +317,6 @@
     render();
   })();
 
-  /* ── MORPH TEXT ─────────────────────────── */
-  const typedEl = $('#typed-role');
-  if(typedEl){
-    const roles=['Technical Support Engineer','SaaS Troubleshooting Expert','Front-End Customization Dev','E-commerce Support Specialist'];
-    const interval = 2800;
-    const totalDuration = (interval / 1000) * roles.length;
-    const wordDuration = interval / 1000;
-    typedEl.setAttribute('aria-label', roles.join(', '));
-    typedEl.innerHTML = `
-      <svg aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;pointer-events:none">
-        <defs>
-          <filter id="hero-role-threshold">
-            <feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 25 -9" result="goo" />
-            <feComposite in="SourceGraphic" in2="goo" operator="atop" />
-          </filter>
-        </defs>
-      </svg>
-      <span class="morph-word-rotator" aria-hidden="true">
-        ${roles.map((role,i)=>`<span class="morph-word" style="animation-delay:${i * wordDuration}s;animation-duration:${totalDuration}s">${role}</span>`).join('')}
-      </span>`;
-  }
-
   /* ── SKILL DROPDOWNS ────────────────────── */
   function closeSkillDropdowns(){
     $$('.sk-dd.open').forEach(w=>{
@@ -431,8 +341,9 @@
 
   /* ── LIGHTBOX ───────────────────────────── */
   const lb=$('#lb'), lbImg=$('#lb-img'), lbClose=$('#lb-close'), lbBd=$('#lb-bd');
-  function openLb(src,alt){ if(!lb||!lbImg) return; lbImg.src=src; lbImg.alt=alt||'Review'; lb.classList.add('open'); document.body.style.overflow='hidden'; }
-  function closeLb(){ lb?.classList.remove('open'); document.body.style.overflow=''; setTimeout(()=>{ if(lbImg) lbImg.src=''; },300); }
+  let lightboxTrigger = null;
+  function openLb(src,alt){ if(!lb||!lbImg) return; lightboxTrigger=document.activeElement; lbImg.src=src; lbImg.alt=alt||'Review'; lb.classList.add('open'); document.body.style.overflow='hidden'; lbClose?.focus(); }
+  function closeLb(){ lb?.classList.remove('open'); document.body.style.overflow=''; lightboxTrigger?.focus?.(); lightboxTrigger=null; }
   lbClose?.addEventListener('click',closeLb);
   lbBd?.addEventListener('click',closeLb);
 
@@ -452,7 +363,7 @@
     const TOTAL  = slides.length;
     const DELAY  = 2500; // ms
     let   cur    = 0;
-    let   paused = false;
+    let   paused = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches || false;
     let   timer  = null;
     let   isDrag = false;
     let   dragStartX = 0;
@@ -462,7 +373,7 @@
     function goTo(idx, animate=true){
       cur = ((idx % TOTAL) + TOTAL) % TOTAL;
       const slideW = slides[0].offsetWidth;
-      track.scrollTo({ left: cur * slideW, behavior: animate ? 'smooth' : 'instant' });
+      track.scrollTo({ left: cur * slideW, behavior: animate ? 'smooth' : 'auto' });
       if(curEl) curEl.textContent = cur + 1;
       restartSweep();
     }
@@ -550,7 +461,12 @@
 
     /* ── Keyboard ── */
     track.addEventListener('keydown', e=>{
-      if(e.key==='Enter'){ const s=document.activeElement?.closest('.rc-slide'); if(s){ const i=s.querySelector('.rc-img'); if(i?.src) openLb(i.src,i.alt); } }
+      if(e.key==='Enter'){
+        e.preventDefault();
+        const slide=e.target.closest('.rc-slide');
+        const image=slide?.querySelector('.rc-img');
+        if(image?.src) openLb(image.src,image.alt);
+      }
       if(e.key==='ArrowLeft'){ setPaused(true); goTo(cur-1); }
       if(e.key==='ArrowRight'){ setPaused(true); goTo(cur+1); }
     });
@@ -567,14 +483,14 @@
 
     /* ── Init ── */
     goTo(0, false);
-    startTimer();
+    setPaused(paused);
   })();
 
   /* ── ESCAPE ───────────────────────────────── */
   document.addEventListener('keydown',e=>{
     if(e.key==='Escape'){
       if(lb?.classList.contains('open')) closeLb();
-      else closeSheet();
+      else closeSheet(true);
     }
   });
 
