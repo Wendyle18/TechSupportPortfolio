@@ -19,6 +19,12 @@ Portfolio for [Wendyle Christian M. Seno](https://www.wendylechristianseno.com/)
 - Technical documentation, knowledge bases, and reply workflows
 - Salesforce Service Cloud and Help Scout experience
 
+## Site pages
+
+- [Case-study collection](https://www.wendylechristianseno.com/case-studies/)
+- [Work with Wendyle](https://www.wendylechristianseno.com/work-with-me/)
+- [Privacy and analytics](https://www.wendylechristianseno.com/privacy/)
+
 ## Case studies
 
 ### [Preorder Campaign Widgets](https://www.wendylechristianseno.com/case-studies/preorder-campaign-widgets/)
@@ -43,8 +49,9 @@ The portfolio is intentionally lightweight:
 - JSON-LD structured data
 - AVIF images with PNG or JPEG fallbacks
 - Static deployment on Vercel
+- Existing Google Analytics 4 tag with delegated, privacy-conscious conversion-event tracking
 
-No build step, framework, analytics, or client-side tracking is required.
+No build step, framework, large client library, or unnecessary third-party script is required.
 
 ## Run locally
 
@@ -56,7 +63,7 @@ python3 -m http.server 4173
 
 Then open [http://localhost:4173/](http://localhost:4173/).
 
-Opening `index.html` directly also works for the homepage, but a local server is recommended for testing directory-based case-study URLs, `robots.txt`, and `sitemap.xml`.
+Opening `index.html` directly also works for the homepage, but a local server is recommended for testing directory-based pages, the custom 404, `robots.txt`, and `sitemap.xml`.
 
 ## Deployment
 

@@ -1,124 +1,120 @@
-# SEO and AI Visibility Launch Checklist
+# SEO, Analytics, and Discovery Launch Checklist
 
-Owner-action checklist for the production launch of [wendylechristianseno.com](https://www.wendylechristianseno.com/). Completing these steps improves eligibility and measurement; it does not guarantee crawling, indexing, rankings, rich results, AI citations, or hiring outcomes.
+Owner-action checklist for [wendylechristianseno.com](https://www.wendylechristianseno.com/). Repository changes are complete locally; none of the external actions below has been performed.
 
-## Before deployment
+## 1. Content and privacy approval
 
-- [ ] Review the local diff, case-study facts, employment dates, public contact details, and the `3,000+ tickets` statement.
-- [ ] Confirm that `test` is still an intentionally public password for a restricted, non-sensitive demo store. Remove it from the portfolio if that changes.
-- [ ] Choose a policy for training crawlers before adding explicit rules for GPTBot, ClaudeBot, or Google-Extended. Search visibility crawlers are handled separately in `robots.txt`.
-- [ ] Confirm the canonical production host remains `https://www.wendylechristianseno.com/`.
-- [ ] Confirm the three URLs in `sitemap.xml` return HTTP 200 after deployment.
-- [ ] Confirm no staging URL, private customer data, secret, token, or real store credential appears in the deployed files.
+- [ ] Confirm or revise the existing `3,000+ tickets` claim using records you can defend.
+- [ ] Confirm that `test` is an intentionally public password for a non-sensitive demo store.
+- [ ] Approve the résumé, public email, availability wording, dates, case-study details, and social images.
+- [ ] Review the GA4 privacy explanation and determine any consent or notice obligations that apply to the site's audiences.
+- [ ] Choose whether training crawlers should be explicitly allowed or disallowed. Keep this separate from Googlebot, Bingbot, OAI-SearchBot, PerplexityBot, and Claude-SearchBot search access.
+- [ ] Confirm the canonical host remains `https://www.wendylechristianseno.com/`.
 
-## Google Search Console
+## 2. Preview and deployment verification
 
-- [ ] Add and verify a Domain property for `wendylechristianseno.com`, preferably with a DNS TXT record.
-- [ ] Submit `https://www.wendylechristianseno.com/sitemap.xml`.
-- [ ] Inspect and request indexing for:
+- [ ] Push the approved branch and create a Vercel preview; do not merge first.
+- [ ] Re-crawl the preview and check the browser console/network panel for errors, missing files, blocked assets, mixed content, and analytics duplication.
+- [ ] Confirm all six indexable URLs return 200 and the custom 404 returns the host's intended 404 status.
+- [ ] Confirm `robots.txt` and `sitemap.xml` return 200 with suitable content types.
+- [ ] Confirm HTTP and apex-domain requests resolve to the HTTPS `www` host without a loop.
+- [ ] Confirm each alias permanently redirects to its canonical URL: root `/index.html`, directory paths without a trailing slash, and directory `/index.html` paths.
+- [ ] Confirm every canonical, Open Graph, image, JSON-LD, and sitemap URL uses the production `www` host.
+- [ ] Run production mobile/desktop Lighthouse and compare with the local baseline in `SEO-IMPLEMENTATION-REPORT.md`.
+- [ ] Test share previews and run Google's Rich Results Test or Schema Markup Validator on each structured page.
+- [ ] Record the final deployment date as the measurement baseline.
+
+## 3. GA4 verification and key events
+
+Before changing GA4 settings, use a preview or production browser with Analytics Debugger/debug mode enabled:
+
+- [ ] Open GA4 **Admin → Data display → DebugView** and confirm the page view appears once.
+- [ ] Click one instrumented action at a time and confirm each event appears once: email, hire/work-with-me, LinkedIn, GitHub, résumé, and public demo.
+- [ ] Confirm no email address, full outbound URL, query parameter, or other PII appears in event parameters.
+- [ ] Check **Reports → Realtime** after deployment and confirm the events arrive under the correct web stream.
+- [ ] Mark `portfolio_email_click` as the primary key event.
+- [ ] Consider `portfolio_hire_click` and `portfolio_resume_download` as secondary key events only after verifying they are meaningful and not noisy.
+- [ ] Keep `portfolio_demo_click`, `portfolio_linkedin_click`, and `portfolio_github_click` as engagement events.
+- [ ] Annotate or separately record the deployment date so pre/post comparisons use the correct baseline.
+
+## 4. Google Search Console
+
+Search Console is already configured. After the approved production deployment:
+
+- [ ] Submit or re-submit `https://www.wendylechristianseno.com/sitemap.xml`.
+- [ ] Inspect each canonical URL below, choose **Test Live URL**, and request indexing for the new or materially updated version:
   - [ ] `https://www.wendylechristianseno.com/`
+  - [ ] `https://www.wendylechristianseno.com/case-studies/`
   - [ ] `https://www.wendylechristianseno.com/case-studies/preorder-campaign-widgets/`
   - [ ] `https://www.wendylechristianseno.com/case-studies/essential-apps-support-guide/`
-- [ ] Use URL Inspection to verify Google selected the intended canonical URL for each page.
-- [ ] Review Page Indexing, Crawl Stats, HTTPS, Manual Actions, and Security Issues after launch.
-- [ ] Record the deployment date so later performance comparisons use the correct baseline.
-- [ ] Monitor query, page, device, country, and search-appearance data.
-- [ ] Use the Generative AI performance report if it is available in the property.
+  - [ ] `https://www.wendylechristianseno.com/work-with-me/`
+  - [ ] `https://www.wendylechristianseno.com/privacy/`
+- [ ] When processing completes, verify **Google-selected canonical** matches the declared canonical for each page.
+- [ ] Review Page Indexing, Crawl Stats, HTTPS, Manual Actions, and Security Issues.
+- [ ] Do not repeatedly request indexing for unchanged URLs; request again only after another material update or a resolved indexing problem.
 
-## Bing and AI discovery
+## 5. Bing Webmaster Tools and optional IndexNow
 
-- [ ] Verify the site in Bing Webmaster Tools or import the verified Search Console property.
-- [ ] Submit `https://www.wendylechristianseno.com/sitemap.xml` to Bing.
-- [ ] Confirm production `robots.txt` allows Bingbot, OAI-SearchBot, PerplexityBot, and Claude-SearchBot.
-- [ ] Check Vercel or edge-security logs for accidental blocking or repeated 403/429 responses to legitimate crawlers.
-- [ ] Consider IndexNow only after deciding where to store its key and how deployment updates will submit changed canonical URLs. IndexNow can notify participating engines of changes; it does not guarantee indexing.
-- [ ] Do not add `llms.txt` as a Google ranking or AI-visibility tactic. Google states that it does not use the file for Search or generative Search visibility.
+Bing Webmaster Tools is already configured. After deployment:
 
-## Training-crawler policy decision
+- [ ] Submit or refresh `https://www.wendylechristianseno.com/sitemap.xml`.
+- [ ] Use **URL Submission** for the new and materially updated canonical URLs above.
+- [ ] Verify the submitted URLs are crawlable and their declared canonicals match the production destination.
+- [ ] Do not submit the 404 page or redirect aliases.
 
-The current `robots.txt` intentionally makes no explicit training-data policy decision. Choose one of these options before adding directives:
+IndexNow is optional and was not implemented. If you choose it:
 
-1. Allow training crawlers by leaving them governed by the general `User-agent: *` rule.
-2. Disallow selected training crawlers explicitly, such as GPTBot and ClaudeBot, while continuing to allow OAI-SearchBot and Claude-SearchBot.
-3. Define a broader organization policy after reviewing tradeoffs for all training-related crawlers, including Google-Extended.
+- [ ] Generate and retain an owner-controlled IndexNow key of 8–128 supported characters.
+- [ ] Host the key file at the documented root or provide its valid `keyLocation`.
+- [ ] Submit only canonical URLs that are new, updated, or deleted.
+- [ ] Never commit a fabricated key, reuse a secret credential, or treat submission as a guarantee of indexing.
 
-Document the choice and review it periodically because crawler names and product behavior can change.
+## 6. LinkedIn actions
 
-## Professional entity and authority
+- [ ] Add the homepage to the Contact info/website field.
+- [ ] Add the case-study hub and both individual case studies to Featured with descriptive titles.
+- [ ] Align the headline and About section with the verified SaaS Technical Support Engineer positioning and reproduce → investigate → communicate/escalate → verify → document workflow.
+- [ ] Ensure employer names, dates, job titles, location, availability, and contact details match the approved portfolio.
+- [ ] Use natural descriptions; do not manufacture endorsements, metrics, or keyword-heavy posts solely for links.
 
-- [ ] Add the portfolio to the LinkedIn Featured section.
-- [ ] Align the LinkedIn headline, About section, job title, location, and project links with the portfolio’s verified Technical Support Engineer positioning.
-- [ ] Link the full HTTPS portfolio URL from the GitHub profile.
-- [ ] Enable “available for hire” only if desired.
-- [ ] Pin this portfolio and the strongest case-study repositories.
-- [ ] Seek legitimate links from real profiles, authored technical content, projects, and professional communities.
-- [ ] Do not buy backlinks, mass-submit directories, use private blog networks, publish fake reviews, or generate low-value search pages.
+## 7. GitHub profile and repository actions
 
-## Recommended GitHub repository metadata
+- [ ] Profile bio: use a concise verified position such as `SaaS Technical Support Engineer | Shopify and e-commerce troubleshooting | HTML, CSS and JavaScript | Philippines`.
+- [ ] Profile website: `https://www.wendylechristianseno.com/`.
+- [ ] Profile README: link the portfolio, case-study hub, and both individual case studies.
+- [ ] Repository description: `Technical support portfolio for SaaS, Shopify and e-commerce troubleshooting, front-end customization, and support documentation.`
+- [ ] Repository homepage: `https://www.wendylechristianseno.com/`.
+- [ ] Suggested topics: `technical-support`, `support-engineering`, `saas`, `shopify`, `ecommerce`, `api-troubleshooting`, `html-css-javascript`, `portfolio`.
+- [ ] Pin the portfolio and the strongest public evidence repositories; remove or de-emphasize outdated projects and dead links.
 
-These changes require explicit approval and must be applied in GitHub, not in the local source tree.
+## 8. 30-, 60-, and 90-day operating checklist
 
-- Description: `Portfolio of Wendyle Seno, a SaaS Technical Support Engineer focused on Shopify, API troubleshooting, e-commerce support, and front-end customization.`
-- Homepage: `https://www.wendylechristianseno.com/`
-- Topics:
-  - `technical-support`
-  - `support-engineering`
-  - `saas`
-  - `shopify`
-  - `ecommerce`
-  - `api-troubleshooting`
-  - `html-css-javascript`
-  - `portfolio`
-- Pin recommendation: pin this repository on the GitHub profile.
+### 30 days
 
-## Recommended GitHub profile checklist
+- [ ] Verify sitemap processing, indexing status, selected canonicals, GA4 event integrity, crawl errors, and available production Core Web Vitals.
+- [ ] Record early branded/non-branded query and landing-page baselines without treating small samples as a trend.
 
-- [ ] Replace conflicting “aspiring Front-end Developer” positioning, if it is still present.
-- [ ] Suggested bio: `Technical Support Engineer | SaaS, Shopify and e-commerce troubleshooting | HTML, CSS and JavaScript | Remote — Philippines`
-- [ ] Add `https://www.wendylechristianseno.com/` as the profile website.
-- [ ] Pin the portfolio and strongest case-study repositories.
-- [ ] Keep the role title consistent across GitHub, LinkedIn, and the portfolio.
+### 60 days
 
-## Recommended LinkedIn checklist
+- [ ] Compare case-hub and work-with-me discovery, query/device patterns, and contact/résumé actions.
+- [ ] Review legitimate assistant referrers only where a referrer is actually supplied.
+- [ ] Select an authority brief only if the required first-hand evidence can be provided and anonymized.
 
-- [ ] Headline should lead with `SaaS Technical Support Engineer` and use Shopify, e-commerce, API troubleshooting, and front-end customization only where accurate.
-- [ ] About section should explain the reproduce → isolate → resolve/escalate → document workflow in first person.
-- [ ] Add both case-study URLs to Featured.
-- [ ] Confirm that dates, company names, job titles, location, and availability match the portfolio.
-- [ ] Use the same profile name and professional photo across LinkedIn and the portfolio where desired.
+### 90 days
 
-## Privacy-conscious measurement plan
+- [ ] Compare qualified impressions, clicks, CTR, landing pages, and key events with the recorded deployment baseline.
+- [ ] Improve pages with meaningful impressions but weak CTR or mismatched intent.
+- [ ] Publish an insight only after its evidence gate is complete; then add `/insights/` to navigation and the sitemap.
 
-Do not install analytics until the owner explicitly approves a provider, consent approach, and retention policy.
+## Official references
 
-- Organic discovery: Search Console impressions, clicks, CTR, average position, branded queries, and non-branded queries.
-- Landing pages: homepage and case-study entrances from Search Console and privacy-approved server or analytics data.
-- Conversion actions: contact-link clicks and LinkedIn/GitHub outbound clicks only after an approved measurement implementation exists.
-- Technical quality: Lighthouse scores, Core Web Vitals field data when available, broken links, and crawl errors.
-- AI referrals: review referrer data for ChatGPT, Perplexity, Claude, and other assistants where a referrer is actually provided.
-- Reporting cadence: compare at 30, 60, and 90 days, while accounting for deployment dates and low-volume data.
-
-## Post-deployment technical checks
-
-- [ ] Verify HTTP and apex-domain requests resolve to the HTTPS `www` canonical host without loops.
-- [ ] Confirm homepage, case studies, `robots.txt`, and `sitemap.xml` return HTTP 200 with appropriate content types.
-- [ ] Confirm canonical, Open Graph, Twitter, and JSON-LD URLs use the production `www` host.
-- [ ] Run production Lighthouse on mobile and desktop.
-- [ ] Test the social image with LinkedIn Post Inspector and other relevant preview debuggers.
-- [ ] Run Rich Results Test and Schema Markup Validator on all three pages.
-- [ ] Check browser console and network panels for 404s, blocked assets, mixed content, or JavaScript errors.
-- [ ] Re-crawl all internal links and image/CSS/JavaScript assets.
-
-## Official guidance checked on August 14, 2026
-
-- [Google: optimizing for generative AI features](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide)
-- [Google Search technical requirements](https://developers.google.com/search/docs/essentials/technical)
-- [Google ProfilePage structured data](https://developers.google.com/search/docs/appearance/structured-data/profile-page)
+- [Google URL Inspection and recrawl guidance](https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl)
+- [Google canonical consolidation](https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls)
 - [Google sitemap guidance](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap)
-- [Google Search Console](https://developers.google.com/search/docs/monitor-debug/search-console-start)
-- [Core Web Vitals](https://web.dev/articles/vitals)
-- [OpenAI crawler documentation](https://developers.openai.com/api/docs/bots)
-- [Bing Webmaster Guidelines](https://www.bing.com/webmasters/help/webmaster-guidelines-30fba23a)
+- [Google spam policies](https://developers.google.com/search/docs/essentials/spam-policies)
+- [GA4 event collection](https://developers.google.com/analytics/devguides/collection/ga4/events)
+- [GA4 key events](https://support.google.com/analytics/answer/13128484)
+- [GA4 DebugView](https://support.google.com/analytics/answer/7201382)
+- [Bing sitemap submission](https://www.bing.com/webmasters/help/sitemaps-3b5cf6ed)
+- [Bing URL Submission](https://www.bing.com/webmasters/help/URL-Submission-62f2860b)
 - [IndexNow documentation](https://www.indexnow.org/documentation)
-- [Perplexity crawler documentation](https://docs.perplexity.ai/docs/resources/perplexity-crawlers)
-- [Anthropic crawler guidance](https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler)

@@ -1,171 +1,155 @@
-# SEO and AI Visibility Implementation Report
+# SEO, AI Visibility, and Measurement Implementation Report
 
-Date: August 14, 2026  
-Working branch: `seo/organic-ai-visibility`  
-Baseline commit: `c257b0a`  
-Remote status: unchanged; no commit, push, pull request, deployment, or repository-setting change has been made.
+Date: August 14, 2026
+
+Working branch: `seo/site-architecture-and-measurement`
+
+Baseline commit: `60ff595`
+
+Publication status: local implementation only; no push, merge, deployment, or external-account change was made.
 
 ## Executive summary
 
-This branch turns the portfolio from a JavaScript-dependent single page into a crawlable, entity-focused technical support portfolio with two first-party case studies. It adds complete metadata, verified structured data, search and answer-engine crawler controls, a sitemap, accessible static content, optimized responsive media, and post-launch operating documentation.
+This branch expands the portfolio from three indexable pages to six, plus a useful non-indexable 404 page. It adds a case-study hub, a focused work-with-me page, a GA4 privacy page, visible and machine-readable breadcrumbs, stronger internal linking, explicit duplicate-URL redirects, page-specific case-study social images, and lightweight GA4 conversion-event tracking.
 
-The work does not promise rankings or AI citations. It improves the technical and content foundations that search engines and answer engines can evaluate.
+The implementation preserves the existing static architecture, visual language, GA4 measurement ID, canonical host, accessibility behavior, and performance profile. It does not promise rankings, indexing, AI citations, traffic, or employment outcomes.
 
-## Prioritized baseline findings
+## Verified baseline and prioritized findings
 
-| Priority | Finding | Resolution |
+The local starting files at `60ff595` matched the corresponding production HTML for the homepage and both case studies. Production already redirected HTTP and apex-domain requests to the HTTPS `www` canonical host. The following gaps remained:
+
+| Priority | Verified finding | Completed resolution |
 | --- | --- | --- |
-| P0 | A forced three-second loading overlay delayed meaningful content and produced a 7.1 s mobile LCP. | Removed the overlay and made primary content immediately visible. |
-| P0 | Important role and statistic content depended on JavaScript animation. | Added complete static HTML; JavaScript now progressively enhances it. |
-| P0 | Invalid ARIA, inaccessible hidden overlays, low contrast, and a keyboard lightbox bug affected assistive technology and navigation. | Corrected semantics, contrast, focus flow, reduced-motion behavior, and keyboard interactions. |
-| P1 | The homepage lacked a complete canonical/social/entity metadata system. | Added canonical, robots, Open Graph, Twitter card, favicons, and WebSite/ProfilePage/Person JSON-LD. |
-| P1 | Projects were summaries on the homepage instead of indexable evidence pages. | Added two unique, internally linked case studies with Article JSON-LD. |
-| P1 | Production returned 404 for `/robots.txt` and `/sitemap.xml`. | Added both files with canonical URLs and only indexable pages. |
-| P1 | Multi-megabyte images were used where small display sizes were sufficient. | Added responsive AVIF sources and correctly sized PNG/JPEG fallbacks. |
-| P2 | Filenames contained spaces and inconsistent casing; the favicon was an unrelated legacy image. | Renamed assets to descriptive kebab-case names and added a WCS favicon set. |
-| P2 | The repository README did not present the portfolio as a professional technical project. | Replaced it with a concise project overview, case studies, stack, local setup, and deployment notes. |
+| P1 | The two case studies had no indexable parent hub and limited cross-linking. | Added `/case-studies/`, connected every case page, and added related-evidence links. |
+| P1 | There was no dedicated founder/recruiter conversion page. | Added `/work-with-me/` with verified capabilities, workflow, evidence, availability, and contact actions. |
+| P1 | GA4 was present, but portfolio conversion actions were not measured. | Added one delegated event listener and six allowlisted events without PII or link interception. |
+| P1 | `/index.html`, no-slash directory paths, and directory `/index.html` aliases returned 200 instead of consolidating. | Added explicit permanent redirects in `vercel.json`; these require production verification after deployment. |
+| P2 | Case studies lacked visible breadcrumbs and BreadcrumbList data. | Added both, with relationships to the case-study collection and the existing Person entity. |
+| P2 | Case studies reused a generic social image. | Assigned each case its own verified project image and accurate image dimensions/alternative text. |
+| P2 | There was no analytics privacy explanation or useful 404 page. | Added `/privacy/` and `404.html`; the latter is `noindex,follow`. |
+| P2 | The sitemap did not contain the new canonical pages. | Updated it to exactly match the six public indexable canonical URLs. |
 
-### Production URL baseline
+The existing visible `3,000+ tickets` statement was not independently verifiable from repository evidence and was not repeated on the new pages. The owner must confirm or revise that existing claim before publication.
 
-The existing canonical host behavior was already healthy and was not changed in this branch:
+## Before and after page inventory
 
-| Requested URL | Baseline result |
-| --- | --- |
-| `http://wendylechristianseno.com/` | Canonical HTTPS `www` page after 2 redirects |
-| `https://wendylechristianseno.com/` | Canonical HTTPS `www` page after 1 redirect |
-| `http://www.wendylechristianseno.com/` | Canonical HTTPS `www` page after 1 redirect |
-| `https://www.wendylechristianseno.com/` | HTTP 200 with no redirect |
+| URL | Before | After | Index directive | Purpose |
+| --- | --- | --- | --- | --- |
+| `/` | Indexable | Updated | `index,follow` | Professional entity and portfolio overview |
+| `/case-studies/` | Missing | Added | `index,follow` | Evidence collection and case-study discovery |
+| `/case-studies/preorder-campaign-widgets/` | Indexable | Updated | `index,follow` | Shopify widget implementation evidence |
+| `/case-studies/essential-apps-support-guide/` | Indexable | Updated | `index,follow` | Support documentation and escalation evidence |
+| `/work-with-me/` | Missing | Added | `index,follow` | Founder/recruiter evaluation and contact intent |
+| `/privacy/` | Missing | Added | `index,follow` | Plain-language GA4 and privacy information |
+| `/404.html` | Missing | Added | `noindex,follow` | Recovery path for unavailable URLs |
 
-Before deployment, production returned HTTP 404 for `/robots.txt`, `/sitemap.xml`, and `/llms.txt`. This branch adds the first two and intentionally leaves the third absent.
+No `/insights/` archive was created because no substantive article has yet passed the evidence gate in `AUTHORITY-CONTENT-ROADMAP.md`.
 
-## Lighthouse before and after
+## Page-to-search-intent map
 
-The baseline and after measurements were run locally against the same static-site environment with Lighthouse 13.0.3 and Google Chrome. Scores can vary slightly between runs.
+| Page | Primary audience and intent | Evidence/conversion path |
+| --- | --- | --- |
+| Homepage | Founders, support leaders, and recruiters evaluating Wendyle's overall SaaS support fit | Capabilities, experience, case studies, résumé, work-with-me page, email |
+| Case studies | Evaluators looking for concrete technical support and implementation work | Two descriptive case cards, résumé, work-with-me page, email |
+| Preorder Campaign Widgets | People evaluating Shopify storefront troubleshooting and front-end customization evidence | Implementation details, live demo, related support-guide case, work-with-me page |
+| Essential Apps Support Guide | People evaluating support operations, reproduction, documentation, and escalation evidence | Workflow details, public repository/demo, related Shopify case, work-with-me page |
+| Work with me | Founders and recruiters assessing suitable problems, process, proof, availability, and next steps | Evidence links, résumé, email, LinkedIn |
+| Privacy | Visitors seeking an explanation of site measurement | GA4 purpose, event categories, controls, contact |
 
-| Profile | Perf. | A11y | Best practices | SEO | FCP | LCP | TBT | CLS |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Homepage mobile — before | 75 | 93 | 96 | 100 | 1.8 s | 7.1 s | 0 ms | 0 |
-| Homepage mobile — after | 99 | 100 | 100 | 100 | 1.5 s | 1.8 s | 10 ms | 0 |
-| Homepage desktop — before | 94 | 93 | 96 | 100 | 0.6 s | 1.6 s | 0 ms | 0 |
-| Homepage desktop — after | 100 | 100 | 100 | 100 | 0.4 s | 0.4 s | 0 ms | 0 |
+## Structured-data inventory
 
-The Google PageSpeed Insights API returned HTTP 429 during the audit, so no PageSpeed field-data claim is included. Production data should be checked after deployment.
+| Page | Types | Key relationships |
+| --- | --- | --- |
+| Homepage | `WebSite`, `ProfilePage`, `Person` | Stable Person ID: `https://www.wendylechristianseno.com/#person` |
+| Case-study index | `CollectionPage`, `BreadcrumbList` | Collection identifies the two visible case-study links |
+| Each case study | `Article`, `BreadcrumbList` | `author` points to the existing Person ID; breadcrumb parent is `/case-studies/` |
+| Work with me | `WebPage`, `BreadcrumbList` | Page is connected to the existing Person entity and visible hierarchy |
+| Privacy | `WebPage` | Matches the visible informational page |
+| 404 | None | Intentionally excluded from indexable structured-data inventory |
 
-### Case-study Lighthouse results
+No Review, rating, FAQ, LocalBusiness, Organization, JobPosting, award, or unsupported outcome markup was added. All JSON-LD blocks parsed successfully in local validation.
 
-| Page | Profile | Perf. | A11y | Best practices | SEO | LCP |
-| --- | --- | ---: | ---: | ---: | ---: | ---: |
-| Preorder Campaign Widgets | Mobile | 100 | 100 | 100 | 100 | 1.1 s |
-| Preorder Campaign Widgets | Desktop | 100 | 100 | 100 | 100 | 0.3 s |
-| Essential Apps Support Guide | Mobile | 100 | 100 | 100 | 100 | 1.2 s |
-| Essential Apps Support Guide | Desktop | 100 | 100 | 100 | 100 | 0.3 s |
+## GA4 event and key-event plan
 
-## Implemented changes
+The existing `G-58984RH5TE` tag remains once per HTML page. `js/analytics.js` listens for semantic `data-analytics-event` attributes, permits only the six names below, and sends only the event name plus a non-sensitive page-location label. It does not prevent navigation and does nothing when `gtag` is unavailable.
 
-### Search foundations
+| Event | Trigger | Recommended GA4 treatment |
+| --- | --- | --- |
+| `portfolio_email_click` | Mail contact link | Primary key event |
+| `portfolio_hire_click` | Work-with-me/hiring CTA | Secondary key event after initial data review |
+| `portfolio_resume_download` | Approved résumé link | Secondary key event after initial data review |
+| `portfolio_demo_click` | Public project demo or evidence | Engagement event |
+| `portfolio_linkedin_click` | LinkedIn outbound link | Engagement event |
+| `portfolio_github_click` | GitHub outbound link | Engagement event |
 
-- Added a unique homepage title and description aligned with SaaS technical support, Shopify, API investigation, browser debugging, front-end customization, and support documentation.
-- Added self-referencing canonical URLs to all three indexable pages.
-- Added Open Graph and Twitter card metadata with a 1200 × 630 social preview.
-- Added a stable `@id` graph for WebSite, ProfilePage, and Person on the homepage.
-- Added Article structured data to each case study with real author and page dates.
-- Omitted unsupported Review, FAQ, rating, award, employer, and outcome claims.
-- Added a three-URL XML sitemap and an absolute sitemap reference in `robots.txt`.
-- Intentionally omitted `llms.txt`: it is not required by the search or answer-engine documentation used for this implementation, while Google explicitly says no special AI text files or schema are needed beyond normal search fundamentals.
+Marking every outbound interaction as a key event would dilute the main employment-contact signal. Verify each event in DebugView and Realtime before changing key-event settings.
 
-### Search and answer-engine crawling
+## Validation results
 
-`robots.txt` explicitly permits:
+| Check | Result | Evidence/notes |
+| --- | --- | --- |
+| HTML validation | PASS | W3C Nu: 0 errors and 0 warnings on all 7 HTML files |
+| Internal crawl | PASS | 59 internal pages/assets; no broken internal links or orphaned indexable pages |
+| Sitemap XML | PASS | Valid XML; its six URLs exactly match the indexable canonical set |
+| Robots directives | PASS | Search crawlers remain allowed; sitemap location is absolute |
+| JSON-LD | PASS | Syntax, expected types, breadcrumb chains, and Article author IDs validated |
+| Titles/descriptions/canonicals/H1s | PASS | Unique on all six indexable pages; one H1 per page |
+| GA4 installation | PASS | One loader/config and one reusable event script per HTML page |
+| Custom-event behavior | PASS | Delegated-listener test confirmed one bind, one event, allowlist enforcement, and no `preventDefault` |
+| JavaScript resilience | PASS | Primary headings, content, evidence links, and contact paths are present in the original HTML source |
+| Browser console/overflow | PASS | No errors or horizontal overflow on tested local templates |
+| Lighthouse, new templates | PASS | Desktop and mobile: 100 in Performance, Accessibility, Best Practices, and SEO for case hub, work-with-me, and privacy |
+| Lighthouse, homepage | PASS | Desktop: 100/100/100/100; mobile: 99/100/100/100; mobile LCP 2.1 s, TBT 10 ms, CLS 0 |
+| Lighthouse, updated case template | PASS | Desktop and mobile: 100/100/100/100; mobile LCP 1.2 s, TBT 10 ms, CLS 0 |
+| 404 Lighthouse | PASS with expected exception | 100 Performance/Accessibility/Best Practices; SEO 63 because intentional `noindex` is correctly detected |
+| CSS/JavaScript syntax | PASS | Stylesheets parsed in-browser; both JavaScript files passed `node --check` |
+| Git whitespace | PASS | `git diff --check` |
+| Secrets/placeholders | PASS with owner review | No token/secret pattern found; existing public demo password `test` and the unverified `3,000+ tickets` claim require confirmation |
 
-- `Googlebot`
-- `Bingbot`
-- `OAI-SearchBot`
-- `PerplexityBot`
-- `Claude-SearchBot`
+These are local lab and static-validation results, not production field data. The redirect rules and live GA4 collection must be verified on the Vercel deployment.
 
-No explicit named rule was added for training-oriented agents such as `GPTBot`, `ClaudeBot`, or `Google-Extended`. The general `User-agent: *` rule currently allows crawling, so they are not blocked by this file. The owner should choose an explicit training policy before publication; options and implications are in `SEO-LAUNCH-CHECKLIST.md`.
+## Completed code work versus owner-only actions
 
-The crawler names and separation of search/user/training purposes were checked against [OpenAI's crawler documentation](https://developers.openai.com/api/docs/bots), [Perplexity's crawler documentation](https://docs.perplexity.ai/guides/bots), and [Anthropic's crawler documentation](https://support.anthropic.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler).
+Completed locally:
 
-### Content and entity clarity
+- New architecture, content, links, metadata, schema, analytics hooks, redirects, sitemap entries, privacy page, and 404 page.
+- Evidence-first briefs for six future authority topics.
+- Local crawl, markup, schema, event, responsive, console, and Lighthouse checks.
 
-- Made the visible primary identity “Wendyle Seno — SaaS Technical Support Engineer.”
-- Rewrote the introduction around founder-relevant support problems and concrete technical capabilities.
-- Added a six-step “How I Work” section covering reproduction, investigation, communication, escalation, verification, and documentation.
-- Added persistent email, LinkedIn, and GitHub links in crawlable HTML.
-- Converted both featured projects into substantive case studies with scenario, role, constraints, approach, technology, evidence, and practical value.
-- Kept claims qualitative where no verified before/after measurement exists.
-- Verified the Essential Apps Support Guide implementation against its public GitHub repository and live page.
+Not performed:
 
-### Performance, resilience, and accessibility
+- Push, pull request, merge, deployment, DNS, Vercel project settings, GA4 property settings, Search Console, Bing, LinkedIn, or GitHub profile/repository settings.
+- IndexNow key creation or URL submission.
+- Publication of unsupported authority articles or an empty `/insights/` archive.
 
-- Removed externally hosted fonts and favicon requests.
-- Removed the forced loader and scroll-reveal dependency.
-- Added AVIF image sources with correctly sized fallbacks and dimensions.
-- Added a skip link, valid landmarks, one H1 per page, descriptive link names, visible focus, keyboard controls, focus restoration, and reduced-motion behavior.
-- Ensured all primary content, case-study links, and contact links remain visible with JavaScript disabled.
-- Added conservative asset, CSS, and JavaScript cache headers in `vercel.json`; HTML is not given a long immutable cache.
+## Limitations and owner decisions
 
-### Asset improvements
+1. Confirm the existing `3,000+ tickets` claim or replace it with wording supported by records.
+2. Confirm that the demo-store password `test` remains intentionally public and grants access only to non-sensitive demo content.
+3. Approve the résumé, contact address, work availability, case-study facts, dates, and page-specific share images.
+4. Choose an explicit training-crawler policy separately from search-crawler access.
+5. Review applicable analytics/privacy and consent obligations for the audiences being served; this repository does not make a legal-compliance determination.
+6. Validate redirects, cache headers, canonical responses, GA4 events, and the custom 404 on the actual Vercel preview before merging.
+7. Search engines decide whether and when to crawl, index, select canonicals, display rich results, or cite a page. The implementation cannot guarantee those outcomes.
 
-| Asset | Original | Optimized delivery |
-| --- | ---: | ---: |
-| Profile image | 710,094 B PNG | 4,230 B at 128 px AVIF / 10,210 B at 256 px AVIF |
-| Preorder project image | 1,656,708 B PNG | 9,424 B at 640 px AVIF / 22,360 B at 1200 px AVIF |
-| Support guide image | 1,775,990 B PNG | 12,453 B at 640 px AVIF / 35,580 B at 1200 px AVIF |
-| Social preview | Not present | 144,323 B, 1200 × 630 JPEG |
+## 30-, 60-, and 90-day measurement plan
 
-The original project images remain linked from the case studies so a reviewer can inspect full-resolution evidence.
+| Window | Actions | Evaluate without overclaiming |
+| --- | --- | --- |
+| First 30 days | Record deployment date; confirm GSC/Bing discovery, selected canonicals, sitemap processing, GA4 event collection, and production Core Web Vitals availability | Index coverage, crawl errors, event QA, early branded/non-branded impressions; expect small or volatile samples |
+| By 60 days | Compare landing-page/query/device data; review case-hub and work-page engagement; inspect legitimate AI-assistant referrers where provided | Whether qualified discovery paths and email/résumé actions are appearing; do not infer causation from tiny samples |
+| By 90 days | Compare against the deployment baseline; identify pages with impressions but weak CTR; review content-brief evidence and publish only an approved substantive article | Directional change in qualified impressions, clicks, key events, and referring sources; prioritize improvements supported by actual data |
 
-## Validation evidence
+## Primary technical references
 
-| Check | Result |
-| --- | --- |
-| W3C Nu HTML validation | 0 errors on all 3 pages |
-| Responsive rendering | Passed at 375 × 812, 768 × 1024, and 1440 × 900 for all 3 pages |
-| Horizontal overflow | None at all 9 page/viewport combinations |
-| Browser console, page, and request errors | None at all 9 combinations |
-| Internal crawl | 50 discovered pages/assets returned no 4xx responses |
-| JavaScript disabled | H1, role, case-study links, main content, and contact links remain available |
-| Keyboard navigation | Skip link, mobile menu, carousel lightbox, Escape, and focus restoration passed |
-| Reduced motion | Carousel starts paused and decorative animations are reduced |
-| JSON-LD syntax | Valid; WebSite, ProfilePage, Person, and Article nodes parsed successfully |
-| Sitemap XML | Valid XML |
-| `robots.txt` and `sitemap.xml` local responses | HTTP 200 with appropriate MIME types |
-| Git whitespace check | Passed |
-| Credential-pattern scan | Clear |
-| Placeholder/TODO scan | Clear |
-| Social image dimensions | 1200 × 630 |
-
-## Manual decisions and post-deployment work
-
-These actions require owner approval, access, or a production deployment and were not performed:
-
-1. Decide whether training crawlers should be explicitly allowed or disallowed.
-2. Confirm that exposing the existing demo-store password `test` is intentional. It is presented as a public demo credential, not a private account secret.
-3. Review and approve the wording, case-study evidence, public contact email, and social image.
-4. Set the GitHub repository description, homepage URL, topics, and pinned-repository state using the suggestions in `SEO-LAUNCH-CHECKLIST.md`.
-5. Update LinkedIn headline/about/featured links for consistent entity signals.
-6. Deploy a preview, verify `robots.txt`, `sitemap.xml`, canonical URLs, JSON-LD, cache headers, and redirects on the actual host.
-7. After production deployment, verify the domain in Google Search Console and Bing Webmaster Tools, submit the sitemap, request indexing for all three URLs, and optionally submit updated URLs through IndexNow.
-8. Add privacy-conscious measurement only after choosing a provider and documenting any consent or privacy requirements.
-
-Google's current guidance says AI search features use the same foundational technical requirements as normal Search and do not require extra machine-readable AI files. See [Google's AI features guidance](https://developers.google.com/search/docs/appearance/ai-features), [robots.txt guidance](https://developers.google.com/search/docs/crawling-indexing/robots/intro), [ProfilePage structured-data guidance](https://developers.google.com/search/docs/appearance/structured-data/profile-page), and [sitemap guidance](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap). Bing discovery options are documented by [IndexNow](https://www.indexnow.org/documentation).
-
-## Proposed publication sequence
-
-Nothing below has been executed.
-
-1. Review the local diff and resolve the two owner decisions above.
-2. Commit with: `feat: improve portfolio SEO and AI discoverability`
-3. Push `seo/organic-ai-visibility`.
-4. Open a draft pull request titled: `Improve portfolio SEO, case studies, and AI visibility`.
-5. Use the validation table in this report as the pull-request test plan.
-6. Review the hosting preview, then merge and complete the launch checklist.
-
-## Remaining limitations
-
-- Search rankings, rich-result display, answer-engine citations, and crawler timing cannot be guaranteed.
-- Lighthouse lab results are not a substitute for real-user Core Web Vitals after deployment.
-- Search Console, Bing Webmaster Tools, production header checks, IndexNow submission, and repository/profile metadata require external account actions.
-- The public review screenshots were retained as source evidence and remain the largest group of image assets; they are lazy-loaded and do not affect the initial critical path.
+- [Google: build and submit a sitemap](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap)
+- [Google: canonical URL consolidation](https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls)
+- [Google: Breadcrumb structured data](https://developers.google.com/search/docs/appearance/structured-data/breadcrumb)
+- [Google: structured-data policies](https://developers.google.com/search/docs/appearance/structured-data/sd-policies)
+- [GA4: recommended and custom events](https://developers.google.com/analytics/devguides/collection/ga4/events)
+- [GA4: DebugView](https://support.google.com/analytics/answer/7201382)
+- [Bing: sitemap submission](https://www.bing.com/webmasters/help/sitemaps-3b5cf6ed)
+- [IndexNow documentation](https://www.indexnow.org/documentation)
+- [Schema.org BreadcrumbList](https://schema.org/BreadcrumbList)
+- [Vercel project configuration](https://vercel.com/docs/project-configuration/vercel-json)
+- [web.dev: Core Web Vitals](https://web.dev/articles/vitals)

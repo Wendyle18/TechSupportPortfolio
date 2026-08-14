@@ -506,6 +506,7 @@
   .project-heading-row h3{font-family:var(--fd);font-size:clamp(1.45rem,4vw,2.15rem);font-weight:800;letter-spacing:-.035em;color:var(--text);line-height:1.08}
   .project-link{display:inline-flex;align-items:center;gap:.35rem;flex-shrink:0;font-size:.78rem;font-weight:700;color:var(--text);padding:.55rem .8rem;border:1px solid var(--border);border-radius:999px;transition:border-color .2s,background .2s,transform .2s}
   .project-link:hover{border-color:var(--bord-hov);background:var(--surf-hov);transform:translateY(-2px)}
+  .case-index-link{margin:-1.5rem 0 2.5rem}
   .project-lead{max-width:650px;font-size:1rem;color:var(--sub);line-height:1.75;margin-bottom:1.8rem}
   .project-details{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
   .project-details>div{padding:1.3rem 1.1rem 1.35rem 0;display:grid;grid-template-columns:24px 1fr;gap:.5rem}
@@ -643,7 +644,7 @@
   /* ═══ FOOTER ════════════════════════════════ */
   .site-footer{padding:2.5rem 0 0;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
   .fl p{font-family:var(--fm);font-size:.73rem;color:var(--muted);margin:0}
-  .foot-links{display:flex;gap:1.5rem}
+  .foot-links{display:flex;justify-content:flex-end;gap:.6rem 1.25rem;flex-wrap:wrap}
   .foot-links a,.foot-links button{font-size:.8rem;color:var(--muted);transition:color .15s;background:none;padding:0}
   .foot-links a:hover,.foot-links button:hover{color:var(--text)}
   .foot-status{display:flex;align-items:center;gap:.5rem;font-family:var(--fm);font-size:.7rem;color:var(--green)}
