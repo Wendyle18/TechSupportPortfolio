@@ -2,6 +2,8 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
     { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/saas-technical-support-philippines", "destination": "/saas-technical-support-philippines/", "permanent": true },
+    { "source": "/saas-technical-support-philippines/index.html", "destination": "/saas-technical-support-philippines/", "permanent": true },
     { "source": "/case-studies", "destination": "/case-studies/", "permanent": true },
     { "source": "/case-studies/index.html", "destination": "/case-studies/", "permanent": true },
     { "source": "/case-studies/preorder-campaign-widgets", "destination": "/case-studies/preorder-campaign-widgets/", "permanent": true },

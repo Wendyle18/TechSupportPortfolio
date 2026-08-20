@@ -1,6 +1,6 @@
 # Wendyle Seno — Technical Support Portfolio
 
-Portfolio for [Wendyle Christian M. Seno](https://www.wendylechristianseno.com/), a remote SaaS Technical Support Engineer in the Philippines with experience in Shopify and e-commerce troubleshooting, API investigation, support escalation, technical documentation, and front-end customization.
+Portfolio for [Wendyle Christian M. Seno](https://www.wendylechristianseno.com/), a SaaS Technical Support Engineer based in the Philippines with experience in Shopify and e-commerce troubleshooting, API investigation, browser debugging, support escalation, technical documentation, and front-end customization.
 
 ## Live portfolio
 
@@ -21,6 +21,7 @@ Portfolio for [Wendyle Christian M. Seno](https://www.wendylechristianseno.com/)
 
 ## Site pages
 
+- [SaaS technical support in the Philippines](https://www.wendylechristianseno.com/saas-technical-support-philippines/)
 - [Case-study collection](https://www.wendylechristianseno.com/case-studies/)
 - [Work with Wendyle](https://www.wendylechristianseno.com/work-with-me/)
 - [Privacy and analytics](https://www.wendylechristianseno.com/privacy/)

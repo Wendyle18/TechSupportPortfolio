@@ -1,8 +1,8 @@
-# Evidence-First Authority Content Roadmap
+# Evidence-First Technical Support Authority Roadmap
 
-Updated: August 14, 2026
+Updated: August 20, 2026
 
-This roadmap is a publishing plan, not a list of completed articles or claims. No `/insights/` archive should be created until Wendyle has approved at least one substantive article backed by first-hand evidence.
+This roadmap is a research and publishing gate, not a claim that these articles exist. Do not create `/insights/` until at least one article is complete, approved, substantive, and backed by first-hand evidence.
 
 ## Editorial and confidentiality rules
 
@@ -10,219 +10,212 @@ Every article must:
 
 - Be based on work Wendyle personally performed and can explain in an interview.
 - Anonymize merchants, customers, stores, ticket IDs, internal URLs, credentials, tokens, private endpoints, company-only procedures, and confidential product details.
-- Separate observed facts, test results, hypotheses, and limitations.
-- Include the problem and environment, reproduction steps, investigation and evidence, root cause or best-supported diagnosis, resolution or workaround, limitations, primary-source references, relevant portfolio links, and a founder/recruiter-oriented call to action.
-- Use screenshots, logs, or code only when publication is permitted and sensitive values have been removed.
-- Avoid invented results, traffic claims, resolution-time metrics, customer quotes, or ranking promises.
+- Separate observed facts, test results, hypotheses, root causes, and remaining uncertainty.
+- Include the problem and environment, reproduction steps, investigation process, sanitized evidence, root cause or best-supported diagnosis, resolution/workaround/escalation, limitations, primary-source references, relevant internal links, and a recruiter/founder-oriented call to action.
+- Use screenshots, logs, requests, responses, or code only when publication is permitted and sensitive values are removed.
+- Avoid invented results, customer quotes, resolution-time claims, adoption metrics, traffic claims, and ranking promises.
 
-If the evidence listed in a brief is unavailable, keep the topic in draft status and collect the missing information before writing.
+If the evidence requested below is unavailable, keep the topic in draft status and collect it before writing.
 
-## Days 1–30: Investigation and escalation credibility
+## Brief 1 — How I troubleshoot Shopify app conflicts using Browser DevTools
 
-### Brief 1 — How to distinguish a Shopify theme conflict from an app issue
+**Audience and intent:** Shopify teams, SaaS support leaders, and technical recruiters evaluating systematic storefront troubleshooting.
 
-**Audience and purpose:** Shopify founders, support leads, and technical recruiters evaluating systematic storefront troubleshooting.
+**Evidence gate:** One real anonymized case where Wendyle used browser evidence and controlled comparisons to distinguish app behavior from theme, configuration, or another integration. Do not publish if the diagnosis cannot be reconstructed.
 
-**Evidence gate:** Use one real anonymized case where Wendyle compared theme and app states. Do not publish if the original symptom, test sequence, and final diagnosis cannot be reconstructed.
+**Wendyle must provide:**
 
-**Information Wendyle must provide:**
+- Customer-visible problem, affected storefront surface, and verified environment.
+- Theme, app/embed, browser, device, product/variant, and relevant configuration context.
+- Reproduction steps plus expected and actual results.
+- Sanitized Elements, Styles, Console, Network, Application, or responsive-mode evidence.
+- Tests comparing working and failing states and what each test ruled in or out.
+- Root cause or best-supported diagnosis, not an unsupported attribution to an app.
+- Implemented resolution, safe workaround, or evidence-rich escalation.
+- Limitations, remaining uncertainty, and any test that could not be completed.
 
-- The storefront symptom and affected page or component.
-- Theme name or safely generalized theme context, app/embed state, browser, device, and relevant configuration.
-- Exact reproduction steps and expected versus actual behavior.
-- Comparison evidence from another theme, app-disabled state, DOM/CSS/console/network inspection, or a minimal test.
-- What was ruled out, the best-supported cause, and why.
-- The implemented fix, safe workaround, or escalation outcome.
-- Any uncertainty, theme-specific limitation, or test that could not be completed.
+**Recommended structure:** Define the symptom → record the environment → reproduce → inspect DOM/styles/scripts/network → run controlled app/theme comparisons → conclude → resolve or escalate → reusable checklist.
 
-**Recommended structure:**
+**Primary sources:** Current official Shopify theme, app embed/theme app extension, and Chrome DevTools documentation relevant to the case.
 
-1. Why theme conflicts and app defects can look identical.
-2. Anonymized problem and environment.
-3. Reproduction and baseline evidence.
-4. Controlled comparisons: app state, theme state, DOM, CSS, JavaScript, and network behavior.
-5. Root cause or best-supported diagnosis.
-6. Resolution or escalation path.
-7. Limitations and a reusable decision checklist.
+**Internal links and CTA:** Link to the [Preorder Campaign Widgets case study](https://www.wendylechristianseno.com/case-studies/preorder-campaign-widgets/), [Philippines support overview](https://www.wendylechristianseno.com/saas-technical-support-philippines/), and [work-with-me page](https://www.wendylechristianseno.com/work-with-me/). Invite teams to discuss a role involving Shopify and browser-level troubleshooting.
 
-**Primary sources to cite:** Relevant Shopify theme architecture, app embed, theme app extension, and browser DevTools documentation. Use the documentation version that matches the case.
+## Brief 2 — Debugging Shopify theme CSS and JavaScript conflicts
 
-**Internal links and CTA:** Link to the [Preorder Campaign Widgets case study](https://www.wendylechristianseno.com/case-studies/preorder-campaign-widgets/) and the [work-with-me page](https://www.wendylechristianseno.com/work-with-me/). CTA: invite teams to discuss a role that requires Shopify and browser-level troubleshooting.
+**Audience and intent:** Shopify merchants, app teams, support engineers, and recruiters evaluating front-end diagnostic depth.
 
-### Brief 2 — How to prepare an evidence-rich engineering escalation
+**Evidence gate:** A first-hand anonymized case with a reproducible CSS or JavaScript conflict and evidence showing which selector, script, event, render order, or theme behavior caused the failure.
 
-**Audience and purpose:** SaaS support managers, support engineers, and recruiters evaluating cross-team handoff quality.
+**Wendyle must provide:**
 
-**Evidence gate:** Use an anonymized escalation Wendyle prepared or a verified support workflow he built. Do not present a template as proven unless it reflects a real process he used.
+- Visible problem, page/template, browser/device, theme context, and relevant app state.
+- Exact reproduction steps and a verified working comparison.
+- Sanitized selectors, computed styles, cascade/inheritance evidence, console errors, event behavior, or script-loading details.
+- Investigation order and why each test was chosen.
+- Root cause or best-supported diagnosis with competing hypotheses ruled out.
+- Fix, scoped customization, workaround, or escalation plus regression checks.
+- Limitations involving theme versions, custom templates, app updates, or inaccessible code.
 
-**Information Wendyle must provide:**
+**Recommended structure:** Problem/environment → reproduce → inspect DOM and computed styles → inspect scripts/events → minimize the conflict → implement the smallest safe change → verify responsive/regression states → limitations.
 
-- Customer impact and issue scope without identifying the customer.
-- Expected and actual results, reproduction steps, environment, timestamps, and frequency.
-- Screenshots, console/network evidence, request or response details, correlation identifiers, or sanitized logs that were genuinely collected.
-- Troubleshooting already completed and what each test ruled in or out.
-- Workaround status and remaining customer risk.
-- The exact questions engineering needed to answer.
-- What information was missing or added after the first handoff.
+**Primary sources:** Official Shopify theme architecture and asset guidance, MDN for CSS/JavaScript behavior, and Chrome DevTools documentation.
 
-**Recommended structure:**
+**Internal links and CTA:** Link to the [Preorder Campaign Widgets case study](https://www.wendylechristianseno.com/case-studies/preorder-campaign-widgets/), [case-study collection](https://www.wendylechristianseno.com/case-studies/), and [work-with-me page](https://www.wendylechristianseno.com/work-with-me/). Invite teams to discuss support roles requiring front-end diagnosis.
 
-1. Why incomplete escalations slow diagnosis.
-2. Anonymized issue and environment.
-3. Minimum reproducible steps and scope.
-4. Evidence package and completed tests.
-5. Workaround and customer communication.
-6. Engineering questions and final handoff structure.
-7. Limitations and a reusable escalation checklist.
+## Brief 3 — How I investigate SaaS API integration issues before escalation
 
-**Primary sources to cite:** Official documentation for the relevant platform, API, browser tooling, HTTP behavior, or logging system used in the example.
+**Audience and intent:** SaaS founders, integration teams, support managers, and recruiters evaluating API investigation and escalation readiness.
 
-**Internal links and CTA:** Link to the [Essential Apps Support Guide v2 case study](https://www.wendylechristianseno.com/case-studies/essential-apps-support-guide/) and the [work-with-me page](https://www.wendylechristianseno.com/work-with-me/). CTA: invite support leaders to review Wendyle for roles requiring reproducible engineering handoffs.
+**Evidence gate:** One real anonymized integration issue where Wendyle collected request/response and environment evidence before escalation. Do not expose credentials, private endpoints, customer data, or full production payloads.
 
-## Days 31–60: Commerce and browser diagnostics
+**Wendyle must provide:**
 
-### Brief 3 — Diagnosing Shopify price mismatches caused by multiple apps
+- Customer problem, expected integration behavior, affected environment, and scope.
+- Safe reproduction steps, endpoint purpose, request method, authentication mode, timing, and frequency.
+- Sanitized status code, headers, request shape, response shape, correlation identifier, logs, or network trace.
+- Checks for permissions, authentication state, data format, rate limits, versioning, and product configuration where relevant.
+- What support ruled in/out and the root cause or best-supported diagnosis.
+- Resolution, customer workaround, or the exact engineering questions in the escalation.
+- Limitations caused by access, production-only state, redaction, or unavailable logs.
 
-**Audience and purpose:** Shopify teams and SaaS support leaders investigating storefront prices that differ across product, cart, and checkout surfaces.
+**Recommended structure:** Define expected contract → reproduce safely → verify environment/authentication → inspect request and response → compare documentation → isolate support-owned versus engineering-owned causes → escalate with evidence → limitations.
 
-**Evidence gate:** Use a first-hand case involving multiple price-affecting components or apps. Do not imply that an app caused the mismatch unless the test evidence supports that conclusion.
+**Primary sources:** Official API, authentication, HTTP, SDK, and product documentation for the system actually involved.
 
-**Information Wendyle must provide:**
+**Internal links and CTA:** Link to the [Essential Apps Support Guide case study](https://www.wendylechristianseno.com/case-studies/essential-apps-support-guide/), [Philippines support overview](https://www.wendylechristianseno.com/saas-technical-support-philippines/), and [work-with-me page](https://www.wendylechristianseno.com/work-with-me/). Invite teams to discuss API-facing support work.
 
-- The mismatched values and where each appeared.
-- Product, variant, market, currency, discount, subscription, bundle, preorder, or other relevant configuration.
-- Which apps or theme components could affect price presentation.
-- Reproduction steps across product page, cart, checkout, and a controlled comparison state.
-- DOM, JavaScript, network, Shopify data, or configuration evidence.
-- The order in which possible causes were isolated.
-- Root cause or best-supported diagnosis, resolution, and remaining limitations.
+## Brief 4 — Anatomy of a good engineering escalation from Technical Support
 
-**Recommended structure:**
+**Audience and intent:** Support managers, SaaS engineers, technical support candidates, and recruiters evaluating cross-team handoff quality.
 
-1. Map every surface where price can change.
-2. Record the verified environment and pricing rules.
-3. Reproduce the mismatch consistently.
-4. Isolate one price-affecting layer at a time.
-5. Compare displayed values with authoritative platform data.
-6. Resolve, work around, or escalate with evidence.
-7. Limitations and a reusable price-mismatch checklist.
+**Evidence gate:** An escalation Wendyle prepared or a verified workflow he built. A hypothetical template must be labeled as a template and cannot be presented as a measured success.
 
-**Primary sources to cite:** Official Shopify documentation for product variants, discounts, Markets/currency, cart or checkout behavior, and the documented interfaces of any app involved.
+**Wendyle must provide:**
 
-**Internal links and CTA:** Link to the [Preorder Campaign Widgets case study](https://www.wendylechristianseno.com/case-studies/preorder-campaign-widgets/) and the [work-with-me page](https://www.wendylechristianseno.com/work-with-me/). CTA: invite teams to discuss support work involving Shopify state and storefront integrations.
+- Anonymized customer impact, issue scope, environment, frequency, and urgency.
+- Expected/actual behavior and minimum reproducible steps.
+- Sanitized screenshots, console/network evidence, request/response details, logs, timestamps, and identifiers genuinely collected.
+- Troubleshooting already completed and what each test established.
+- Workaround status, customer communication, and remaining risk.
+- Root cause if confirmed or best-supported diagnosis if unresolved.
+- Final engineering questions, ownership boundary, resolution/escalation outcome, and limitations.
 
-### Brief 4 — Using browser DevTools to investigate customer-facing SaaS issues
+**Recommended structure:** Why weak handoffs stall → issue summary → environment and scope → reproduction → evidence package → completed tests → workaround/customer status → focused engineering questions → reusable checklist.
 
-**Audience and purpose:** Startup founders, support leaders, and recruiters looking for practical browser-level investigation skills.
+**Primary sources:** Official platform, browser, API, logging, ticketing, and product documentation used in the case.
 
-**Evidence gate:** Use a real anonymized issue where DevTools changed or narrowed the diagnosis. A generic tour of DevTools is insufficient.
+**Internal links and CTA:** Link to the [Essential Apps Support Guide case study](https://www.wendylechristianseno.com/case-studies/essential-apps-support-guide/), [case-study collection](https://www.wendylechristianseno.com/case-studies/), and [work-with-me page](https://www.wendylechristianseno.com/work-with-me/). Invite support leaders to review Wendyle for roles requiring reproducible engineering handoffs.
 
-**Information Wendyle must provide:**
+## Brief 5 — Troubleshooting Shopify variant and cart behavior
 
-- The customer-visible symptom and affected workflow.
-- Browser, device, environment, account state, and safe reproduction context.
-- Which DevTools panels were used and why: Elements, Styles, Console, Network, Application, Performance, or responsive mode.
-- Sanitized evidence such as selectors, computed styles, error messages, request status, response shape, storage state, or timing.
-- What each observation ruled in or out.
-- The fix, workaround, or evidence sent to engineering.
-- Any limitation caused by permissions, production-only state, or missing access.
+**Audience and intent:** Shopify app teams, merchants, support engineers, and recruiters evaluating storefront state investigation.
 
-**Recommended structure:**
+**Evidence gate:** A first-hand anonymized case involving product variants, add-to-cart behavior, line-item state, pricing, availability, preorder rules, or cart presentation. Do not attribute causation without controlled evidence.
 
-1. Define the user-facing symptom before opening DevTools.
-2. Reproduce and record the environment.
-3. Inspect the rendered DOM and computed styles.
-4. Check console and network evidence.
-5. Review browser storage or state only when relevant and authorized.
-6. Form and test a diagnosis.
-7. Resolve or escalate, then document limitations.
+**Wendyle must provide:**
 
-**Primary sources to cite:** Official Chrome DevTools documentation plus official product or API documentation relevant to the case.
+- Product/variant setup, affected theme surface, app configuration, and observed behavior.
+- Expected versus actual results across product, cart, and any other relevant surface.
+- Reproduction steps for specific variant selections and working/failing comparisons.
+- Sanitized DOM, JavaScript state, network request, cart data, campaign, or platform evidence.
+- Investigation sequence and each hypothesis tested.
+- Root cause or best-supported diagnosis.
+- Resolution, safe workaround, or escalation and verification steps.
+- Limitations involving checkout access, market/currency, subscriptions, bundles, themes, or other apps.
 
-**Internal links and CTA:** Link to both the [case-study collection](https://www.wendylechristianseno.com/case-studies/) and the [work-with-me page](https://www.wendylechristianseno.com/work-with-me/). CTA: invite teams to discuss roles requiring customer-facing browser diagnostics.
+**Recommended structure:** Map state-changing surfaces → document environment → reproduce by variant → compare displayed and authoritative state → isolate theme/app/platform layers → resolve/escalate → regression checklist.
 
-## Days 61–90: Documentation and support judgment
+**Primary sources:** Current official Shopify product variant, Ajax Cart, theme, discount, market, and app documentation relevant to the case.
 
-### Brief 5 — Creating maintainable technical support documentation
+**Internal links and CTA:** Link to the [Preorder Campaign Widgets case study](https://www.wendylechristianseno.com/case-studies/preorder-campaign-widgets/), [Philippines support overview](https://www.wendylechristianseno.com/saas-technical-support-philippines/), and [work-with-me page](https://www.wendylechristianseno.com/work-with-me/). Invite Shopify teams to discuss roles involving storefront state and integrations.
 
-**Audience and purpose:** Support managers and SaaS leaders evaluating knowledge-system design and documentation ownership.
+## Brief 6 — How I diagnose front-end issues in customer SaaS environments
 
-**Evidence gate:** Base the article on the verified Essential Apps Support Guide v2 project or another approved documentation system. Do not claim time savings or adoption without source data.
+**Audience and intent:** SaaS product teams, support leaders, and recruiters evaluating customer-environment debugging.
 
-**Information Wendyle must provide:**
+**Evidence gate:** One real anonymized case where front-end evidence narrowed a customer-visible issue. A generic DevTools overview is not sufficient.
 
-- The original documentation problem and who needed the information.
-- Examples of recurring issue types and the evidence agents commonly missed.
-- The content model used for apps, issues, checklists, snippets, replies, ticket references, and playbooks.
-- How content is added, reviewed, found, and kept separate from confidential data.
-- One anonymized example from issue selection to response or escalation output.
-- Known limitations: browser-local records, no support-system synchronization, and ownership requirements.
-- Any qualitative feedback that can be quoted only with permission.
+**Wendyle must provide:**
 
-**Recommended structure:**
+- Customer-visible symptom, affected workflow, account state, browser/device, and authorized reproduction context.
+- Expected/actual behavior and a working comparison if available.
+- Sanitized DOM, computed-style, console, network, storage, responsive, or timing evidence.
+- Environmental variables tested: extensions, cache, browser, viewport, account/configuration, script order, or integration state as applicable.
+- Root cause or best-supported diagnosis and what was ruled out.
+- Fix, workaround, customer guidance, or evidence sent to engineering.
+- Limitations caused by permissions, production-only state, third-party code, or missing access.
 
-1. Define the findability and maintenance problem.
-2. Inventory the support tasks the documentation must enable.
-3. Separate reusable data from interface presentation.
-4. Design for investigation, replies, and escalation evidence.
-5. Establish review, ownership, and confidentiality rules.
-6. Show an anonymized workflow example.
-7. Limitations and a maintenance checklist.
+**Recommended structure:** Define symptom → reproduce → isolate environment variables → inspect DOM/styles → inspect console/network/state → test diagnosis → resolve/escalate → limitations.
 
-**Primary sources to cite:** Official product documentation for the supported platforms and primary accessibility or web-platform documentation used in the interface.
+**Primary sources:** Official Chrome DevTools, MDN web-platform, and relevant SaaS product/API documentation.
 
-**Internal links and CTA:** Link to the [Essential Apps Support Guide v2 case study](https://www.wendylechristianseno.com/case-studies/essential-apps-support-guide/) and the [work-with-me page](https://www.wendylechristianseno.com/work-with-me/). CTA: invite support teams to discuss roles involving documentation and escalation workflows.
+**Internal links and CTA:** Link to both [technical support case studies](https://www.wendylechristianseno.com/case-studies/), the [Philippines support overview](https://www.wendylechristianseno.com/saas-technical-support-philippines/), and [work-with-me page](https://www.wendylechristianseno.com/work-with-me/). Invite teams to discuss customer-facing browser diagnostics.
 
-### Brief 6 — Deciding between a customer workaround and an engineering fix
+## Brief 7 — Technical Support workflow: customer report to root cause
 
-**Audience and purpose:** SaaS founders, support leaders, and technical recruiters evaluating risk judgment and customer communication.
+**Audience and intent:** SaaS founders, support managers, and recruiters evaluating investigation discipline and customer communication.
 
-**Evidence gate:** Use one real anonymized decision where Wendyle evaluated both a workaround and a product or engineering fix. Do not claim a workaround was safe without the constraints and validation evidence.
+**Evidence gate:** A real anonymized issue with enough records to reconstruct the path from initial report to confirmed cause or best-supported diagnosis. Do not imply root-cause certainty when the evidence supported only an escalation.
 
-**Information Wendyle must provide:**
+**Wendyle must provide:**
 
-- Customer impact, urgency, affected scope, and verified environment.
-- What was known, unknown, and still under investigation.
-- Candidate workaround, reversibility, prerequisites, risks, and validation steps.
-- Why support could or could not implement it safely.
-- Evidence showing whether the underlying defect required engineering.
-- Customer communication and monitoring plan.
-- Final resolution or, if unresolved, the best-supported next step and limitations.
+- Original customer report and the clarifying information that was missing.
+- Environment, scope, impact, frequency, and expected/actual behavior.
+- Reproduction steps and investigation timeline.
+- Sanitized evidence collected at each stage and what it changed about the working hypothesis.
+- Root cause or best-supported diagnosis.
+- Resolution, workaround, escalation, and customer communication.
+- Limitations, unresolved questions, and documentation produced afterward.
 
-**Recommended structure:**
+**Recommended structure:** Intake → clarify → reproduce → gather evidence → isolate → decide support action versus escalation → validate → communicate → document → lessons and limits.
 
-1. Separate immediate customer impact from root-cause ownership.
-2. Define workaround safety criteria.
-3. Evaluate reversibility, data risk, scope, and supportability.
-4. Preserve evidence for an engineering fix.
-5. Communicate the temporary and durable paths clearly.
-6. Validate the workaround and monitor for recurrence.
-7. Limitations and a reusable decision matrix.
+**Primary sources:** Official documentation for the product, platform, API, browser, and support tools used in the example.
 
-**Primary sources to cite:** Official product, API, security, browser, or platform documentation that defines the relevant behavior and constraints.
+**Internal links and CTA:** Link to the [case-study collection](https://www.wendylechristianseno.com/case-studies/), [Essential Apps Support Guide case study](https://www.wendylechristianseno.com/case-studies/essential-apps-support-guide/), and [work-with-me page](https://www.wendylechristianseno.com/work-with-me/). Invite founders and recruiters to discuss evidence-led support work.
 
-**Internal links and CTA:** Link to the [case-study collection](https://www.wendylechristianseno.com/case-studies/) and the [work-with-me page](https://www.wendylechristianseno.com/work-with-me/). CTA: invite SaaS leaders to discuss roles requiring calm support judgment and engineering coordination.
+## Brief 8 — Building a Technical Support knowledge system for a SaaS team
+
+**Audience and intent:** SaaS support leaders, operations managers, and recruiters evaluating documentation and knowledge-system ownership.
+
+**Evidence gate:** Base the article on the verified Essential Apps Support Guide v2 or another approved system Wendyle built. Do not claim adoption, time savings, or business impact without source data.
+
+**Wendyle must provide:**
+
+- Original support-information problem, intended users, and verified environment.
+- Recurring issue types and evidence support agents needed.
+- Content model for apps, issues, checklists, snippets, replies, ticket references, and playbooks.
+- How information is added, reviewed, found, maintained, and separated from confidential data.
+- One anonymized workflow from issue selection through response or escalation.
+- Evidence for design decisions and root problem addressed.
+- Current outcome, known limitations, ownership requirements, and any permitted qualitative feedback.
+
+**Recommended structure:** Define findability/maintenance problem → inventory support tasks → design content model → connect investigation/reply/escalation context → show anonymized workflow → define governance → limitations and maintenance checklist.
+
+**Primary sources:** Official documentation for supported platforms plus relevant web-platform and accessibility documentation used by the interface.
+
+**Internal links and CTA:** Link to the [Essential Apps Support Guide case study](https://www.wendylechristianseno.com/case-studies/essential-apps-support-guide/), [Philippines support overview](https://www.wendylechristianseno.com/saas-technical-support-philippines/), and [work-with-me page](https://www.wendylechristianseno.com/work-with-me/). Invite support leaders to discuss roles involving documentation and escalation workflows.
 
 ## Publishing and measurement cadence
 
-- Publish no more than one evidence-backed article every one to two weeks.
-- Add `/insights/` only when the first article is approved, complete, and linked from that archive.
-- Add each published article’s canonical URL to `sitemap.xml` with its real publication or material-modification date.
-- Link each article to the most relevant case study and to `/work-with-me/`.
-- Share approved articles from LinkedIn with first-person context; do not copy generic AI summaries.
-- At 30, 60, and 90 days, review real Search Console queries, landing pages, links, and GA4 contact actions. Low-volume data may not support firm conclusions.
+- Publish only when a brief passes its evidence gate; one strong article every one to two weeks is preferable to a fixed-volume promise.
+- Create `/insights/` only when the first approved article exists and the archive provides useful navigation.
+- Add each published canonical URL to `sitemap.xml` with its real publication/material-modification date.
+- Link each article to the most relevant case study, the Philippines support overview where relevant, and `/work-with-me/`.
+- Share approved articles on LinkedIn with first-person context; do not use generic AI summaries as the primary value.
+- At 30, 60, and 90 days, review actual Search Console queries/landing pages and GA4 contact actions. Low-volume data may not support firm conclusions.
 
-## Reusable pre-publication evidence checklist
+## Reusable pre-publication checklist
 
 - [ ] First-hand case owner confirmed.
-- [ ] Merchant, customer, store, and company details anonymized.
+- [ ] Merchant, customer, store, company, credential, and internal details anonymized.
 - [ ] Problem and environment documented.
 - [ ] Reproduction steps verified.
-- [ ] Investigation evidence sanitized and approved.
-- [ ] Root cause clearly separated from hypothesis.
+- [ ] Investigation process explained.
+- [ ] Evidence sanitized and approved.
+- [ ] Root cause separated from best-supported diagnosis or hypothesis.
 - [ ] Resolution, workaround, or escalation described accurately.
 - [ ] Limitations included.
 - [ ] Primary sources linked.
-- [ ] Relevant case study and work-with-me links added.
-- [ ] Founder/recruiter-oriented CTA included.
-- [ ] No invented metrics, quotes, results, or guarantees.
+- [ ] Relevant portfolio and case-study links added.
+- [ ] Recruiter/founder-oriented CTA included.
+- [ ] No invented metrics, quotes, results, rankings, or guarantees.

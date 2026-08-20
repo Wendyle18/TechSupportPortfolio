@@ -251,13 +251,17 @@
   .hero-greeting{font-family:var(--fm);font-size:.76rem;color:var(--muted);letter-spacing:.08em;margin-bottom:.7rem;display:flex;align-items:center;gap:.45rem}
   .hero-greeting em{color:var(--cyan);font-style:normal}
   .hero-name{font-family:var(--fd);font-size:clamp(2.4rem,6.5vw,3.75rem);font-weight:800;letter-spacing:-.04em;line-height:1;margin-bottom:.45rem}
+  .hero-position{display:block;max-width:38ch;margin-top:.75rem;font-family:var(--fb);font-size:clamp(.95rem,2.4vw,1.08rem);font-weight:500;letter-spacing:0;line-height:1.45;color:var(--sub)}
   .hero-role{
     font-family:var(--fb);font-size:clamp(.95rem,2.4vw,1.08rem);font-weight:500;
     letter-spacing:0;min-height:1.6em;margin-bottom:1.5rem;color:var(--sub);
     position:relative;width:min(100%,28ch);
   }
   [data-theme="light"] .hero-role{color:#52525b}
-  .hero-desc{font-size:.955rem;color:var(--sub);line-height:1.78;max-width:455px;margin-bottom:2rem}
+  .hero-desc{font-size:.955rem;color:var(--sub);line-height:1.78;max-width:520px;margin-bottom:.85rem}
+  .hero-location-link{max-width:520px;margin-bottom:1rem;font-size:.82rem;line-height:1.55}
+  .hero-location-link a{color:var(--text);font-weight:750;text-decoration:underline;text-decoration-color:var(--border);text-underline-offset:4px}
+  .hero-location-link a:hover,.hero-location-link a:focus-visible{text-decoration-color:currentColor}
   .hero-action-row{display:flex;align-items:center;justify-content:space-between;gap:1rem;max-width:455px;width:100%;flex-wrap:wrap}
   .hero-ctas{display:flex;gap:0;flex-wrap:wrap;align-items:center}
   .hero-email-link{display:inline-flex;align-items:center;min-height:44px;padding:.65rem 1rem;border-radius:999px;background:var(--text);color:var(--bg);font-size:.8rem;font-weight:750;transition:transform .2s var(--ease),box-shadow .2s}
