@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-58984RH5TE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-58984RH5TE');
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>SysGuard IT Ticketing System Development Case Study — Wendyle Seno</title>
+  <meta name="description" content="See how Wendyle Seno rebuilt an early ticketing frontend into a secure Next.js and Supabase IT service desk through full-stack development, testing, and agentic workflows.">
+  <meta name="author" content="Wendyle Christian M. Seno">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <meta name="theme-color" content="#050505">
+  <script>
+    (() => {
+      let theme = 'dark';
+      try { theme = localStorage.getItem('wcs-theme') === 'light' ? 'light' : 'dark'; } catch {}
+      document.documentElement.dataset.theme = theme;
+      document.querySelector('meta[name="theme-color"]').content = theme === 'light' ? '#f7f7f7' : '#050505';
+    })();
+  </script>
+  <link rel="canonical" href="https://www.wendylechristianseno.com/case-studies/sysguard-ticketing-system/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Wendyle Seno">
+  <meta property="og:title" content="SysGuard IT Ticketing System Development Case Study — Wendyle Seno">
+  <meta property="og:description" content="From a static frontend prototype to a secure Next.js and Supabase service desk with role-based workflows, private attachments, audit history, and automated testing.">
+  <meta property="og:url" content="https://www.wendylechristianseno.com/case-studies/sysguard-ticketing-system/">
+  <meta property="og:image" content="https://www.wendylechristianseno.com/assets/img/sysguard-ticketing-modern.png">
+  <meta property="og:image:width" content="2160">
+  <meta property="og:image:height" content="2160">
+  <meta property="og:image:alt" content="Modern SysGuard landing page with requester actions and a support ticket preview">
+  <meta property="article:published_time" content="2026-08-21">
+  <meta property="article:modified_time" content="2026-08-21">
+  <meta property="article:author" content="Wendyle Christian M. Seno">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SysGuard IT Ticketing System Development Case Study — Wendyle Seno">
+  <meta name="twitter:description" content="How an early static ticketing frontend became a tested full-stack service desk built with Next.js, TypeScript, Supabase, and PostgreSQL.">
+  <meta name="twitter:image" content="https://www.wendylechristianseno.com/assets/img/sysguard-ticketing-modern.png">
+  <meta name="twitter:image:alt" content="Modern SysGuard landing page with requester actions and a support ticket preview">
+  <link rel="icon" href="../../assets/img/favicon.ico" sizes="32x32">
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" sizes="180x180">
+  <link rel="stylesheet" href="../../css/case-study.css?v=20260821-1">
+  <script defer src="../../js/analytics.js?v=20260821-1"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": "https://www.wendylechristianseno.com/case-studies/sysguard-ticketing-system/#article",
+        "headline": "Rebuilding SysGuard: From Front-End Prototype to Full-Stack IT Ticketing System",
+        "description": "How Wendyle Seno rebuilt an early ticketing frontend into a secure Next.js and Supabase IT service desk through full-stack development, testing, and an agentic development workflow.",
+        "url": "https://www.wendylechristianseno.com/case-studies/sysguard-ticketing-system/",
+        "mainEntityOfPage": "https://www.wendylechristianseno.com/case-studies/sysguard-ticketing-system/",
+        "isPartOf": { "@id": "https://www.wendylechristianseno.com/case-studies/#page" },
+        "datePublished": "2026-08-21",
+        "dateModified": "2026-08-21",
+        "image": "https://www.wendylechristianseno.com/assets/img/sysguard-ticketing-modern.png",
+        "inLanguage": "en",
+        "author": {
+          "@type": "Person",
+          "@id": "https://www.wendylechristianseno.com/#person",
+          "name": "Wendyle Christian M. Seno",
+          "url": "https://www.wendylechristianseno.com/"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.wendylechristianseno.com/case-studies/sysguard-ticketing-system/#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.wendylechristianseno.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Case Studies", "item": "https://www.wendylechristianseno.com/case-studies/" },
+          { "@type": "ListItem", "position": 3, "name": "SysGuard Ticketing System", "item": "https://www.wendylechristianseno.com/case-studies/sysguard-ticketing-system/" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#case-content">Skip to case study</a>
+  <header class="case-nav">
+    <nav class="case-shell case-nav-inner" aria-label="Case study navigation">
+      <a class="case-brand" href="../../"><span class="case-brand-mark">WCS</span><span>Wendyle Seno</span></a>
+      <div class="case-nav-links">
+        <a href="../preorder-campaign-widgets/" data-analytics-event="portfolio_case_study_click" data-analytics-location="sysguard_header">Next case study</a>
+        <a href="../">All case studies</a>
+        <a href="../../saas-technical-support-philippines/">Philippines support experience</a>
+        <a href="../../work-with-me/" data-analytics-event="portfolio_hire_click" data-analytics-location="sysguard_header">Work with me</a>
+        <a class="case-contact" href="mailto:senowendyle793@gmail.com?subject=Technical%20Support%20Opportunity" data-analytics-event="portfolio_email_click" data-analytics-location="sysguard_header">Email Wendyle</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="case-content">
+    <nav class="case-shell breadcrumbs" aria-label="Breadcrumb">
+      <ol><li><a href="../../">Home</a></li><li><a href="../">Case Studies</a></li><li aria-current="page">SysGuard Ticketing System</li></ol>
+    </nav>
+
+    <article>
+      <header class="case-shell case-hero sysguard-case-hero">
+        <p class="eyebrow">Full-stack development · IT service desk · Agentic workflow</p>
+        <h1>Rebuilding SysGuard: From Front-End Prototype to Full-Stack IT Ticketing System</h1>
+        <p class="case-dek">Years after building an early static frontend for an internal ticketing concept, I revisited the project and rebuilt it as SysGuard—a secure full-stack IT service desk with real authentication, persistent ticket workflows, role-based access, private attachments, audit history, automated testing, and separate requester and administrator experiences.</p>
+        <div class="case-byline">
+          <span>By <strong>Wendyle Christian M. Seno</strong></span>
+          <span>Published <time datetime="2026-08-21">August 21, 2026</time></span>
+          <span>Development project—not support employment</span>
+        </div>
+      </header>
+
+      <figure class="case-shell case-media sysguard-hero-media">
+        <a href="../../assets/img/sysguard-ticketing-modern.png" aria-label="Open the full-resolution modern SysGuard screenshot">
+          <picture>
+            <source type="image/avif" srcset="../../assets/img/generated/sysguard-ticketing-modern-640.avif 640w, ../../assets/img/generated/sysguard-ticketing-modern-1200.avif 1200w" sizes="(max-width: 1080px) 100vw, 1080px">
+            <img src="../../assets/img/generated/sysguard-ticketing-modern-1200.png" alt="Angled screenshot of the modern SysGuard landing page with requester actions and a support ticket preview" width="1200" height="1200" decoding="async" fetchpriority="high">
+          </picture>
+        </a>
+        <figcaption>Modern SysGuard presents a calmer requester entry point while the application provides separate protected requester and administrator workspaces.</figcaption>
+      </figure>
+
+      <div class="case-shell case-grid">
+        <div class="case-content">
+          <section aria-labelledby="started-heading">
+            <h2 id="started-heading">Where this project started</h2>
+            <p>SysGuard did not begin as an AI-generated application. The idea goes back to an earlier stage of my career, when I was working as a System Administration Staff Assistant and was tasked with developing the frontend appearance of a ticketing interface.</p>
+            <p>I was already interested in development and worked directly with HTML, CSS, and JavaScript, but I did not yet have today’s engineering experience or agentic coding assistants. The result reflected the knowledge and tooling available to me at the time.</p>
+            <p><a class="inline-link" href="https://wendyle18.github.io/Basic-Ticketing-Look/" target="_blank" rel="noopener noreferrer" data-analytics-event="portfolio_demo_click" data-analytics-location="sysguard_legacy">View the original Basic Ticketing Look</a>, or <a class="inline-link" href="https://github.com/Wendyle18/Basic-Ticketing-Look" target="_blank" rel="noopener noreferrer" data-analytics-event="portfolio_github_click" data-analytics-location="sysguard_legacy">review the original frontend source</a>.</p>
+          </section>
+
+          <section aria-labelledby="original-heading">
+            <h2 id="original-heading">The original frontend</h2>
+            <p>The earlier project explored information hierarchy for a ticket dashboard, an Add Ticket modal, a static ticket table, search presentation, status display, and ticket, administrator, profile, and sign-out navigation. It also included separate responsive styles and a small amount of JavaScript UI behavior.</p>
+            <p>It was a frontend prototype: the ticket examples were hardcoded, forms did not connect to a production database, and the interface did not provide real authentication, robust authorization, private storage, an audit trail, or mature validation and testing infrastructure.</p>
+            <p><strong>The old interface is useful precisely because it is imperfect: it captures my starting point.</strong></p>
+          </section>
+
+          <section aria-labelledby="rebuild-heading">
+            <h2 id="rebuild-heading">Why I rebuilt it</h2>
+            <p>Years later, the project became an opportunity to ask: if I approached the same problem today, with better technical judgment and modern tools, what would I build differently?</p>
+            <p>I chose not to restyle the old pages or hide their limitations. I treated them as feature archaeology, preserved the historical project, and rebuilt the concept as an actual service-desk application with persistent state, explicit roles, lifecycle rules, secure file handling, separate product experiences, and testable behavior.</p>
+          </section>
+        </div>
+
+        <aside class="case-aside" aria-labelledby="facts-heading">
+          <h2 id="facts-heading">Project facts</h2>
+          <ul class="fact-list">
+            <li><span>Project</span><strong>SysGuard Ticketing</strong></li>
+            <li><span>Type</span><strong>Full-stack development project</strong></li>
+            <li><span>Domain</span><strong>IT ticketing / service desk</strong></li>
+            <li><span>Role</span><strong>Product design, full-stack implementation, QA, and agentic development</strong></li>
+            <li><span>Stack</span><strong>Next.js, React, TypeScript, Supabase, PostgreSQL</strong></li>
+            <li><span>Deployment</span><strong>Vercel</strong></li>
+            <li><span>Original project</span><strong>Basic Ticketing Look</strong></li>
+          </ul>
+          <div class="tag-list">
+            <span>Next.js</span><span>TypeScript</span><span>Supabase</span><span>PostgreSQL</span><span>RLS</span><span>Testing</span><span>Accessibility</span><span>Agentic AI</span>
+          </div>
+          <p class="demo-note"><a class="inline-link" href="https://sysguard-ticketing.vercel.app/" target="_blank" rel="noopener noreferrer" data-analytics-event="portfolio_demo_click" data-analytics-location="sysguard_facts">Open the live SysGuard ticketing application</a>.</p>
+          <p class="demo-note"><a class="inline-link" href="https://github.com/Wendyle18/SysGuard-Ticketing" target="_blank" rel="noopener noreferrer" data-analytics-event="portfolio_github_click" data-analytics-location="sysguard_facts">Review the SysGuard source on GitHub</a>.</p>
+        </aside>
+      </div>
+
+      <section class="case-shell case-comparison-section" aria-labelledby="then-now-heading">
+        <p class="eyebrow">Then → Now</p>
+        <h2 id="then-now-heading">From frontend prototype to full-stack service desk</h2>
+        <p class="case-section-intro">The difference between these two interfaces represents more than a visual redesign. The first version records where my frontend development skills were at the time. The second reflects what became possible after years of additional technical experience, stronger engineering habits, modern application architecture, and an agentic development workflow.</p>
+
+        <div class="before-after-grid">
+          <figure class="comparison-figure">
+            <p class="comparison-label">Earlier project · Front-end prototype</p>
+            <a href="../../assets/img/sysguard-ticketing-original.png" aria-label="Open the full-resolution original SysGuard screenshot">
+              <picture>
+                <source type="image/avif" srcset="../../assets/img/generated/sysguard-ticketing-original-640.avif 640w, ../../assets/img/generated/sysguard-ticketing-original-1200.avif 1200w" sizes="(max-width: 760px) 100vw, 520px">
+                <img src="../../assets/img/generated/sysguard-ticketing-original-1200.png" alt="Angled screenshot of the original blue SysGuard ticket dashboard with a ticket table and sidebar navigation" width="1200" height="1200" loading="lazy" decoding="async">
+              </picture>
+            </a>
+            <figcaption>The original ticketing frontend I developed earlier in my career, before modern agentic development tools became part of my workflow.</figcaption>
+          </figure>
+
+          <div class="comparison-arrow" aria-hidden="true"><span>Then</span><b>→</b><span>Now</span></div>
+
+          <figure class="comparison-figure">
+            <p class="comparison-label">Modern rebuild · Full-stack application</p>
+            <a href="../../assets/img/sysguard-ticketing-modern.png" aria-label="Open the full-resolution modern SysGuard screenshot">
+              <picture>
+                <source type="image/avif" srcset="../../assets/img/generated/sysguard-ticketing-modern-640.avif 640w, ../../assets/img/generated/sysguard-ticketing-modern-1200.avif 1200w" sizes="(max-width: 760px) 100vw, 520px">
+                <img src="../../assets/img/generated/sysguard-ticketing-modern-1200.png" alt="Angled screenshot of the modern SysGuard landing page with requester actions and a support ticket preview" width="1200" height="1200" loading="lazy" decoding="async">
+              </picture>
+            </a>
+            <figcaption>The modern SysGuard rebuild, developed as a full-stack IT service desk with persistent workflows, authentication, authorization, testing, and separate requester and administrator experiences.</figcaption>
+          </figure>
+        </div>
+
+        <div class="version-comparison" role="list" aria-label="Comparison between the earlier ticketing prototype and modern SysGuard">
+          <div class="comparison-row comparison-row-head" aria-hidden="true"><span>Earlier version</span><span>Modern SysGuard</span></div>
+          <div class="comparison-row" role="listitem"><span>Static HTML pages</span><span>Next.js application</span></div>
+          <div class="comparison-row" role="listitem"><span>Hardcoded ticket examples</span><span>PostgreSQL persistence</span></div>
+          <div class="comparison-row" role="listitem"><span>Simulated interface behavior</span><span>Supabase authentication</span></div>
+          <div class="comparison-row" role="listitem"><span>UI-only roles</span><span>Server- and database-enforced authorization</span></div>
+          <div class="comparison-row" role="listitem"><span>Static ticket table</span><span>Searchable, filtered, paginated ticket queues</span></div>
+          <div class="comparison-row" role="listitem"><span>No attachment security</span><span>Private storage and short-lived signed downloads</span></div>
+          <div class="comparison-row" role="listitem"><span>No audit history</span><span>Append-only ticket event history</span></div>
+          <div class="comparison-row" role="listitem"><span>Limited validation and manual checking</span><span>Layered validation plus unit, component, browser, accessibility, and RLS tests</span></div>
+        </div>
+
+        <div class="comparison-reflection">
+          <p>Looking at the two versions side by side is one of the clearest ways to explain why I returned to the project. The original interface represents genuine development work from an earlier stage of my career. I had already developed an interest in building interfaces and understanding how technical systems fit together, but my tools and experience were much more limited. The modern SysGuard rebuild gave me an opportunity to approach the same problem again with stronger technical judgment, years of additional exposure to troubleshooting and customer-facing software, and a development workflow enhanced by agentic AI.</p>
+          <p><strong>The progression is therefore not “before AI” versus “after AI.” It is an evolution in experience, tooling, architecture, testing, and the way I approach technical problems.</strong></p>
+        </div>
+      </section>
+
+      <div class="case-shell case-article-body case-content">
+        <section aria-labelledby="technical-growth-heading">
+          <h2 id="technical-growth-heading">Growth through technical environments</h2>
+          <p>The SysGuard rebuild was not part of my Technical Support employment. It is an independent development project. However, working in technical-support environments strengthened how I reason about software: reproduce before concluding, isolate the likely failure boundary, inspect browser and application state, validate fixes, document evidence, consider user impact, and communicate clearly with engineers.</p>
+          <p>Those habits changed the questions I asked while rebuilding the application. What happens when the session expires? Who owns this record? Can a requester infer that an internal note exists? What state transitions are valid? Is a private file still private when someone bypasses the interface? How does the workflow behave on mobile or when a submission partially succeeds?</p>
+        </section>
+
+        <section aria-labelledby="agentic-development-heading">
+          <h2 id="agentic-development-heading">Agentic development changed my workflow and leverage</h2>
+          <p>Development was already part of my technical interests before agentic coding tools existed. The original SysGuard frontend is evidence of that. What changed was not suddenly becoming interested in software development—it was gaining better tools, better technical judgment, and a more disciplined way to approach complex systems.</p>
+          <p>Instead of treating AI as a source of isolated code snippets, I worked through a controlled engineering loop:</p>
+          <ol class="case-steps agentic-steps">
+            <li><div><strong>Inspect the existing system.</strong> Preserve useful history without assuming the old implementation is a safe foundation.</div></li>
+            <li><div><strong>Understand requirements and define constraints.</strong> Separate requester and administrator needs, security boundaries, portfolio scope, and explicit non-goals.</div></li>
+            <li><div><strong>Decompose and research.</strong> Break authentication, data, authorization, storage, lifecycle, interface, and testing into reviewable parts.</div></li>
+            <li><div><strong>Implement and test.</strong> Build the smallest coherent slice, then verify its types, behavior, permissions, and responsive presentation.</div></li>
+            <li><div><strong>Inspect failures and regressions.</strong> Use test output, browser behavior, code, migrations, and application state as evidence rather than guessing.</div></li>
+            <li><div><strong>Review security and documentation.</strong> Re-check trust boundaries, record decisions, and state limitations before calling the work complete.</div></li>
+            <li><div><strong>Iterate to acceptance criteria.</strong> Correct findings and repeat the validation loop until the implementation matches the intended behavior.</div></li>
+          </ol>
+          <p>Agentic AI accelerated that process, but it did not remove the need to understand the system. The more capable the tools become, the more important it is to define constraints, inspect their output, test assumptions, and recognize when something is technically wrong.</p>
+        </section>
+
+        <section aria-labelledby="architecture-heading">
+          <h2 id="architecture-heading">One product, two deliberately different experiences</h2>
+          <div class="architecture-grid">
+            <article>
+              <p class="eyebrow">Requester portal · /portal</p>
+              <h3>A calmer place to ask for help</h3>
+              <p>Requesters can create and follow their own tickets, use human-readable impact choices, search and filter work, exchange public replies, access authorized attachments, manage notifications and profile details, and reopen or close eligible resolved requests.</p>
+            </article>
+            <article>
+              <p class="eyebrow">Administrator desk · /admin</p>
+              <h3>A denser operational workspace</h3>
+              <p>Administrators get metrics, a bounded operational queue, assignment and lifecycle controls, due dates, public replies, internal notes, actor-attributed event history, people and role management, invitations, and category administration.</p>
+            </article>
+          </div>
+          <p>Both experiences share Supabase authentication and PostgreSQL data, but protected layouts, server-side role checks, and database policies enforce different authorization expectations. The visual separation supports each workflow; it is not treated as the security boundary.</p>
+        </section>
+
+        <section aria-labelledby="security-heading">
+          <h2 id="security-heading">Security became part of the architecture</h2>
+          <p>Modern SysGuard uses Supabase Auth for identity, server-side authorization for protected routes and actions, and Row Level Security as the final boundary for user-facing data. Public signup always provisions a requester; client-controlled metadata cannot grant administrator access.</p>
+          <ul>
+            <li>Requesters are limited to owned tickets, public messages and events, authorized attachments, and their own notifications.</li>
+            <li>Administrator-only actions re-check role and use transactional database functions for protected workflow changes.</li>
+            <li>Internal notes and their audit events are hidden from requester policies.</li>
+            <li>Attachments use normalized paths, a private bucket, MIME, size, and count limits, and authorized 60-second signed downloads.</li>
+            <li>Ticket lifecycle rules are validated in application code and enforced again by PostgreSQL.</li>
+            <li>Ordinary authenticated users cannot rewrite append-only event history.</li>
+          </ul>
+        </section>
+
+        <section aria-labelledby="qa-heading">
+          <h2 id="qa-heading">QA became part of development</h2>
+          <p>Development did not stop when the interface looked correct. The repository defines formatting, zero-warning linting, strict TypeScript checking, unit and component tests, a production build, Playwright browser coverage, axe accessibility checks, and pgTAP authorization tests for a configured local Supabase environment.</p>
+          <p>The project history records follow-up work on navigation and session behavior, ticket workflows, database function access, filters, ticket controls, toolbar presentation, and mobile keyboard accessibility. That history matters because it shows QA as an implementation loop: test, inspect, correct, and re-test.</p>
+          <p>The authenticated browser journey is designed to exercise ownership denial, role redirects, private attachments, public versus internal visibility, waiting behavior, resolution and reopening, logout, mobile overflow, and accessibility. Infrastructure-dependent tests still require isolated test identities and a configured Supabase project; authored coverage is not presented as proof that every external environment always passes.</p>
+        </section>
+
+        <section aria-labelledby="agentic-support-heading">
+          <h2 id="agentic-support-heading">Agentic AI is a technical workflow, not just a coding tool</h2>
+          <p>Agentic AI is useful in development because an agent can inspect a codebase, reason across multiple files, implement changes, run tests, identify failures, and iterate. The same underlying workflow has value in technical support.</p>
+          <div class="workflow-comparison">
+            <article>
+              <h3 class="eyebrow">Development</h3>
+              <p>Inspect code → understand constraints → implement → test → debug → document.</p>
+            </article>
+            <article>
+              <h3 class="eyebrow">Technical support</h3>
+              <p>Inspect evidence → reproduce → form hypotheses → review logs, code, and documentation → isolate the failure → validate → communicate or escalate.</p>
+            </article>
+          </div>
+          <p>The shared capability is <strong>technical reasoning and verification</strong>. I do not see agentic AI as something useful only for writing software. In support, it can help gather evidence, compare documentation, inspect technical behavior, organize hypotheses, validate a workaround, and prepare a stronger engineering escalation.</p>
+          <p>The agent can accelerate the investigation; technical judgment still determines whether the conclusion is trustworthy. Customer information should not be submitted indiscriminately to AI systems, and an agent should not blindly answer customers or modify production environments.</p>
+          <p><strong>The value of an agent is not that it removes the need to understand the system. Its value increases when the person directing it can recognize incorrect assumptions, test its work, narrow the problem, and decide what evidence actually matters.</strong></p>
+        </section>
+
+        <section aria-labelledby="support-depth-heading">
+          <h2 id="support-depth-heading">How development strengthens the way I approach technical support</h2>
+          <p>SysGuard is a development project, but the way I built it reflects the same habits I value in technical support: investigate before assuming, reproduce before concluding, verify permissions and state, test edge cases, document what changed, and leave enough evidence for the next person to understand the problem.</p>
+          <p>Hands-on development helps me read frontend behavior critically, understand state and data flow, reason about application boundaries, build minimal reproductions, validate fixes, identify likely frontend-versus-backend boundaries, and communicate with developers more precisely.</p>
+          <p>Working in technical support also changed how I build. I now think more deliberately about failure states, permissions, reproduction steps, user impact, edge cases, observability, documentation, and what happens when the happy path breaks. See how this engineering depth complements my <a class="inline-link" href="../../saas-technical-support-philippines/">SaaS technical support experience in the Philippines</a>.</p>
+        </section>
+
+        <section aria-labelledby="learned-heading">
+          <h2 id="learned-heading">What I learned</h2>
+          <ul>
+            <li>Development interest can predate AI while the workflow and available leverage still change substantially.</li>
+            <li>Engineering judgment, constraints, and acceptance criteria matter more than raw code generation.</li>
+            <li>QA is part of implementation, not a final cosmetic step.</li>
+            <li>Security has to exist in architecture, database policy, and server behavior—not only in navigation.</li>
+            <li>Technical support and software development are separate disciplines, but both benefit from disciplined investigation, verification, and documentation.</li>
+          </ul>
+        </section>
+
+        <section aria-labelledby="limitations-heading">
+          <h2 id="limitations-heading">Current limitations</h2>
+          <p>SysGuard is a portfolio and demonstration application, not an enterprise ITSM platform or approval for sensitive or regulated production data. Its repository explicitly documents the current boundaries:</p>
+          <ul>
+            <li>No malware scanning, content disarm, DLP, or attachment quarantine.</li>
+            <li>No application-level rate limiter, abuse queue, SIEM export, or formal incident-response integration.</li>
+            <li>No ticket email or SMS notification engine, background worker, complete SLA calendar, or escalation engine.</li>
+            <li>No enterprise SSO, SCIM, organization isolation, or full multi-tenant architecture.</li>
+            <li>Authenticated end-to-end and RLS testing require external infrastructure and isolated test identities.</li>
+          </ul>
+        </section>
+
+        <section aria-labelledby="evidence-heading">
+          <h2 id="evidence-heading">Review the project evidence</h2>
+          <div class="evidence-link-grid">
+            <a href="https://sysguard-ticketing.vercel.app/" target="_blank" rel="noopener noreferrer" data-analytics-event="portfolio_demo_click" data-analytics-location="sysguard_demo"><strong>Open the live SysGuard ticketing application</strong><span>Explore the public landing page and authentication entry points.</span></a>
+            <a href="https://github.com/Wendyle18/SysGuard-Ticketing" target="_blank" rel="noopener noreferrer" data-analytics-event="portfolio_github_click" data-analytics-location="sysguard_github"><strong>Review the SysGuard source on GitHub</strong><span>Inspect its architecture, migrations, tests, security notes, and implementation.</span></a>
+            <a href="https://wendyle18.github.io/Basic-Ticketing-Look/" target="_blank" rel="noopener noreferrer" data-analytics-event="portfolio_demo_click" data-analytics-location="sysguard_legacy"><strong>View the original ticketing frontend</strong><span>See the historical HTML, CSS, and JavaScript prototype.</span></a>
+            <a href="https://github.com/Wendyle18/Basic-Ticketing-Look" target="_blank" rel="noopener noreferrer" data-analytics-event="portfolio_github_click" data-analytics-location="sysguard_legacy"><strong>Review the original frontend source</strong><span>Compare the earlier static implementation with the modern rebuild.</span></a>
+          </div>
+        </section>
+      </div>
+
+      <section class="case-shell case-cta" aria-labelledby="cta-heading">
+        <h2 id="cta-heading">Looking for technical support that can work closer to the code?</h2>
+        <p>My primary focus is SaaS Technical Support Engineering, with hands-on development experience that helps me investigate browser behavior, understand application boundaries, validate fixes, and communicate effectively with engineering teams.</p>
+        <div class="case-cta-actions">
+          <a class="case-button case-button-primary" href="../../work-with-me/" data-analytics-event="portfolio_hire_click" data-analytics-location="sysguard_cta">See how I can help</a>
+          <a class="case-button" href="../../saas-technical-support-philippines/">Explore my SaaS technical support experience</a>
+          <a class="case-button" href="mailto:senowendyle793@gmail.com?subject=Technical%20Support%20Opportunity" data-analytics-event="portfolio_email_click" data-analytics-location="sysguard_cta">Email Wendyle</a>
+          <a class="case-button" href="../">View all case studies</a>
+          <a class="case-button" href="../preorder-campaign-widgets/" data-analytics-event="portfolio_case_study_click" data-analytics-location="sysguard_cta">Read the next case study</a>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="case-shell case-footer">
+    <span>© 2026 Wendyle Christian M. Seno</span>
+    <nav aria-label="Footer links">
+      <a href="../../">Home</a><a href="../../saas-technical-support-philippines/">SaaS support in the Philippines</a><a href="../">Case studies</a><a href="../../work-with-me/">Work with me</a><a href="../../privacy/">Privacy</a>
+      <a href="mailto:senowendyle793@gmail.com?subject=Technical%20Support%20Opportunity" data-analytics-event="portfolio_email_click" data-analytics-location="sysguard_footer">Email</a>
+      <a href="https://www.linkedin.com/in/wendylechristianseno/" target="_blank" rel="noopener noreferrer" data-analytics-event="portfolio_linkedin_click" data-analytics-location="sysguard_footer">LinkedIn</a>
+      <a href="https://github.com/Wendyle18" target="_blank" rel="noopener noreferrer" data-analytics-event="portfolio_github_click" data-analytics-location="sysguard_footer">GitHub</a>
+    </nav>
+  </footer>
+</body>
+</html>

@@ -10,7 +10,8 @@
     'portfolio_linkedin_click',
     'portfolio_github_click',
     'portfolio_resume_download',
-    'portfolio_demo_click'
+    'portfolio_demo_click',
+    'portfolio_case_study_click'
   ]);
 
   document.addEventListener('click', function (event) {

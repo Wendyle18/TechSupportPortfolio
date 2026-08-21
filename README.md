@@ -15,6 +15,8 @@ Portfolio for [Wendyle Christian M. Seno](https://www.wendylechristianseno.com/)
 - Shopify, WordPress, and BigCommerce troubleshooting
 - API and browser-level issue investigation
 - HTML, CSS, and JavaScript customization
+- Full-stack development with Next.js, TypeScript, Supabase, and PostgreSQL
+- Technical QA, automated browser testing, and agentic development workflows
 - Support escalation with reproducible evidence
 - Technical documentation, knowledge bases, and reply workflows
 - Salesforce Service Cloud and Help Scout experience
@@ -27,6 +29,12 @@ Portfolio for [Wendyle Christian M. Seno](https://www.wendylechristianseno.com/)
 - [Privacy and analytics](https://www.wendylechristianseno.com/privacy/)
 
 ## Case studies
+
+### [SysGuard Ticketing](https://www.wendylechristianseno.com/case-studies/sysguard-ticketing-system/)
+
+An evidence-based development case study showing how an early static ticketing frontend became a secure full-stack service desk with role-based requester and administrator workflows, PostgreSQL persistence, private attachments, audit history, and automated testing.
+
+[![Modern SysGuard service-desk landing page](assets/img/generated/sysguard-ticketing-modern-640.png)](https://www.wendylechristianseno.com/case-studies/sysguard-ticketing-system/)
 
 ### [Preorder Campaign Widgets](https://www.wendylechristianseno.com/case-studies/preorder-campaign-widgets/)
 

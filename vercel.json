@@ -6,6 +6,8 @@
     { "source": "/saas-technical-support-philippines/index.html", "destination": "/saas-technical-support-philippines/", "permanent": true },
     { "source": "/case-studies", "destination": "/case-studies/", "permanent": true },
     { "source": "/case-studies/index.html", "destination": "/case-studies/", "permanent": true },
+    { "source": "/case-studies/sysguard-ticketing-system", "destination": "/case-studies/sysguard-ticketing-system/", "permanent": true },
+    { "source": "/case-studies/sysguard-ticketing-system/index.html", "destination": "/case-studies/sysguard-ticketing-system/", "permanent": true },
     { "source": "/case-studies/preorder-campaign-widgets", "destination": "/case-studies/preorder-campaign-widgets/", "permanent": true },
     { "source": "/case-studies/preorder-campaign-widgets/index.html", "destination": "/case-studies/preorder-campaign-widgets/", "permanent": true },
     { "source": "/case-studies/essential-apps-support-guide", "destination": "/case-studies/essential-apps-support-guide/", "permanent": true },
