@@ -81,6 +81,57 @@
     if(a) moveInd(a);
   });
 
+  /* Services navigation disclosure */
+  const servicesNav = $('#pill-services');
+  const servicesToggle = $('#pill-services-toggle');
+  const servicesOverview = $('.pill-services-overview',servicesNav || document);
+  let servicesPinned = false;
+
+  function setServicesOpen(open,{dismissed=false}={}){
+    if(!servicesNav || !servicesToggle) return;
+    servicesNav.classList.toggle('is-open',open);
+    servicesNav.classList.toggle('is-dismissed',dismissed);
+    servicesToggle.setAttribute('aria-expanded',String(open));
+    servicesToggle.setAttribute('aria-label',open ? 'Hide service pages' : 'Show service pages');
+  }
+
+  servicesNav?.addEventListener('pointerenter',()=>{
+    if(!servicesNav.classList.contains('is-dismissed')) setServicesOpen(true);
+  });
+  servicesNav?.addEventListener('pointerleave',()=>{
+    servicesNav.classList.remove('is-dismissed');
+    if(!servicesPinned && !servicesNav.contains(document.activeElement)) setServicesOpen(false);
+  });
+  servicesNav?.addEventListener('focusin',()=>{
+    if(!servicesNav.classList.contains('is-dismissed')) setServicesOpen(true);
+  });
+  servicesNav?.addEventListener('focusout',e=>{
+    if(servicesNav.contains(e.relatedTarget)) return;
+    servicesPinned = false;
+    setServicesOpen(false);
+  });
+  servicesToggle?.addEventListener('click',e=>{
+    e.stopPropagation();
+    servicesPinned = !servicesPinned;
+    setServicesOpen(servicesPinned,{dismissed:!servicesPinned});
+  });
+  servicesOverview?.addEventListener('click',()=>{
+    servicesPinned = false;
+    setServicesOpen(false,{dismissed:true});
+  });
+  servicesNav?.addEventListener('keydown',e=>{
+    if(e.key !== 'Escape') return;
+    e.preventDefault();
+    servicesPinned = false;
+    servicesToggle?.focus();
+    setServicesOpen(false,{dismissed:true});
+  });
+  document.addEventListener('click',e=>{
+    if(servicesNav?.contains(e.target)) return;
+    servicesPinned = false;
+    setServicesOpen(false);
+  });
+
   /* ── MOBILE SHEET ───────────────────────── */
   const hamBtn = $('#pill-ham');
   const sheet  = $('#pill-sheet');

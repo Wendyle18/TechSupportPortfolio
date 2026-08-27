@@ -127,6 +127,53 @@
   .pill-links a.active{color:var(--text)}
   .nav-ico{width:15px;height:15px;flex:0 0 15px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 
+  /* Services navigation disclosure */
+  .pill-services{position:relative;height:64px;display:flex;align-items:center}
+  .pill-services>.pill-services-overview{padding-right:.3rem}
+  .pill-services-toggle{
+    position:relative;width:26px;min-width:26px;height:32px;margin-left:-.2rem;padding:0;
+    border-radius:999px;background:transparent;color:var(--sub);
+    transition:color .15s,background .15s;
+  }
+  .pill-services-toggle span{
+    position:absolute;left:50%;top:50%;width:6px;height:6px;
+    border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;
+    transform:translate(-50%,-65%) rotate(45deg);
+    transition:transform .18s var(--ease);
+  }
+  .pill-services-toggle:hover,.pill-services-toggle:focus-visible{color:var(--text);background:var(--surf-hov)}
+  .pill-services-toggle:focus-visible{outline:2px solid var(--text);outline-offset:2px}
+  .pill-services:is(:hover,:focus-within,.is-open) .pill-services-toggle span{transform:translate(-50%,-35%) rotate(225deg)}
+  .pill-services-menu{
+    position:absolute;top:54px;left:50%;z-index:3;
+    width:286px;padding:.45rem;
+    border:1px solid var(--border);border-radius:14px;
+    background:rgba(13,13,14,.98);
+    box-shadow:0 18px 44px rgba(0,0,0,.42);
+    backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+    white-space:normal;
+    opacity:0;visibility:hidden;pointer-events:none;
+    transform:translate(-50%,-7px);
+    transition:opacity .16s var(--ease),transform .16s var(--ease),visibility 0s linear .16s;
+  }
+  [data-theme="light"] .pill-services-menu{background:rgba(247,247,247,.98);box-shadow:0 16px 38px rgba(0,0,0,.16)}
+  .pill-services:is(:hover,:focus-within,.is-open) .pill-services-menu{
+    opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,0);transition-delay:0s;
+  }
+  .pill-services.is-dismissed .pill-services-menu{
+    opacity:0;visibility:hidden;pointer-events:none;transform:translate(-50%,-7px);transition-delay:0s;
+  }
+  .pill-services.is-dismissed .pill-services-toggle span{transform:translate(-50%,-65%) rotate(45deg)}
+  .pill-links .pill-service-page{
+    display:block;padding:.72rem .78rem;border-radius:10px;
+    color:var(--sub);line-height:1.35;
+  }
+  .pill-links .pill-service-page+.pill-service-page{border-top:1px solid var(--border);border-top-left-radius:0;border-top-right-radius:0}
+  .pill-links .pill-service-page:hover,.pill-links .pill-service-page:focus-visible{color:var(--text);background:var(--surf-hov)}
+  .pill-links .pill-service-page:focus-visible{outline:2px solid var(--text);outline-offset:-2px}
+  .pill-service-title{display:block;font-size:.79rem;font-weight:700;color:var(--text)}
+  .pill-service-desc{display:block;margin-top:.18rem;font-size:.69rem;font-weight:500;line-height:1.45;color:var(--muted)}
+
   /* Right controls */
   .pill-right{height:64px;display:flex;flex-direction:row;align-items:center;gap:.42rem;margin-top:0}
 
@@ -153,7 +200,7 @@
   }
   .pill-hire:hover{opacity:.9;transform:translateY(-1px)}
 
-  /* Hamburger — mobile only */
+  /* Hamburger, mobile only */
   .pill-ham{
     display:none; flex-direction:column; gap:4.5px;
     width:34px;height:34px; align-items:center; justify-content:center;
@@ -192,6 +239,10 @@
   }
   .pill-sheet a:hover,.sheet-action:hover{background:var(--surf-hov);color:var(--text)}
   .si{font-size:.95rem;width:20px;text-align:center;flex-shrink:0;filter:grayscale(1);opacity:.72}
+  .sheet-service-pages{display:flex;flex-direction:column;gap:2px;margin:-.1rem 0 .2rem 2.95rem;padding-left:.7rem;border-left:1px solid var(--border)}
+  .pill-sheet .sheet-sub-link{display:block;padding:.52rem .7rem;border-radius:9px;white-space:normal}
+  .sheet-sub-link>span{display:block;font-size:.84rem;font-weight:650;color:var(--text);line-height:1.35}
+  .sheet-sub-link>small{display:block;margin-top:.12rem;font-size:.7rem;line-height:1.4;color:var(--muted)}
   .sheet-sep{height:1px;background:var(--border);margin:.25rem 0}
 
   /* Email action row inside sheet */
@@ -672,7 +723,7 @@
     .pill-right{height:58px;flex-direction:row;align-items:center;gap:.45rem;margin-top:0;margin-left:auto}
     .pill-theme{width:34px;min-width:34px;height:34px;padding:0}
     .pill-ham{display:flex}
-    .pill-sheet{top:68px}
+    .pill-sheet{top:68px;max-height:calc(100dvh - 80px);overflow-y:auto;overscroll-behavior:contain}
     .hero{padding-top:112px}
     .agent-bento-grid{flex-direction:column;align-items:stretch}
     .bento-stack{display:contents}

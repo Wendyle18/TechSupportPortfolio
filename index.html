@@ -46,7 +46,7 @@
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/img/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" sizes="180x180">
-  <link rel="stylesheet" href="css/index.css?v=20260827-1">
+  <link rel="stylesheet" href="css/index.css?v=20260827-2">
   <script defer src="js/analytics.js?v=20260821-1"></script>
   <script type="application/ld+json">
   {
@@ -67,7 +67,7 @@
         "name": "SaaS Technical Support Engineer in the Philippines | Wendyle Seno",
         "isPartOf": { "@id": "https://www.wendylechristianseno.com/#website" },
         "mainEntity": { "@id": "https://www.wendylechristianseno.com/#person" },
-        "dateModified": "2026-08-21",
+        "dateModified": "2026-08-27",
         "inLanguage": "en"
       },
       {
@@ -119,7 +119,7 @@
   <nav class="pill-nav notch-sidebar" id="pill-nav" aria-label="Main navigation">
     <div class="pill-indicator" id="pill-ind" aria-hidden="true"></div>
 
-    <a href="#home" class="pill-logo" aria-label="WCS — back to top">
+    <a href="#home" class="pill-logo" aria-label="WCS - back to top">
       <span class="logo-mark">WCS</span>
     </a>
 
@@ -128,7 +128,20 @@
       <a href="#experience"   data-sec="experience"><svg class="nav-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1"/><path d="M5.5 7h13A1.5 1.5 0 0 1 20 8.5v8A2.5 2.5 0 0 1 17.5 19h-11A2.5 2.5 0 0 1 4 16.5v-8A1.5 1.5 0 0 1 5.5 7Z"/><path d="M4 12h16"/></svg><span>Experience</span></a>
       <a href="#skills"       data-sec="skills"><svg class="nav-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m13 3-8 11h6l-1 7 9-12h-6l1-6Z"/></svg><span>Skills</span></a>
       <a href="#projects"     data-sec="projects"><svg class="nav-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16v11H4z"/><path d="M8 17.5v2h8v-2M9 10l2 2-2 2M13 14h2"/></svg><span>Case Studies</span></a>
-      <a href="#services"     data-sec="services"><svg class="nav-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 16 0"/><path d="M4 12v3a2 2 0 0 0 2 2h1v-6H6a2 2 0 0 0-2 2Z"/><path d="M20 12v3a2 2 0 0 1-2 2h-1v-6h1a2 2 0 0 1 2 2Z"/><path d="M14 19h2a4 4 0 0 0 4-4"/></svg><span>Services</span></a>
+      <div class="pill-services" id="pill-services">
+        <a href="#services" class="pill-services-overview" data-sec="services"><svg class="nav-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 16 0"/><path d="M4 12v3a2 2 0 0 0 2 2h1v-6H6a2 2 0 0 0-2 2Z"/><path d="M20 12v3a2 2 0 0 1-2 2h-1v-6h1a2 2 0 0 1 2 2Z"/><path d="M14 19h2a4 4 0 0 0 4-4"/></svg><span>Services</span></a>
+        <button class="pill-services-toggle" id="pill-services-toggle" type="button" aria-expanded="false" aria-controls="pill-services-menu" aria-label="Show service pages"><span aria-hidden="true"></span></button>
+        <nav class="pill-services-menu" id="pill-services-menu" aria-label="Service pages">
+          <a href="work-with-me/" class="pill-service-page" data-analytics-event="portfolio_hire_click" data-analytics-location="homepage_services_menu">
+            <span class="pill-service-title">Work with me</span>
+            <span class="pill-service-desc">Opportunity fit and contact details</span>
+          </a>
+          <a href="saas-technical-support-philippines/" class="pill-service-page">
+            <span class="pill-service-title">SaaS support in the Philippines</span>
+            <span class="pill-service-desc">Experience, capabilities, and location</span>
+          </a>
+        </nav>
+      </div>
       <a href="#testimonials" data-sec="testimonials"><svg class="nav-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 4 2.35 4.76 5.25.76-3.8 3.7.9 5.23L12 16l-4.7 2.45.9-5.23-3.8-3.7 5.25-.76L12 4Z"/></svg><span>Reviews</span></a>
     </div>
 
@@ -144,7 +157,7 @@
           </svg>
         </span>
       </button>
-      <a class="pill-hire" id="pill-hire" href="work-with-me/" aria-label="Hire Me — learn how Wendyle can support a SaaS or Shopify team" data-analytics-event="portfolio_hire_click" data-analytics-location="homepage_header">
+      <a class="pill-hire" id="pill-hire" href="work-with-me/" aria-label="Hire Me - learn how Wendyle can support a SaaS or Shopify team" data-analytics-event="portfolio_hire_click" data-analytics-location="homepage_header">
         Hire Me
       </a>
       <button class="pill-ham" id="pill-ham" aria-label="Open navigation menu" aria-expanded="false" aria-controls="pill-sheet">
@@ -159,7 +172,17 @@
     <a href="#experience"   class="sl"><span class="si">📋</span>Experience</a>
     <a href="#skills"       class="sl"><span class="si">⚡</span>Skills</a>
     <a href="#projects"     class="sl"><span class="si">⌘</span>Case Studies</a>
-    <a href="#services"     class="sl"><span class="si">🎧</span>Services</a>
+    <a href="#services"     class="sl"><span class="si">🎧</span>Services overview</a>
+    <div class="sheet-service-pages" role="group" aria-label="Service pages">
+      <a href="work-with-me/" class="sl sheet-sub-link" data-analytics-event="portfolio_hire_click" data-analytics-location="homepage_mobile_services_menu">
+        <span>Work with me</span>
+        <small>Opportunity fit and contact details</small>
+      </a>
+      <a href="saas-technical-support-philippines/" class="sl sheet-sub-link">
+        <span>SaaS support in the Philippines</span>
+        <small>Experience, capabilities, and location</small>
+      </a>
+    </div>
     <a href="#testimonials" class="sl"><span class="si">⭐</span>Reviews</a>
     <div class="sheet-sep"></div>
     <a class="sheet-action" href="mailto:senowendyle793@gmail.com?subject=Technical%20Support%20Opportunity" aria-label="Email Wendyle" data-analytics-event="portfolio_email_click" data-analytics-location="homepage_mobile_menu">
@@ -191,7 +214,7 @@
         <div class="hero-text">
           <div style="margin-bottom:1.2rem"><div class="avail"><span class="dot" aria-hidden="true"></span>Available for remote opportunities</div></div>
           <p class="hero-greeting"><em>//</em> Hello, I'm</p>
-          <h1 class="hero-name" id="home-heading">Wendyle<br><span class="grad-text">Seno</span><span class="hero-position">— SaaS Technical Support Engineer in the Philippines</span></h1>
+          <h1 class="hero-name" id="home-heading">Wendyle<br><span class="grad-text">Seno</span><span class="hero-position">SaaS Technical Support Engineer in the Philippines</span></h1>
           <p class="hero-desc">I help SaaS and e-commerce companies troubleshoot complex customer-facing issues across Shopify, APIs, browser environments, integrations, and front-end systems. Based in the Philippines and available for remote Technical Support Engineer opportunities worldwide.</p>
           <p class="hero-location-link"><a href="saas-technical-support-philippines/">Explore my SaaS technical support experience <span aria-hidden="true">→</span></a></p>
           <div class="hero-action-row">
@@ -310,7 +333,7 @@
             <div class="glass about-card cyl-item" data-cyl-item role="group" aria-label="Deep Troubleshooting"><span class="ac-icon">🔍</span><h3>Deep Troubleshooting</h3><p>Root-cause analysis across API integrations, storefront behavior, widget configurations, and cross-platform compatibility issues.</p></div>
             <div class="glass about-card cyl-item" data-cyl-item role="group" aria-label="Fast Resolution"><span class="ac-icon">⚡</span><h3>Fast Resolution</h3><p>Structured diagnostic workflows that reduce resolution time and prevent recurring issues through thorough documentation.</p></div>
             <div class="glass about-card cyl-item" data-cyl-item role="group" aria-label="Front-End Expertise"><span class="ac-icon">🎨</span><h3>Front-End Expertise</h3><p>Custom HTML, CSS, and JavaScript implementations for SaaS widgets and e-commerce storefronts across major CMS platforms.</p></div>
-            <div class="glass about-card cyl-item" data-cyl-item role="group" aria-label="Cross-Team Bridge"><span class="ac-icon">🤝</span><h3>Cross-Team Bridge</h3><p>Technical liaison between customers, support teams, and engineering — translating complex issues into actionable tickets.</p></div>
+            <div class="glass about-card cyl-item" data-cyl-item role="group" aria-label="Cross-Team Bridge"><span class="ac-icon">🤝</span><h3>Cross-Team Bridge</h3><p>Technical liaison between customers, support teams, and engineering, translating complex issues into actionable tickets.</p></div>
           </div>
         </div>
         <button class="cyl-btn cyl-next" type="button" aria-label="Next capability">
@@ -334,10 +357,10 @@
       <div class="timeline" role="list">
 
         <div class="tl-item cur" role="listitem">
-          <div class="tl-meta"><div class="tl-date">Dec 2025<br>— Current</div><span class="tl-badge badge-now">● Now</span></div>
+          <div class="tl-meta"><div class="tl-date">Dec 2025<br>- Current</div><span class="tl-badge badge-now">● Now</span></div>
           <div class="tl-line" aria-hidden="true"></div>
           <div class="tl-content">
-            <div class="tl-dm">Dec 2025 – Current</div>
+            <div class="tl-dm">Dec 2025 - Current</div>
             <p class="tl-role">Technical Support Engineer</p><p class="tl-co"><span>Freelance</span><span class="tl-company-logos" role="group" aria-label="Shopify and Essential Apps"><span class="tl-company-logo" title="Shopify"><svg class="brand-icon" aria-hidden="true"><use href="assets/icons/brand-icons.svg#shopify"></use></svg></span><span class="tl-company-logo" title="Essential Apps"><img class="brand-icon" src="assets/icons/essential.svg" alt=""></span></span></p>
             <div class="tl-tags"><span class="tl-tag t-fl">Freelance</span><span class="tl-tag t-re">Remote</span></div>
             <p class="tl-desc">Diagnose, troubleshoot, and resolve complex technical issues across a suite of SaaS applications while providing expert guidance on setup, configuration, optimization, and conversion-focused features. Collaborate closely with engineering and product teams, apply advanced HTML/CSS customizations, and serve as the technical liaison translating customer needs into effective solutions.</p>
@@ -345,10 +368,10 @@
         </div>
 
         <div class="tl-item" role="listitem">
-          <div class="tl-meta"><div class="tl-date">Jun 2025<br>— Dec 2025</div></div>
+          <div class="tl-meta"><div class="tl-date">Jun 2025<br>- Dec 2025</div></div>
           <div class="tl-line" aria-hidden="true"></div>
           <div class="tl-content">
-            <div class="tl-dm">Jun 2025 – Dec 2025</div>
+            <div class="tl-dm">Jun 2025 - Dec 2025</div>
             <p class="tl-role">UGC Customizations Developer</p><p class="tl-co"><span>Yotpo</span><span class="tl-company-logos" aria-hidden="true"><span class="tl-company-logo"><img class="brand-icon" src="assets/icons/yotpo.svg" alt=""></span></span></p>
             <div class="tl-tags"><span class="tl-tag t-ft">Full-time</span><span class="tl-tag t-hy">Hybrid</span></div>
             <p class="tl-desc">Developed custom HTML, CSS, and JavaScript solutions for UGC widget implementations across Shopify, WordPress, and BigCommerce. Collaborated directly with enterprise clients to deliver pixel-perfect, responsive customizations while maintaining platform compatibility and performance standards.</p>
@@ -356,10 +379,10 @@
         </div>
 
         <div class="tl-item" role="listitem">
-          <div class="tl-meta"><div class="tl-date">Mar 2025<br>— May 2025</div></div>
+          <div class="tl-meta"><div class="tl-date">Mar 2025<br>- May 2025</div></div>
           <div class="tl-line" aria-hidden="true"></div>
           <div class="tl-content">
-            <div class="tl-dm">Mar 2025 – May 2025</div>
+            <div class="tl-dm">Mar 2025 - May 2025</div>
             <p class="tl-role">Subject Matter Expert</p><p class="tl-co"><span>Yotpo</span><span class="tl-company-logos" aria-hidden="true"><span class="tl-company-logo"><img class="brand-icon" src="assets/icons/yotpo.svg" alt=""></span></span></p>
             <div class="tl-tags"><span class="tl-tag t-ft">Full-time</span><span class="tl-tag t-hy">Hybrid</span></div>
             <p class="tl-desc">Handled escalated technical support cases, mentored support team members, and created internal documentation to improve response quality. Served as the technical bridge between customers, support, and engineering teams for complex platform issues.</p>
@@ -367,10 +390,10 @@
         </div>
 
         <div class="tl-item" role="listitem">
-          <div class="tl-meta"><div class="tl-date">Mar 2024<br>— Mar 2025</div></div>
+          <div class="tl-meta"><div class="tl-date">Mar 2024<br>- Mar 2025</div></div>
           <div class="tl-line" aria-hidden="true"></div>
           <div class="tl-content">
-            <div class="tl-dm">Mar 2024 – Mar 2025</div>
+            <div class="tl-dm">Mar 2024 - Mar 2025</div>
             <p class="tl-role">Technical Support Engineer</p><p class="tl-co"><span>Yotpo</span><span class="tl-company-logos" aria-hidden="true"><span class="tl-company-logo"><img class="brand-icon" src="assets/icons/yotpo.svg" alt=""></span></span></p>
             <div class="tl-tags"><span class="tl-tag t-ft">Full-time</span><span class="tl-tag t-hy">Hybrid</span></div>
             <p class="tl-desc">Provided frontline technical support through Salesforce ticketing and live chat. Diagnosed integration issues, troubleshot API connections, and guided customers through platform setup and configuration across multiple e-commerce ecosystems.</p>
@@ -378,10 +401,10 @@
         </div>
 
         <div class="tl-item" role="listitem">
-          <div class="tl-meta"><div class="tl-date">Aug 2022<br>— Mar 2024</div></div>
+          <div class="tl-meta"><div class="tl-date">Aug 2022<br>- Mar 2024</div></div>
           <div class="tl-line" aria-hidden="true"></div>
           <div class="tl-content">
-            <div class="tl-dm">Aug 2022 – Mar 2024</div>
+            <div class="tl-dm">Aug 2022 - Mar 2024</div>
             <p class="tl-role">IT Support Intern &amp; System Administration</p><p class="tl-co"><span>CITE Technical Institute</span><span class="tl-company-logos" aria-hidden="true"><span class="tl-company-logo"><img class="brand-icon" src="assets/icons/cite.svg" alt=""></span></span></p>
             <div class="tl-tags"><span class="tl-tag t-in">Internship → Full-time</span><span class="tl-tag t-on">On-site</span></div>
             <p class="tl-desc">Managed Windows OS environments, performed hardware troubleshooting, maintained network infrastructure, and provided end-user technical support. Built foundational skills in systematic problem-solving and clear technical communication.</p>
@@ -500,7 +523,7 @@
             <div role="listitem"><span>03</span><p><strong>QA and agentic workflow</strong>Strict typing, unit and component tests, browser and accessibility checks, database policy tests, and iterative review support the rebuild.</p></div>
           </div>
 
-          <p class="project-note">SysGuard is an independent development project—not Technical Support employment. It demonstrates how development depth, technical QA, and disciplined agentic workflows strengthen the way I understand and investigate software systems.</p>
+          <p class="project-note">SysGuard is an independent development project, not Technical Support employment. It demonstrates how development depth, technical QA, and disciplined agentic workflows strengthen the way I understand and investigate software systems.</p>
           <div class="project-demo-access" role="group" aria-label="SysGuard case-study access information">
             <span class="demo-status"><i aria-hidden="true"></i>Development evidence</span>
             <span>Modern application and historical source compared</span>
@@ -533,7 +556,7 @@
 
           <div class="project-details" role="list">
             <div role="listitem"><span>01</span><p><strong>Variant-aware</strong>Widgets appear only when the selected product variant is available for preorder, keeping every message accurate and relevant.</p></div>
-            <div role="listitem"><span>02</span><p><strong>Campaign-powered</strong>Prices, discounts, and scheduled end dates come directly from the active campaign—no hardcoded values required.</p></div>
+            <div role="listitem"><span>02</span><p><strong>Campaign-powered</strong>Prices, discounts, and scheduled end dates come directly from the active campaign, with no hardcoded values required.</p></div>
             <div role="listitem"><span>03</span><p><strong>Theme-ready</strong>Designed responsively for Dawn and Horizon, the widgets are fully adaptable and can also work with other Shopify themes when their product templates are not heavily customized. Placement is managed through Shopify’s Online Store editor.</p></div>
           </div>
 
@@ -574,7 +597,7 @@
             <div role="listitem"><span>03</span><p><strong>Ready-to-use outputs</strong>The workflow generates organized ticket summaries, diagnoses, customer responses, and engineering escalations from the captured case details.</p></div>
           </div>
 
-          <p class="project-note">Designed to make troubleshooting faster, more organized, and more consistent—from the first investigation step through customer communication and engineering handoff.</p>
+          <p class="project-note">Designed to make troubleshooting faster, more organized, and more consistent, from the first investigation step through customer communication and engineering handoff.</p>
           <div class="project-demo-access" role="group" aria-label="Support guide access information">
             <span class="demo-status"><i aria-hidden="true"></i>Live project</span>
             <span>Public support workflow demo</span>
@@ -602,7 +625,7 @@
     <section id="services" class="section" aria-labelledby="sv-h">
       <div class="sec-label">What I Do</div>
       <h2 class="sec-title" id="sv-h">Core <span class="grad-text">Services</span></h2>
-      <p class="sec-desc">From first-line triage to enterprise escalations — end-to-end technical support.</p>
+      <p class="sec-desc">From first-line triage to enterprise escalations, with end-to-end technical support.</p>
       <div class="srv-grid diagonal-carousel" data-diagonal-carousel role="region" aria-roledescription="carousel" aria-label="Core services carousel">
         <div class="diag-viewport" tabindex="0" aria-live="polite">
           <div class="diag-track">
@@ -629,7 +652,7 @@
       <div class="sec-label">Why Work With Me</div>
       <h2 class="sec-title" id="wy-h">What sets me <span class="grad-text">apart</span></h2>
       <div role="list">
-        <div class="why-item" role="listitem"><span class="why-n">01</span><div><strong>Clear Communication</strong><p>I explain technical concepts in ways that resonate with both technical and non-technical stakeholders — no jargon, just clarity.</p></div></div>
+        <div class="why-item" role="listitem"><span class="why-n">01</span><div><strong>Clear Communication</strong><p>I explain technical concepts in ways that resonate with both technical and non-technical stakeholders. No jargon, just clarity.</p></div></div>
         <div class="why-item" role="listitem"><span class="why-n">02</span><div><strong>Fast, Structured Troubleshooting</strong><p>I follow systematic diagnostic approaches to identify root causes quickly and implement lasting solutions that don't resurface.</p></div></div>
         <div class="why-item" role="listitem"><span class="why-n">03</span><div><strong>Customer-First Mindset</strong><p>I prioritize user experience and empathy in every support interaction, because good support feels personal.</p></div></div>
         <div class="why-item" role="listitem"><span class="why-n">04</span><div><strong>Reliable Under Pressure</strong><p>I stay composed during high-priority escalations and deliver consistent quality in fast-moving, high-stakes situations.</p></div></div>
@@ -645,13 +668,13 @@
           <h2 class="rev-hl" id="rv-h">The Receipts.</h2>
           <p class="rev-sub">Real merchants. Unfiltered.</p>
         </div>
-        <div class="rev-src" role="group" aria-label="Shopify App Store — 5 stars">
+        <div class="rev-src" role="group" aria-label="Shopify App Store - 5 stars">
           <span class="shopify-dot" aria-hidden="true"></span>Shopify App Store
           <span class="stars" role="img" aria-label="5 stars">★★★★★</span>
         </div>
       </div>
 
-      <!-- Unified carousel — all 27 reviews, all screen sizes -->
+      <!-- Unified carousel, all 27 reviews, all screen sizes -->
       <div class="rc-track" id="rc-track" role="list" aria-label="Reviews carousel">
 
         <div class="rc-slide" role="listitem" tabindex="0" aria-label="Review 1 of 27"><picture><source type="image/webp" srcset="assets/review/yotpo-review-01.webp"><img class="rc-img" src="assets/review/yotpo-review-01.png" alt="Screenshot of five-star Shopify App Store merchant review 1 of 27" loading="lazy" decoding="async" width="1227" height="174"></picture><div class="rc-bar"><span class="rc-bar-num">01 / 27</span><span class="rc-bar-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>zoom</span></div></div>
@@ -766,6 +789,6 @@
     <div class="lb-inner"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="" id="lb-img" loading="eager" decoding="async"></div>
   </div>
 
- <script src="js/index.js?v=20260827-1"></script>
+ <script src="js/index.js?v=20260827-2"></script>
 </body>
 </html>
