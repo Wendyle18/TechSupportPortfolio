@@ -596,6 +596,7 @@
   .rc-slide:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
 
   /* Image */
+  .rc-slide picture{display:block}
   .rc-img{display:block;width:100%;height:auto;image-rendering:-webkit-optimize-contrast;transition:filter .2s;pointer-events:none}
   [data-theme="dark"] .rc-img{filter:brightness(.93) contrast(1.05)}
   .rc-slide:hover .rc-img{filter:brightness(1) contrast(1.07)!important}
@@ -697,7 +698,7 @@
     .hero-action-row{align-items:flex-start;gap:.65rem}
     .hero-loc{width:100%;margin:.2rem 0 0;justify-content:flex-start}
     .hero-photo{width:96px;height:96px}
-    .hero-photo-ring{display:none}/* hide glowing ring on tiny screens for perf */
+    .bg-canvas,.photo-ring{display:none}/* remove non-essential blur and glow work on small screens */
     .photo-wrap .hero-photo{border:none}
     .kinetic-loader{transform:scale(.68)}
 

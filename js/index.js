@@ -456,7 +456,7 @@
       const slide = e.target.closest('.rc-slide');
       if(!slide) return;
       const img   = slide.querySelector('.rc-img');
-      if(img?.src) openLb(img.src, img.alt);
+      if(img?.src) openLb(img.currentSrc || img.src, img.alt);
     });
 
     /* ── Keyboard ── */
@@ -465,7 +465,7 @@
         e.preventDefault();
         const slide=e.target.closest('.rc-slide');
         const image=slide?.querySelector('.rc-img');
-        if(image?.src) openLb(image.src,image.alt);
+        if(image?.src) openLb(image.currentSrc || image.src,image.alt);
       }
       if(e.key==='ArrowLeft'){ setPaused(true); goTo(cur-1); }
       if(e.key==='ArrowRight'){ setPaused(true); goTo(cur+1); }
