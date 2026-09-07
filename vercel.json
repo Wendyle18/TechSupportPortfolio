@@ -2,6 +2,12 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
     { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/blog", "destination": "/blog/", "permanent": true },
+    { "source": "/blog/index.html", "destination": "/blog/", "permanent": true },
+    { "source": "/blog/shopify-app-reviews-technical-support", "destination": "/blog/shopify-app-reviews-technical-support/", "permanent": true },
+    { "source": "/blog/shopify-app-reviews-technical-support/index.html", "destination": "/blog/shopify-app-reviews-technical-support/", "permanent": true },
+    { "source": "/blog/what-makes-a-great-technical-support-specialist", "destination": "/blog/what-makes-a-great-technical-support-specialist/", "permanent": true },
+    { "source": "/blog/what-makes-a-great-technical-support-specialist/index.html", "destination": "/blog/what-makes-a-great-technical-support-specialist/", "permanent": true },
     { "source": "/saas-technical-support-philippines", "destination": "/saas-technical-support-philippines/", "permanent": true },
     { "source": "/saas-technical-support-philippines/index.html", "destination": "/saas-technical-support-philippines/", "permanent": true },
     { "source": "/case-studies", "destination": "/case-studies/", "permanent": true },
