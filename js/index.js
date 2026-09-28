@@ -417,8 +417,17 @@
     let   paused = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches || false;
     let   timer  = null;
     let   isDrag = false;
+    let   didDrag = false;
     let   dragStartX = 0;
     let   dragScrollLeft = 0;
+
+    slides.forEach(slide=>{
+      slide.querySelector('.rc-zoom-btn')?.addEventListener('click',e=>{
+        e.stopPropagation();
+        const img=slide.querySelector('.rc-img');
+        if(img?.src) openLb(img.currentSrc || img.src,img.alt);
+      });
+    });
 
     /* ── Go to slide ── */
     function goTo(idx, animate=true){
@@ -480,7 +489,7 @@
     },{ passive:true });
 
     track.addEventListener('mousedown', e=>{
-      isDrag=true; dragStartX=e.pageX; dragScrollLeft=track.scrollLeft;
+      isDrag=true; didDrag=false; dragStartX=e.pageX; dragScrollLeft=track.scrollLeft;
       track.classList.add('is-dragging');
       stopTimer();
     });
@@ -488,6 +497,7 @@
     /* ── Mouse drag (desktop) ── */
     document.addEventListener('mousemove', e=>{
       if(!isDrag) return;
+      if(Math.abs(e.pageX - dragStartX) > 5) didDrag=true;
       track.scrollLeft = dragScrollLeft - (e.pageX - dragStartX);
     });
     document.addEventListener('mouseup', ()=>{
@@ -501,9 +511,12 @@
       if(!paused) startTimer();
     });
 
-    /* ── Click on slide → lightbox (not drag) ── */
+    track.addEventListener('dragstart',e=>e.preventDefault());
+
+    /* ── Linked image opens Shopify; Zoom opens lightbox ── */
     track.addEventListener('click', e=>{
-      if(isDrag) return;
+      if(isDrag || didDrag){ e.preventDefault(); didDrag=false; return; }
+      if(e.target.closest('a,button')) return;
       const slide = e.target.closest('.rc-slide');
       if(!slide) return;
       const img   = slide.querySelector('.rc-img');
@@ -512,7 +525,7 @@
 
     /* ── Keyboard ── */
     track.addEventListener('keydown', e=>{
-      if(e.key==='Enter'){
+      if(e.key==='Enter' && !e.target.closest('a,button')){
         e.preventDefault();
         const slide=e.target.closest('.rc-slide');
         const image=slide?.querySelector('.rc-img');
